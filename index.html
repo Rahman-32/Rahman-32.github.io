@@ -4,17 +4,30 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Md. Saikur Rahman Sun | Urban & Regional Planner & Researcher</title>
+  
+  <!-- Modern Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet">
+
   <style>
-    /* CSS Variables & Global Reset */
     :root {
-      --primary: #1e3a8a;
-      --primary-light: #2563eb;
-      --text-main: #1f2937;
-      --text-muted: #4b5563;
-      --bg-body: #f8fafc;
-      --bg-card: #ffffff;
-      --border-color: #e2e8f0;
-      --max-width: 1100px;
+      --bg-dark: #090d16;
+      --bg-surface: #111726;
+      --bg-surface-elevated: #182238;
+      --border-subtle: rgba(255, 255, 255, 0.08);
+      --border-hover: rgba(56, 189, 248, 0.4);
+      --text-main: #f1f5f9;
+      --text-muted: #94a3b8;
+      --text-dim: #64748b;
+      --accent-blue: #38bdf8;
+      --accent-cyan: #06b6d4;
+      --accent-teal: #10b981;
+      --gradient-accent: linear-gradient(135deg, #38bdf8 0%, #818cf8 50%, #c084fc 100%);
+      --max-width: 1180px;
+      --radius-sm: 8px;
+      --radius-md: 14px;
+      --radius-lg: 20px;
     }
 
     * {
@@ -28,293 +41,433 @@
     }
 
     body {
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-      background-color: var(--bg-body);
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      background-color: var(--bg-dark);
       color: var(--text-main);
       line-height: 1.65;
+      overflow-x: hidden;
+      background-image: 
+        radial-gradient(at 15% 15%, rgba(56, 189, 248, 0.08) 0px, transparent 50%),
+        radial-gradient(at 85% 20%, rgba(99, 102, 241, 0.07) 0px, transparent 50%);
+      background-attachment: fixed;
+    }
+
+    h1, h2, h3, h4, .brand-font {
+      font-family: 'Plus Jakarta Sans', sans-serif;
     }
 
     a {
-      color: var(--primary-light);
+      color: inherit;
       text-decoration: none;
+      transition: all 0.2s ease;
     }
 
-    /* Navigation Bar */
+    /* Fixed Modern Glass Nav */
     header {
       position: sticky;
       top: 0;
-      background-color: rgba(255, 255, 255, 0.95);
-      backdrop-filter: blur(8px);
-      border-bottom: 1px solid var(--border-color);
+      width: 100%;
+      background: rgba(9, 13, 22, 0.85);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      border-bottom: 1px solid var(--border-subtle);
       z-index: 1000;
     }
 
     nav {
       max-width: var(--max-width);
       margin: 0 auto;
-      padding: 1rem 1.5rem;
+      padding: 1.1rem 1.75rem;
       display: flex;
-      justify-content: space-between;
       align-items: center;
-      flex-wrap: wrap;
-      gap: 1rem;
+      justify-content: space-between;
     }
 
     .nav-brand {
-      font-weight: 700;
       font-size: 1.15rem;
-      color: var(--primary);
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+
+    .nav-brand .dot {
+      width: 10px;
+      height: 10px;
+      background: var(--accent-cyan);
+      border-radius: 50%;
+      box-shadow: 0 0 10px var(--accent-cyan);
     }
 
     .nav-links {
       display: flex;
       list-style: none;
-      gap: 1.25rem;
-      flex-wrap: wrap;
+      gap: 1.6rem;
+      align-items: center;
     }
 
     .nav-links a {
-      color: var(--text-muted);
-      font-size: 0.92rem;
+      font-size: 0.88rem;
       font-weight: 500;
-      transition: color 0.2s ease;
+      color: var(--text-muted);
     }
 
     .nav-links a:hover {
-      color: var(--primary);
+      color: var(--accent-blue);
     }
 
     /* Main Container */
     main {
       max-width: var(--max-width);
       margin: 0 auto;
-      padding: 1.5rem 1.5rem 4rem;
+      padding: 0 1.75rem;
     }
 
     section {
-      padding: 4rem 0 3rem;
-      border-bottom: 1px solid var(--border-color);
+      padding: 5.5rem 0 3.5rem;
+      border-bottom: 1px solid var(--border-subtle);
     }
 
     section:last-of-type {
       border-bottom: none;
     }
 
-    .section-title {
-      font-size: 1.75rem;
+    .section-header {
+      margin-bottom: 2.5rem;
+    }
+
+    .section-tag {
+      text-transform: uppercase;
+      font-size: 0.75rem;
       font-weight: 700;
-      color: var(--primary);
-      margin-bottom: 1.5rem;
-      position: relative;
+      letter-spacing: 0.12em;
+      color: var(--accent-cyan);
+      margin-bottom: 0.5rem;
+      display: inline-block;
     }
 
-    .section-title::after {
-      content: "";
-      display: block;
-      width: 44px;
-      height: 3px;
-      background-color: var(--primary-light);
-      margin-top: 0.4rem;
-      border-radius: 2px;
+    .section-title {
+      font-size: 2rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      color: #fff;
     }
 
-    /* Cards & Layout Utilities */
-    .card {
-      background: var(--bg-card);
-      border: 1px solid var(--border-color);
-      border-radius: 8px;
-      padding: 1.5rem;
-      margin-bottom: 1.25rem;
-      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
-    }
-
-    .card-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 1.25rem;
-    }
-
-    .placeholder-text {
-      color: var(--text-muted);
-      font-style: italic;
-    }
-
-    /* Hero (Home) Section */
+    /* Hero Section */
     #home {
-      padding: 3.5rem 0 3rem;
+      padding: 6rem 0 4rem;
     }
 
-    .hero-container {
+    .hero-wrapper {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 3rem;
+      gap: 3.5rem;
       flex-wrap: wrap-reverse;
     }
 
     .hero-content {
-      flex: 1 1 540px;
+      flex: 1 1 560px;
     }
 
-    .hero-title {
-      font-size: 2.5rem;
-      font-weight: 800;
-      color: var(--primary);
-      line-height: 1.2;
-      margin-bottom: 0.4rem;
-    }
-
-    .hero-subtitle {
-      font-size: 1.2rem;
-      font-weight: 600;
-      color: var(--primary-light);
-      margin-bottom: 1.25rem;
-    }
-
-    .hero-bio {
-      font-size: 1.05rem;
-      color: var(--text-main);
-      line-height: 1.7;
+    .status-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.35rem 0.85rem;
+      background: rgba(16, 185, 129, 0.1);
+      border: 1px solid rgba(16, 185, 129, 0.25);
+      border-radius: 9999px;
+      font-size: 0.8rem;
+      font-weight: 500;
+      color: #6ee7b7;
       margin-bottom: 1.5rem;
     }
 
-    /* Research Tags */
-    .hero-tags {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.5rem;
-      margin-bottom: 1.75rem;
+    .status-pulse {
+      width: 7px;
+      height: 7px;
+      background-color: var(--accent-teal);
+      border-radius: 50%;
+      box-shadow: 0 0 8px var(--accent-teal);
+      animation: pulse 2s infinite;
     }
 
-    .tag {
-      background-color: #eff6ff;
-      color: var(--primary);
-      border: 1px solid #bfdbfe;
-      padding: 0.35rem 0.8rem;
-      border-radius: 9999px;
-      font-size: 0.85rem;
+    @keyframes pulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.4; transform: scale(1.2); }
+    }
+
+    .hero-name {
+      font-size: 3.2rem;
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      line-height: 1.15;
+      margin-bottom: 0.75rem;
+      background: linear-gradient(135deg, #ffffff 30%, #94a3b8 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .hero-headline {
+      font-size: 1.35rem;
+      font-weight: 600;
+      color: var(--accent-blue);
+      margin-bottom: 1.5rem;
+    }
+
+    .hero-desc {
+      font-size: 1.05rem;
+      color: var(--text-muted);
+      line-height: 1.75;
+      margin-bottom: 2rem;
+      max-width: 650px;
+    }
+
+    /* Research Interest Pills */
+    .tags-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem;
+      margin-bottom: 2.2rem;
+    }
+
+    .pill-tag {
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid var(--border-subtle);
+      color: #cbd5e1;
+      font-size: 0.83rem;
       font-weight: 500;
+      padding: 0.4rem 0.9rem;
+      border-radius: 9999px;
+      transition: all 0.2s ease;
     }
 
-    /* Action Buttons */
-    .hero-actions {
+    .pill-tag:hover {
+      border-color: var(--accent-cyan);
+      background: rgba(6, 182, 212, 0.08);
+      color: #fff;
+    }
+
+    /* Buttons */
+    .hero-cta {
       display: flex;
       flex-wrap: wrap;
-      gap: 0.85rem;
+      gap: 1rem;
       align-items: center;
-      margin-bottom: 1.75rem;
+      margin-bottom: 2.2rem;
     }
 
     .btn {
       display: inline-flex;
       align-items: center;
-      justify-content: center;
-      padding: 0.65rem 1.35rem;
-      font-size: 0.95rem;
+      gap: 0.5rem;
+      padding: 0.75rem 1.5rem;
+      font-size: 0.92rem;
       font-weight: 600;
-      border-radius: 6px;
-      transition: all 0.2s ease;
+      border-radius: var(--radius-sm);
       cursor: pointer;
+      transition: all 0.25s ease;
     }
 
     .btn-primary {
-      background-color: var(--primary);
-      color: #ffffff;
-      border: 1px solid var(--primary);
+      background: var(--gradient-accent);
+      color: #090d16;
+      border: none;
+      box-shadow: 0 4px 20px rgba(56, 189, 248, 0.25);
     }
 
     .btn-primary:hover {
-      background-color: #172554;
-      color: #ffffff;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 25px rgba(56, 189, 248, 0.4);
     }
 
-    .btn-secondary {
-      background-color: #ffffff;
-      color: var(--primary);
-      border: 1px solid var(--border-color);
+    .btn-outline {
+      background: rgba(255, 255, 255, 0.03);
+      color: #f1f5f9;
+      border: 1px solid var(--border-subtle);
     }
 
-    .btn-secondary:hover {
-      border-color: var(--primary-light);
-      color: var(--primary-light);
+    .btn-outline:hover {
+      background: rgba(255, 255, 255, 0.08);
+      border-color: rgba(255, 255, 255, 0.2);
+      transform: translateY(-2px);
     }
 
-    /* Social / Network Links */
-    .hero-socials {
+    /* Social Links Bar */
+    .social-bar {
       display: flex;
-      gap: 1.25rem;
+      gap: 1.5rem;
       align-items: center;
-      flex-wrap: wrap;
     }
 
-    .social-link {
-      font-size: 0.92rem;
-      font-weight: 600;
-      color: var(--text-muted);
-      border-bottom: 1px dashed transparent;
-      transition: all 0.2s ease;
+    .social-item {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      font-size: 0.88rem;
+      font-weight: 500;
+      color: var(--text-dim);
     }
 
-    .social-link:hover {
-      color: var(--primary-light);
-      border-bottom-color: var(--primary-light);
+    .social-item:hover {
+      color: var(--accent-blue);
     }
 
-    /* Photo Placeholder */
-    .hero-photo-wrapper {
-      flex: 0 0 240px;
+    /* Profile Photo Card */
+    .hero-visual {
+      flex: 0 0 280px;
       display: flex;
       justify-content: center;
     }
 
-    .profile-photo {
-      width: 230px;
-      height: 230px;
-      border-radius: 50%;
+    .photo-card {
+      position: relative;
+      width: 270px;
+      height: 270px;
+      border-radius: var(--radius-lg);
+      padding: 8px;
+      background: linear-gradient(135deg, rgba(56, 189, 248, 0.25), rgba(192, 132, 252, 0.15));
+      box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.6);
+    }
+
+    .photo-card img {
+      width: 100%;
+      height: 100%;
+      border-radius: calc(var(--radius-lg) - 4px);
       object-fit: cover;
-      border: 4px solid #ffffff;
-      box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.12);
-      background-color: #e2e8f0;
+      background: var(--bg-surface-elevated);
+      display: block;
+    }
+
+    /* Cards & Grids */
+    .card {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-md);
+      padding: 1.75rem;
+      transition: all 0.25s ease;
+    }
+
+    .card:hover {
+      border-color: var(--border-hover);
+      transform: translateY(-3px);
+      box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.5);
+    }
+
+    .grid-2 {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.25rem;
+    }
+
+    /* Content Styling inside sections */
+    .card-meta {
+      display: flex;
+      gap: 0.75rem;
+      font-size: 0.82rem;
+      color: var(--accent-cyan);
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+    }
+
+    .card-heading {
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 0.6rem;
+    }
+
+    .card-text {
+      color: var(--text-muted);
+      font-size: 0.94rem;
+      line-height: 1.65;
+    }
+
+    .placeholder-badge {
+      display: inline-block;
+      padding: 0.25rem 0.6rem;
+      border-radius: 4px;
+      font-size: 0.75rem;
+      background: rgba(255, 255, 255, 0.05);
+      color: var(--text-dim);
+      margin-top: 1rem;
     }
 
     /* Gallery Grid */
     .gallery-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
       gap: 1.25rem;
     }
 
-    .gallery-item {
-      background: #e2e8f0;
+    .gallery-card {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-md);
+      overflow: hidden;
       aspect-ratio: 4 / 3;
-      border-radius: 8px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 1.5rem;
+      transition: all 0.25s ease;
+      color: var(--text-dim);
+    }
+
+    .gallery-card:hover {
+      border-color: var(--accent-blue);
+      color: var(--text-main);
+      transform: scale(1.02);
+    }
+
+    /* Contact Cards */
+    .contact-item {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 1.25rem;
+    }
+
+    .contact-icon {
+      width: 44px;
+      height: 44px;
+      background: var(--bg-surface-elevated);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-sm);
       display: flex;
       align-items: center;
       justify-content: center;
-      color: #64748b;
-      font-size: 0.9rem;
-      border: 1px dashed #cbd5e1;
+      color: var(--accent-cyan);
     }
 
     /* Footer */
     footer {
       text-align: center;
-      padding: 2.5rem 1.5rem;
-      border-top: 1px solid var(--border-color);
-      color: var(--text-muted);
+      padding: 3rem 1.5rem;
+      border-top: 1px solid var(--border-subtle);
+      color: var(--text-dim);
       font-size: 0.88rem;
-      background-color: #ffffff;
     }
 
-    /* Mobile Responsive */
-    @media (max-width: 768px) {
-      .hero-title {
-        font-size: 2rem;
+    /* Responsive */
+    @media (max-width: 850px) {
+      .hero-name {
+        font-size: 2.4rem;
       }
       .nav-links {
-        gap: 0.85rem;
+        display: none; /* Can be expanded for mobile drawer */
       }
-      .hero-photo-wrapper {
+      .hero-visual {
         margin: 0 auto;
       }
     }
@@ -322,17 +475,20 @@
 </head>
 <body>
 
-  <!-- Navigation -->
+  <!-- Floating Glass Header -->
   <header>
     <nav>
-      <a href="#home" class="nav-brand">Md. Saikur Rahman Sun</a>
+      <a href="#home" class="nav-brand">
+        <span class="dot"></span>
+        <span>Md. Saikur Rahman Sun</span>
+      </a>
       <ul class="nav-links">
         <li><a href="#home">Home</a></li>
         <li><a href="#about">About</a></li>
         <li><a href="#publications">Publications</a></li>
-        <li><a href="#research-experience">Research</a></li>
-        <li><a href="#academic-projects">Projects</a></li>
-        <li><a href="#professional-experience">Experience</a></li>
+        <li><a href="#research">Research</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#experience">Experience</a></li>
         <li><a href="#skills">Skills</a></li>
         <li><a href="#gallery">Gallery</a></li>
         <li><a href="#contact">Contact</a></li>
@@ -341,147 +497,246 @@
   </header>
 
   <main>
-    <!-- Home Section -->
+    <!-- Hero Section -->
     <section id="home">
-      <div class="hero-container">
+      <div class="hero-wrapper">
         <div class="hero-content">
-          <h1 class="hero-title">Md. Saikur Rahman Sun</h1>
-          <p class="hero-subtitle">Urban &amp; Regional Planner &bull; Spatial Researcher</p>
+          <div class="status-badge">
+            <span class="status-pulse"></span>
+            <span>Urban &amp; Regional Planner &bull; Spatial Researcher</span>
+          </div>
 
-          <p class="hero-bio">
-            I am an Urban and Regional Planner and Researcher working at the intersection of geospatial machine learning, spatial modeling, and climate-resilient regional planning. Integrating empirical planning practice with satellite remote sensing and hazard analytics, my work explores environmental dynamics, coastal vulnerability, and sustainable transportation systems to inform data-driven policy and resilient communities.
+          <h1 class="hero-name">Md. Saikur Rahman Sun</h1>
+          <h2 class="hero-headline">Pioneering Climate-Resilient Spatial Modeling &amp; Data-Driven Planning</h2>
+
+          <p class="hero-desc">
+            Bridging urban planning theory with geospatial machine learning, satellite remote sensing, and disaster analytics. Dedicated to evaluating coastal hazards, environmental ecosystem dynamics, and sustainable transportation networks to design safer, evidence-based human settlements.
           </p>
 
-          <!-- Research Interests Tags -->
-          <div class="hero-tags">
-            <span class="tag">Climate-Resilient Planning</span>
-            <span class="tag">Environmental Hazards &amp; Ecosystem Dynamics</span>
-            <span class="tag">Geospatial Machine Learning</span>
-            <span class="tag">Spatial Modelling</span>
-            <span class="tag">Coastal Vulnerability</span>
-            <span class="tag">Remote Sensing</span>
-            <span class="tag">Sustainable Transportation Planning</span>
+          <!-- Research Focus Tags -->
+          <div class="tags-container">
+            <span class="pill-tag">Climate-Resilient Planning</span>
+            <span class="pill-tag">Environmental Hazards &amp; Ecosystems</span>
+            <span class="pill-tag">Geospatial Machine Learning</span>
+            <span class="pill-tag">Spatial Modelling</span>
+            <span class="pill-tag">Coastal Vulnerability</span>
+            <span class="pill-tag">Remote Sensing</span>
+            <span class="pill-tag">Sustainable Transportation Planning</span>
           </div>
 
-          <!-- Call-to-Action Buttons -->
-          <div class="hero-actions">
-            <a href="cv.pdf" target="_blank" class="btn btn-primary">Download CV</a>
-            <a href="#publications" class="btn btn-secondary">Publications</a>
-            <a href="#contact" class="btn btn-secondary">Contact Me</a>
+          <!-- Action Buttons -->
+          <div class="hero-cta">
+            <a href="cv.pdf" target="_blank" class="btn btn-primary">
+              <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
+              <span>Download CV</span>
+            </a>
+            <a href="#publications" class="btn btn-outline">Publications</a>
+            <a href="#contact" class="btn btn-outline">Contact Me</a>
           </div>
 
-          <!-- Social / Professional Links -->
-          <div class="hero-socials">
-            <a href="https://linkedin.com" target="_blank" class="social-link">LinkedIn &rarr;</a>
-            <a href="https://researchgate.net" target="_blank" class="social-link">ResearchGate &rarr;</a>
-            <a href="#contact" class="social-link">Email &rarr;</a>
+          <!-- Social Links -->
+          <div class="social-bar">
+            <a href="https://linkedin.com" target="_blank" class="social-item">
+              <span>LinkedIn</span> &rarr;
+            </a>
+            <a href="https://researchgate.net" target="_blank" class="social-item">
+              <span>ResearchGate</span> &rarr;
+            </a>
+            <a href="mailto:your-email@gmail.com" class="social-item">
+              <span>Gmail</span> &rarr;
+            </a>
           </div>
         </div>
 
         <!-- Profile Photo Area -->
-        <div class="hero-photo-wrapper">
-          <img 
-            src="profile.jpg" 
-            alt="Md. Saikur Rahman Sun" 
-            class="profile-photo" 
-            onerror="this.onerror=null; this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'230\' height=\'230\' viewBox=\'0 0 230 230\'><rect fill=\'%23e2e8f0\' width=\'230\' height=\'230\'/><text fill=\'%2364748b\' font-family=\'sans-serif\' font-size=\'15\' font-weight=\'bold\' x=\'50%25\' y=\'50%25\' text-anchor=\'middle\' dominant-baseline=\'middle\'>Photo Reserved</text></svg>';" 
-          />
+        <div class="hero-visual">
+          <div class="photo-card">
+            <img 
+              src="profile.jpg" 
+              alt="Md. Saikur Rahman Sun" 
+              onerror="this.onerror=null; this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'270\' height=\'270\' viewBox=\'0 0 270 270\'><rect fill=\'%23182238\' width=\'270\' height=\'270\'/><text fill=\'%2364748b\' font-family=\'sans-serif\' font-size=\'15\' font-weight=\'600\' x=\'50%25\' y=\'50%25\' text-anchor=\'middle\' dominant-baseline=\'middle\'>[ Photo Reserved ]</text></svg>';" 
+            />
+          </div>
         </div>
       </div>
     </section>
 
     <!-- About Section -->
     <section id="about">
-      <h2 class="section-title">About</h2>
+      <div class="section-header">
+        <span class="section-tag">Profile</span>
+        <h2 class="section-title">About Me</h2>
+      </div>
       <div class="card">
-        <p class="placeholder-text">[Add your background, education, academic interests, and biography here.]</p>
+        <p class="card-text">
+          [Detailed academic background, university degrees, specialized research interests, and urban planning philosophy will be inserted here.]
+        </p>
+        <span class="placeholder-badge">Ready for your detailed content</span>
       </div>
     </section>
 
     <!-- Publications Section -->
     <section id="publications">
-      <h2 class="section-title">Publications</h2>
-      <div class="card">
-        <h3>[Publication Title 1]</h3>
-        <p class="placeholder-text">[Authors, Journal/Conference, Year, DOI/Link]</p>
+      <div class="section-header">
+        <span class="section-tag">Scholarship</span>
+        <h2 class="section-title">Publications</h2>
       </div>
-      <div class="card">
-        <h3>[Publication Title 2]</h3>
-        <p class="placeholder-text">[Authors, Journal/Conference, Year, DOI/Link]</p>
+      <div class="grid-2">
+        <div class="card">
+          <div class="card-meta">Journal / Conference &bull; Year</div>
+          <h3 class="card-heading">[Paper Title 1]</h3>
+          <p class="card-text">[Authors, Publication venue, DOI link, and abstract summary.]</p>
+          <span class="placeholder-badge">Publication Placeholder</span>
+        </div>
+        <div class="card">
+          <div class="card-meta">Working Paper &bull; In Review</div>
+          <h3 class="card-heading">[Paper Title 2]</h3>
+          <p class="card-text">[Authors, Target Journal/Conference, and brief description.]</p>
+          <span class="placeholder-badge">Publication Placeholder</span>
+        </div>
       </div>
     </section>
 
     <!-- Research Experience Section -->
-    <section id="research-experience">
-      <h2 class="section-title">Research Experience</h2>
+    <section id="research">
+      <div class="section-header">
+        <span class="section-tag">Investigation</span>
+        <h2 class="section-title">Research Experience</h2>
+      </div>
       <div class="card">
-        <h3>[Role / Research Position] &mdash; [Institution / Lab]</h3>
-        <p class="placeholder-text">[Dates / Duration]</p>
-        <p class="placeholder-text">[Summary of key research scope, methodology, tools, and outcomes.]</p>
+        <div class="card-meta">Research Role &bull; Institution &bull; Period</div>
+        <h3 class="card-heading">[Primary Research Project / Position Title]</h3>
+        <p class="card-text">
+          [Core investigation methods, satellite imagery analysis, machine learning algorithms applied, and policy deliverables.]
+        </p>
+        <span class="placeholder-badge">Research Experience Placeholder</span>
       </div>
     </section>
 
     <!-- Academic Projects Section -->
-    <section id="academic-projects">
-      <h2 class="section-title">Academic Projects</h2>
-      <div class="card-grid">
+    <section id="projects">
+      <div class="section-header">
+        <span class="section-tag">Applied Work</span>
+        <h2 class="section-title">Academic Projects</h2>
+      </div>
+      <div class="grid-2">
         <div class="card">
-          <h3>[Project 1 Title]</h3>
-          <p class="placeholder-text">[Course / Program]</p>
-          <p class="placeholder-text">[Description, methods used, and deliverables.]</p>
+          <div class="card-meta">Spatial Analysis</div>
+          <h3 class="card-heading">[Project 1 Title]</h3>
+          <p class="card-text">[Project scope, methodologies, spatial tools, and outcomes.]</p>
+          <span class="placeholder-badge">Project Placeholder</span>
         </div>
         <div class="card">
-          <h3>[Project 2 Title]</h3>
-          <p class="placeholder-text">[Course / Program]</p>
-          <p class="placeholder-text">[Description, methods used, and deliverables.]</p>
+          <div class="card-meta">Urban &amp; Regional Modeling</div>
+          <h3 class="card-heading">[Project 2 Title]</h3>
+          <p class="card-text">[Project scope, methodologies, spatial tools, and outcomes.]</p>
+          <span class="placeholder-badge">Project Placeholder</span>
         </div>
       </div>
     </section>
 
     <!-- Professional Experience Section -->
-    <section id="professional-experience">
-      <h2 class="section-title">Professional Experience</h2>
+    <section id="experience">
+      <div class="section-header">
+        <span class="section-tag">Career</span>
+        <h2 class="section-title">Professional Experience</h2>
+      </div>
       <div class="card">
-        <h3>[Job Title] &mdash; [Organization / Company]</h3>
-        <p class="placeholder-text">[Location | Dates]</p>
-        <p class="placeholder-text">[Responsibilities, key tasks, and accomplishments.]</p>
+        <div class="card-meta">Role &bull; Organization &bull; Timeline</div>
+        <h3 class="card-heading">[Professional Job Title]</h3>
+        <p class="card-text">[Site planning, zoning compliance, stakeholder consultation, and field implementations.]</p>
+        <span class="placeholder-badge">Professional Experience Placeholder</span>
       </div>
     </section>
 
-    <!-- Skills / Certifications Section -->
+    <!-- Skills Section -->
     <section id="skills">
-      <h2 class="section-title">Skills &amp; Certifications</h2>
-      <div class="card-grid">
+      <div class="section-header">
+        <span class="section-tag">Expertise</span>
+        <h2 class="section-title">Skills &amp; Certifications</h2>
+      </div>
+      <div class="grid-3">
         <div class="card">
-          <h3>Technical &amp; Software Skills</h3>
-          <p class="placeholder-text">[List GIS/remote sensing software, programming languages, spatial modeling tools, etc.]</p>
+          <h3 class="card-heading" style="font-size: 1.1rem; color: var(--accent-cyan);">GIS &amp; Remote Sensing</h3>
+          <p class="card-text">[ArcGIS, QGIS, Google Earth Engine, Satellite Imagery Classification]</p>
         </div>
         <div class="card">
-          <h3>Certifications</h3>
-          <p class="placeholder-text">[Certification names, issuing bodies, and completion dates.]</p>
+          <h3 class="card-heading" style="font-size: 1.1rem; color: var(--accent-blue);">Machine Learning &amp; Data</h3>
+          <p class="card-text">[Python, R, Spatial Regression, Random Forest, Scikit-Learn]</p>
+        </div>
+        <div class="card">
+          <h3 class="card-heading" style="font-size: 1.1rem; color: var(--accent-teal);">Certifications</h3>
+          <p class="card-text">[Professional training courses, workshops, and certified programs]</p>
         </div>
       </div>
     </section>
 
     <!-- Gallery Section -->
     <section id="gallery">
-      <h2 class="section-title">Gallery</h2>
+      <div class="section-header">
+        <span class="section-tag">Visual Portfolio</span>
+        <h2 class="section-title">Gallery</h2>
+      </div>
       <div class="gallery-grid">
-        <div class="gallery-item">[Map / Spatial Analysis Figure 1]</div>
-        <div class="gallery-item">[Map / Spatial Analysis Figure 2]</div>
-        <div class="gallery-item">[Site Layout / Model Output 3]</div>
-        <div class="gallery-item">[Research Poster / Fieldwork 4]</div>
+        <div class="gallery-card">
+          <svg width="32" height="32" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" style="margin-bottom:0.75rem;"><path stroke-linecap="round" stroke-linejoin="round" d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7"/></svg>
+          <span style="font-weight: 600; font-size: 0.95rem;">Spatial Map / Analysis</span>
+          <span style="font-size: 0.8rem; margin-top: 0.3rem;">Visual Placeholder</span>
+        </div>
+        <div class="gallery-card">
+          <svg width="32" height="32" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" style="margin-bottom:0.75rem;"><path stroke-linecap="round" stroke-linejoin="round" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"/></svg>
+          <span style="font-weight: 600; font-size: 0.95rem;">Model Simulation Output</span>
+          <span style="font-size: 0.8rem; margin-top: 0.3rem;">Visual Placeholder</span>
+        </div>
+        <div class="gallery-card">
+          <svg width="32" height="32" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" style="margin-bottom:0.75rem;"><path stroke-linecap="round" stroke-linejoin="round" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
+          <span style="font-weight: 600; font-size: 0.95rem;">Field Survey &amp; Site Layout</span>
+          <span style="font-size: 0.8rem; margin-top: 0.3rem;">Visual Placeholder</span>
+        </div>
+        <div class="gallery-card">
+          <svg width="32" height="32" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" style="margin-bottom:0.75rem;"><path stroke-linecap="round" stroke-linejoin="round" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/></svg>
+          <span style="font-weight: 600; font-size: 0.95rem;">Research Poster / Graphic</span>
+          <span style="font-size: 0.8rem; margin-top: 0.3rem;">Visual Placeholder</span>
+        </div>
       </div>
     </section>
 
     <!-- Contact Me Section -->
     <section id="contact">
-      <h2 class="section-title">Contact Me</h2>
-      <div class="card">
-        <p><strong>Email:</strong> <span class="placeholder-text">[your-email@gmail.com]</span></p>
-        <p><strong>LinkedIn:</strong> <span class="placeholder-text">[LinkedIn Profile URL]</span></p>
-        <p><strong>ResearchGate:</strong> <span class="placeholder-text">[ResearchGate Profile URL]</span></p>
-        <p><strong>Location:</strong> <span class="placeholder-text">Dhaka, Bangladesh</span></p>
+      <div class="section-header">
+        <span class="section-tag">Connect</span>
+        <h2 class="section-title">Get In Touch</h2>
+      </div>
+      <div class="grid-2">
+        <div class="card">
+          <div class="contact-item">
+            <div class="contact-icon">
+              <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+            </div>
+            <div>
+              <div style="font-size: 0.8rem; color: var(--text-dim);">Email Address</div>
+              <div style="font-weight: 600; color: #fff;">your-email@gmail.com</div>
+            </div>
+          </div>
+
+          <div class="contact-item">
+            <div class="contact-icon">
+              <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+            </div>
+            <div>
+              <div style="font-size: 0.8rem; color: var(--text-dim);">Location</div>
+              <div style="font-weight: 600; color: #fff;">Dhaka, Bangladesh</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="card" style="display: flex; flex-direction: column; justify-content: center;">
+          <h3 class="card-heading" style="font-size: 1.15rem;">Collaboration &amp; Opportunities</h3>
+          <p class="card-text" style="margin-bottom: 1.25rem;">
+            Open for academic research collaborations, urban planning consultations, and geospatial modeling inquiries.
+          </p>
+          <a href="mailto:your-email@gmail.com" class="btn btn-primary" style="align-self: flex-start;">Send an Email</a>
+        </div>
       </div>
     </section>
   </main>
