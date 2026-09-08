@@ -5,29 +5,28 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Md. Saikur Rahman Sun | Urban & Regional Planner & Researcher</title>
   
-  <!-- Modern Google Fonts -->
+  <!-- Standard Academic & Professional Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
 
   <style>
     :root {
-      --bg-dark: #090d16;
-      --bg-surface: #111726;
-      --bg-surface-elevated: #182238;
-      --border-subtle: rgba(255, 255, 255, 0.08);
-      --border-hover: rgba(56, 189, 248, 0.4);
-      --text-main: #f1f5f9;
-      --text-muted: #94a3b8;
-      --text-dim: #64748b;
-      --accent-blue: #38bdf8;
-      --accent-cyan: #06b6d4;
-      --accent-teal: #10b981;
-      --gradient-accent: linear-gradient(135deg, #38bdf8 0%, #818cf8 50%, #c084fc 100%);
-      --max-width: 1180px;
-      --radius-sm: 8px;
-      --radius-md: 14px;
-      --radius-lg: 20px;
+      --bg-main: #f8fafc;
+      --bg-card: #ffffff;
+      --border-color: #e2e8f0;
+      --border-hover: #cbd5e1;
+      --primary: #1e3a8a;
+      --primary-accent: #2563eb;
+      --primary-light: #eff6ff;
+      --text-dark: #0f172a;
+      --text-body: #334155;
+      --text-muted: #64748b;
+      --max-width: 1140px;
+      --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.05);
+      --shadow-md: 0 4px 12px -2px rgba(0, 0, 0, 0.06);
+      --radius-sm: 6px;
+      --radius-md: 10px;
     }
 
     * {
@@ -42,35 +41,34 @@
 
     body {
       font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-      background-color: var(--bg-dark);
-      color: var(--text-main);
+      background-color: var(--bg-main);
+      color: var(--text-body);
       line-height: 1.65;
-      overflow-x: hidden;
-      background-image: 
-        radial-gradient(at 15% 15%, rgba(56, 189, 248, 0.08) 0px, transparent 50%),
-        radial-gradient(at 85% 20%, rgba(99, 102, 241, 0.07) 0px, transparent 50%);
-      background-attachment: fixed;
     }
 
     h1, h2, h3, h4, .brand-font {
       font-family: 'Plus Jakarta Sans', sans-serif;
+      color: var(--text-dark);
     }
 
     a {
-      color: inherit;
+      color: var(--primary-accent);
       text-decoration: none;
       transition: all 0.2s ease;
     }
 
-    /* Fixed Modern Glass Nav */
+    a:hover {
+      color: var(--primary);
+    }
+
+    /* Top Sticky Navigation Bar */
     header {
       position: sticky;
       top: 0;
       width: 100%;
-      background: rgba(9, 13, 22, 0.85);
-      backdrop-filter: blur(14px);
-      -webkit-backdrop-filter: blur(14px);
-      border-bottom: 1px solid var(--border-subtle);
+      background: rgba(255, 255, 255, 0.96);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--border-color);
       z-index: 1000;
     }
 
@@ -81,52 +79,50 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
+      gap: 1rem;
     }
 
     .nav-brand {
       font-size: 1.15rem;
       font-weight: 700;
-      letter-spacing: -0.02em;
+      color: var(--primary);
       display: flex;
       align-items: center;
-      gap: 0.6rem;
+      gap: 0.5rem;
     }
 
-    .nav-brand .dot {
-      width: 10px;
-      height: 10px;
-      background: var(--accent-cyan);
-      border-radius: 50%;
-      box-shadow: 0 0 10px var(--accent-cyan);
+    .nav-brand:hover {
+      color: var(--primary-accent);
     }
 
     .nav-links {
       display: flex;
       list-style: none;
-      gap: 1.6rem;
+      gap: 1.4rem;
       align-items: center;
+      flex-wrap: wrap;
     }
 
     .nav-links a {
-      font-size: 0.88rem;
+      font-size: 0.9rem;
       font-weight: 500;
       color: var(--text-muted);
     }
 
     .nav-links a:hover {
-      color: var(--accent-blue);
+      color: var(--primary);
     }
 
-    /* Main Container */
+    /* Main Container & Sections */
     main {
       max-width: var(--max-width);
       margin: 0 auto;
-      padding: 0 1.75rem;
+      padding: 0 1.75rem 4rem;
     }
 
     section {
-      padding: 5.5rem 0 3.5rem;
-      border-bottom: 1px solid var(--border-subtle);
+      padding: 4.5rem 0 2.5rem;
+      border-bottom: 1px solid var(--border-color);
     }
 
     section:last-of-type {
@@ -134,32 +130,31 @@
     }
 
     .section-header {
-      margin-bottom: 2.5rem;
+      margin-bottom: 2rem;
     }
 
     .section-tag {
       text-transform: uppercase;
       font-size: 0.75rem;
       font-weight: 700;
-      letter-spacing: 0.12em;
-      color: var(--accent-cyan);
-      margin-bottom: 0.5rem;
-      display: inline-block;
+      letter-spacing: 0.08em;
+      color: var(--primary-accent);
+      margin-bottom: 0.35rem;
+      display: block;
     }
 
     .section-title {
-      font-size: 2rem;
+      font-size: 1.85rem;
       font-weight: 700;
       letter-spacing: -0.02em;
-      color: #fff;
     }
 
     /* Hero Section */
     #home {
-      padding: 6rem 0 4rem;
+      padding: 4.5rem 0 3rem;
     }
 
-    .hero-wrapper {
+    .hero-grid {
       display: flex;
       align-items: center;
       justify-content: space-between;
@@ -171,195 +166,196 @@
       flex: 1 1 560px;
     }
 
-    .status-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.5rem;
+    .role-badge {
+      display: inline-block;
       padding: 0.35rem 0.85rem;
-      background: rgba(16, 185, 129, 0.1);
-      border: 1px solid rgba(16, 185, 129, 0.25);
+      background-color: var(--primary-light);
+      border: 1px solid #bfdbfe;
       border-radius: 9999px;
-      font-size: 0.8rem;
-      font-weight: 500;
-      color: #6ee7b7;
-      margin-bottom: 1.5rem;
-    }
-
-    .status-pulse {
-      width: 7px;
-      height: 7px;
-      background-color: var(--accent-teal);
-      border-radius: 50%;
-      box-shadow: 0 0 8px var(--accent-teal);
-      animation: pulse 2s infinite;
-    }
-
-    @keyframes pulse {
-      0%, 100% { opacity: 1; transform: scale(1); }
-      50% { opacity: 0.4; transform: scale(1.2); }
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--primary);
+      margin-bottom: 1.25rem;
     }
 
     .hero-name {
-      font-size: 3.2rem;
+      font-size: 2.8rem;
       font-weight: 800;
-      letter-spacing: -0.03em;
-      line-height: 1.15;
-      margin-bottom: 0.75rem;
-      background: linear-gradient(135deg, #ffffff 30%, #94a3b8 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
+      letter-spacing: -0.025em;
+      line-height: 1.2;
+      margin-bottom: 0.5rem;
     }
 
-    .hero-headline {
-      font-size: 1.35rem;
+    .hero-subtitle {
+      font-size: 1.25rem;
       font-weight: 600;
-      color: var(--accent-blue);
-      margin-bottom: 1.5rem;
+      color: var(--primary-accent);
+      margin-bottom: 1.25rem;
     }
 
     .hero-desc {
       font-size: 1.05rem;
-      color: var(--text-muted);
-      line-height: 1.75;
-      margin-bottom: 2rem;
-      max-width: 650px;
+      color: var(--text-body);
+      line-height: 1.7;
+      margin-bottom: 1.5rem;
     }
 
-    /* Research Interest Pills */
-    .tags-container {
+    /* Dedicated Research Interests Box */
+    .research-interest-box {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-left: 4px solid var(--primary-accent);
+      border-radius: var(--radius-sm);
+      padding: 1.15rem 1.35rem;
+      margin-bottom: 1.75rem;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .research-interest-title {
+      font-size: 0.88rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--primary);
+      margin-bottom: 0.6rem;
       display: flex;
-      flex-wrap: wrap;
-      gap: 0.6rem;
-      margin-bottom: 2.2rem;
-    }
-
-    .pill-tag {
-      background: rgba(255, 255, 255, 0.04);
-      border: 1px solid var(--border-subtle);
-      color: #cbd5e1;
-      font-size: 0.83rem;
-      font-weight: 500;
-      padding: 0.4rem 0.9rem;
-      border-radius: 9999px;
-      transition: all 0.2s ease;
-    }
-
-    .pill-tag:hover {
-      border-color: var(--accent-cyan);
-      background: rgba(6, 182, 212, 0.08);
-      color: #fff;
-    }
-
-    /* Buttons */
-    .hero-cta {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 1rem;
       align-items: center;
-      margin-bottom: 2.2rem;
+      gap: 0.4rem;
+    }
+
+    .research-interest-text {
+      font-size: 0.95rem;
+      color: var(--text-body);
+      line-height: 1.6;
+      margin-bottom: 0.85rem;
+    }
+
+    .interest-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.45rem;
+    }
+
+    .interest-tag {
+      background: #f1f5f9;
+      color: #334155;
+      border: 1px solid #e2e8f0;
+      padding: 0.25rem 0.65rem;
+      border-radius: 4px;
+      font-size: 0.8rem;
+      font-weight: 500;
+    }
+
+    /* Action Buttons */
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.85rem;
+      align-items: center;
+      margin-bottom: 1.75rem;
     }
 
     .btn {
       display: inline-flex;
       align-items: center;
       gap: 0.5rem;
-      padding: 0.75rem 1.5rem;
+      padding: 0.7rem 1.4rem;
       font-size: 0.92rem;
       font-weight: 600;
       border-radius: var(--radius-sm);
       cursor: pointer;
-      transition: all 0.25s ease;
+      transition: all 0.2s ease;
     }
 
     .btn-primary {
-      background: var(--gradient-accent);
-      color: #090d16;
-      border: none;
-      box-shadow: 0 4px 20px rgba(56, 189, 248, 0.25);
+      background-color: var(--primary);
+      color: #ffffff;
+      border: 1px solid var(--primary);
     }
 
     .btn-primary:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 6px 25px rgba(56, 189, 248, 0.4);
+      background-color: #172554;
+      color: #ffffff;
+      transform: translateY(-1px);
     }
 
-    .btn-outline {
-      background: rgba(255, 255, 255, 0.03);
-      color: #f1f5f9;
-      border: 1px solid var(--border-subtle);
+    .btn-secondary {
+      background-color: #ffffff;
+      color: var(--text-dark);
+      border: 1px solid var(--border-color);
     }
 
-    .btn-outline:hover {
-      background: rgba(255, 255, 255, 0.08);
-      border-color: rgba(255, 255, 255, 0.2);
-      transform: translateY(-2px);
+    .btn-secondary:hover {
+      border-color: var(--primary-accent);
+      color: var(--primary-accent);
+      transform: translateY(-1px);
     }
 
-    /* Social Links Bar */
-    .social-bar {
+    /* Hero Socials */
+    .hero-socials {
       display: flex;
       gap: 1.5rem;
       align-items: center;
+      flex-wrap: wrap;
     }
 
-    .social-item {
+    .social-link {
       display: inline-flex;
       align-items: center;
-      gap: 0.4rem;
-      font-size: 0.88rem;
-      font-weight: 500;
-      color: var(--text-dim);
+      gap: 0.35rem;
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: var(--text-muted);
     }
 
-    .social-item:hover {
-      color: var(--accent-blue);
+    .social-link:hover {
+      color: var(--primary-accent);
     }
 
-    /* Profile Photo Card */
-    .hero-visual {
-      flex: 0 0 280px;
+    /* Photo Frame */
+    .hero-photo-container {
+      flex: 0 0 260px;
       display: flex;
       justify-content: center;
     }
 
-    .photo-card {
-      position: relative;
-      width: 270px;
-      height: 270px;
-      border-radius: var(--radius-lg);
-      padding: 8px;
-      background: linear-gradient(135deg, rgba(56, 189, 248, 0.25), rgba(192, 132, 252, 0.15));
-      box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.6);
+    .photo-frame {
+      width: 250px;
+      height: 250px;
+      border-radius: var(--radius-md);
+      border: 2px solid var(--border-color);
+      box-shadow: var(--shadow-md);
+      overflow: hidden;
+      background-color: #e2e8f0;
     }
 
-    .photo-card img {
+    .photo-frame img {
       width: 100%;
       height: 100%;
-      border-radius: calc(var(--radius-lg) - 4px);
       object-fit: cover;
-      background: var(--bg-surface-elevated);
       display: block;
     }
 
-    /* Cards & Grids */
+    /* Card System */
     .card {
-      background: var(--bg-surface);
-      border: 1px solid var(--border-subtle);
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
       border-radius: var(--radius-md);
-      padding: 1.75rem;
-      transition: all 0.25s ease;
+      padding: 1.6rem;
+      margin-bottom: 1.25rem;
+      box-shadow: var(--shadow-sm);
+      transition: border-color 0.2s ease, box-shadow 0.2s ease;
     }
 
     .card:hover {
       border-color: var(--border-hover);
-      transform: translateY(-3px);
-      box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.5);
+      box-shadow: var(--shadow-md);
     }
 
     .grid-2 {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-      gap: 1.5rem;
+      gap: 1.25rem;
     }
 
     .grid-3 {
@@ -368,40 +364,25 @@
       gap: 1.25rem;
     }
 
-    /* Content Styling inside sections */
     .card-meta {
-      display: flex;
-      gap: 0.75rem;
       font-size: 0.82rem;
-      color: var(--accent-cyan);
       font-weight: 600;
+      color: var(--primary-accent);
+      margin-bottom: 0.35rem;
+    }
+
+    .card-title {
+      font-size: 1.18rem;
+      font-weight: 700;
       margin-bottom: 0.5rem;
     }
 
-    .card-heading {
-      font-size: 1.25rem;
-      font-weight: 700;
-      color: #fff;
-      margin-bottom: 0.6rem;
-    }
-
-    .card-text {
+    .placeholder-text {
       color: var(--text-muted);
       font-size: 0.94rem;
-      line-height: 1.65;
     }
 
-    .placeholder-badge {
-      display: inline-block;
-      padding: 0.25rem 0.6rem;
-      border-radius: 4px;
-      font-size: 0.75rem;
-      background: rgba(255, 255, 255, 0.05);
-      color: var(--text-dim);
-      margin-top: 1rem;
-    }
-
-    /* Gallery Grid */
+    /* Gallery */
     .gallery-grid {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
@@ -409,78 +390,88 @@
     }
 
     .gallery-card {
-      background: var(--bg-surface);
-      border: 1px solid var(--border-subtle);
+      background: var(--bg-card);
+      border: 1px dashed #cbd5e1;
       border-radius: var(--radius-md);
-      overflow: hidden;
       aspect-ratio: 4 / 3;
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
       text-align: center;
-      padding: 1.5rem;
-      transition: all 0.25s ease;
-      color: var(--text-dim);
+      padding: 1rem;
+      color: var(--text-muted);
+      font-size: 0.88rem;
     }
 
-    .gallery-card:hover {
-      border-color: var(--accent-blue);
-      color: var(--text-main);
-      transform: scale(1.02);
-    }
-
-    /* Contact Cards */
-    .contact-item {
+    /* Contact Details */
+    .contact-row {
       display: flex;
-      align-items: center;
+      align-items: flex-start;
       gap: 1rem;
       margin-bottom: 1.25rem;
     }
 
+    .contact-row:last-child {
+      margin-bottom: 0;
+    }
+
     .contact-icon {
-      width: 44px;
-      height: 44px;
-      background: var(--bg-surface-elevated);
-      border: 1px solid var(--border-subtle);
+      width: 40px;
+      height: 40px;
       border-radius: var(--radius-sm);
+      background-color: var(--primary-light);
+      color: var(--primary);
       display: flex;
       align-items: center;
       justify-content: center;
-      color: var(--accent-cyan);
+      flex-shrink: 0;
+    }
+
+    .contact-label {
+      font-size: 0.78rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--text-muted);
+    }
+
+    .contact-value {
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: var(--text-dark);
     }
 
     /* Footer */
     footer {
       text-align: center;
-      padding: 3rem 1.5rem;
-      border-top: 1px solid var(--border-subtle);
-      color: var(--text-dim);
+      padding: 2.5rem 1.5rem;
+      border-top: 1px solid var(--border-color);
+      color: var(--text-muted);
       font-size: 0.88rem;
+      background-color: #ffffff;
     }
 
-    /* Responsive */
-    @media (max-width: 850px) {
+    @media (max-width: 768px) {
       .hero-name {
-        font-size: 2.4rem;
+        font-size: 2.2rem;
+      }
+      .hero-photo-container {
+        margin: 0 auto;
       }
       .nav-links {
-        display: none; /* Can be expanded for mobile drawer */
-      }
-      .hero-visual {
-        margin: 0 auto;
+        gap: 0.9rem;
       }
     }
   </style>
 </head>
 <body>
 
-  <!-- Floating Glass Header -->
+  <!-- Navigation Bar -->
   <header>
     <nav>
       <a href="#home" class="nav-brand">
-        <span class="dot"></span>
-        <span>Md. Saikur Rahman Sun</span>
+        Md. Saikur Rahman Sun
       </a>
       <ul class="nav-links">
         <li><a href="#home">Home</a></li>
@@ -497,64 +488,74 @@
   </header>
 
   <main>
-    <!-- Hero Section -->
+    <!-- Home / Hero Section -->
     <section id="home">
-      <div class="hero-wrapper">
+      <div class="hero-grid">
         <div class="hero-content">
-          <div class="status-badge">
-            <span class="status-pulse"></span>
-            <span>Urban &amp; Regional Planner &bull; Spatial Researcher</span>
-          </div>
-
+          <div class="role-badge">Urban &amp; Regional Planner &bull; Researcher</div>
+          
           <h1 class="hero-name">Md. Saikur Rahman Sun</h1>
-          <h2 class="hero-headline">Pioneering Climate-Resilient Spatial Modeling &amp; Data-Driven Planning</h2>
+          <h2 class="hero-subtitle">Urban &amp; Regional Planner &amp; Researcher</h2>
 
           <p class="hero-desc">
-            Bridging urban planning theory with geospatial machine learning, satellite remote sensing, and disaster analytics. Dedicated to evaluating coastal hazards, environmental ecosystem dynamics, and sustainable transportation networks to design safer, evidence-based human settlements.
+            Bridging urban planning practice with spatial data science, satellite remote sensing, and environmental hazard analytics. Experienced in preparing regional master plans, infrastructure design frameworks, and multi-stakeholder community consultations.
           </p>
 
-          <!-- Research Focus Tags -->
-          <div class="tags-container">
-            <span class="pill-tag">Climate-Resilient Planning</span>
-            <span class="pill-tag">Environmental Hazards &amp; Ecosystems</span>
-            <span class="pill-tag">Geospatial Machine Learning</span>
-            <span class="pill-tag">Spatial Modelling</span>
-            <span class="pill-tag">Coastal Vulnerability</span>
-            <span class="pill-tag">Remote Sensing</span>
-            <span class="pill-tag">Sustainable Transportation Planning</span>
+          <!-- Dedicated Research Interests Line -->
+          <div class="research-interest-box">
+            <div class="research-interest-title">
+              <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"/></svg>
+              <span>Research Interests</span>
+            </div>
+            <p class="research-interest-text">
+              <strong>Core Focus:</strong> Climate-resilient planning, environmental hazards and ecosystem dynamics, geospatial machine learning and spatial modelling, coastal vulnerability, remote sensing, and sustainable transportation planning.
+            </p>
+            <div class="interest-tags">
+              <span class="interest-tag">Climate-Resilient Planning</span>
+              <span class="interest-tag">Environmental Hazards &amp; Ecosystems</span>
+              <span class="interest-tag">Geospatial Machine Learning</span>
+              <span class="interest-tag">Spatial Modelling</span>
+              <span class="interest-tag">Coastal Vulnerability</span>
+              <span class="interest-tag">Remote Sensing</span>
+              <span class="interest-tag">Sustainable Transportation Planning</span>
+            </div>
           </div>
 
-          <!-- Action Buttons -->
-          <div class="hero-cta">
-            <a href="cv.pdf" target="_blank" class="btn btn-primary">
+          <!-- Action Buttons with Active CV Link -->
+          <div class="hero-actions">
+            <!-- Active CV Link to your Google Drive document -->
+            <a href="https://drive.google.com/file/d/1VGTp8qP04VXJ9eXsRFO97J1AEHhDf-pQ/view" target="_blank" class="btn btn-primary">
               <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
               <span>Download CV</span>
             </a>
-            <a href="#publications" class="btn btn-outline">Publications</a>
-            <a href="#contact" class="btn btn-outline">Contact Me</a>
+            <a href="#publications" class="btn btn-secondary">Publications</a>
+            <a href="#contact" class="btn btn-secondary">Contact Me</a>
           </div>
 
-          <!-- Social Links -->
-          <div class="social-bar">
-            <a href="https://linkedin.com" target="_blank" class="social-item">
-              <span>LinkedIn</span> &rarr;
+          <!-- Active Social & Profile Links -->
+          <div class="hero-socials">
+            <a href="https://www.linkedin.com/in/md-saikur-rahman-sun/" target="_blank" rel="noopener noreferrer" class="social-link">
+              <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.46 10.9v8.37H9.2V10.9H6.46M7.83 6.45a1.65 1.65 0 0 0-1.66 1.66 1.66 1.66 0 0 0 1.66 1.65 1.65 1.65 0 0 0 1.65-1.65c0-.92-.74-1.66-1.65-1.66Z"/></svg>
+              <span>LinkedIn</span>
             </a>
-            <a href="https://researchgate.net" target="_blank" class="social-item">
-              <span>ResearchGate</span> &rarr;
+            <a href="mailto:rahmansun.ruet.urp.bd@gmail.com" class="social-link">
+              <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+              <span>Gmail</span>
             </a>
-            <a href="mailto:your-email@gmail.com" class="social-item">
-              <span>Gmail</span> &rarr;
+            <a href="#contact" class="social-link">
+              <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+              <span>Dhaka, Bangladesh</span>
             </a>
           </div>
         </div>
 
         <!-- Profile Photo Area -->
-        <div class="hero-visual">
-          <div class="photo-card">
+        <div class="hero-photo-container">
+          <div class="photo-frame">
             <img 
               src="profile.jpg" 
               alt="Md. Saikur Rahman Sun" 
-              onerror="this.onerror=null; this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'270\' height=\'270\' viewBox=\'0 0 270 270\'><rect fill=\'%23182238\' width=\'270\' height=\'270\'/><text fill=\'%2364748b\' font-family=\'sans-serif\' font-size=\'15\' font-weight=\'600\' x=\'50%25\' y=\'50%25\' text-anchor=\'middle\' dominant-baseline=\'middle\'>[ Photo Reserved ]</text></svg>';" 
+              onerror="this.onerror=null; this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'250\' height=\'250\' viewBox=\'0 0 250 250\'><rect fill=\'%23e2e8f0\' width=\'250\' height=\'250\'/><text fill=\'%2364748b\' font-family=\'sans-serif\' font-size=\'15\' font-weight=\'600\' x=\'50%25\' y=\'50%25\' text-anchor=\'middle\' dominant-baseline=\'middle\'>Photo Reserved</text></svg>';" 
             />
           </div>
         </div>
@@ -564,14 +565,13 @@
     <!-- About Section -->
     <section id="about">
       <div class="section-header">
-        <span class="section-tag">Profile</span>
+        <span class="section-tag">Background</span>
         <h2 class="section-title">About Me</h2>
       </div>
       <div class="card">
-        <p class="card-text">
-          [Detailed academic background, university degrees, specialized research interests, and urban planning philosophy will be inserted here.]
+        <p class="placeholder-text">
+          [Education: MURP from BUET (2024–Present), BURP from RUET (2019–2024, CGPA 3.56/4.00). Content ready for upload.]
         </p>
-        <span class="placeholder-badge">Ready for your detailed content</span>
       </div>
     </section>
 
@@ -583,16 +583,14 @@
       </div>
       <div class="grid-2">
         <div class="card">
-          <div class="card-meta">Journal / Conference &bull; Year</div>
-          <h3 class="card-heading">[Paper Title 1]</h3>
-          <p class="card-text">[Authors, Publication venue, DOI link, and abstract summary.]</p>
-          <span class="placeholder-badge">Publication Placeholder</span>
+          <div class="card-meta">Book Chapter &bull; Springer Nature</div>
+          <h3 class="card-title">Shoreline Dynamics and Coastal Vulnerability Assessment in Bangladesh</h3>
+          <p class="placeholder-text">An Integrated Approach Using Remote Sensing and the InVEST Model.</p>
         </div>
         <div class="card">
-          <div class="card-meta">Working Paper &bull; In Review</div>
-          <h3 class="card-heading">[Paper Title 2]</h3>
-          <p class="card-text">[Authors, Target Journal/Conference, and brief description.]</p>
-          <span class="placeholder-badge">Publication Placeholder</span>
+          <div class="card-meta">Book Chapter &bull; Springer Nature (In Press)</div>
+          <h3 class="card-title">Spatiotemporal Assessment of Cyclone-Induced Canopy Loss</h3>
+          <p class="placeholder-text">Regeneration dynamics in the Bangladesh Sundarbans using multi-temporal satellite imagery.</p>
         </div>
       </div>
     </section>
@@ -600,37 +598,32 @@
     <!-- Research Experience Section -->
     <section id="research">
       <div class="section-header">
-        <span class="section-tag">Investigation</span>
+        <span class="section-tag">Field &amp; Lab</span>
         <h2 class="section-title">Research Experience</h2>
       </div>
       <div class="card">
-        <div class="card-meta">Research Role &bull; Institution &bull; Period</div>
-        <h3 class="card-heading">[Primary Research Project / Position Title]</h3>
-        <p class="card-text">
-          [Core investigation methods, satellite imagery analysis, machine learning algorithms applied, and policy deliverables.]
-        </p>
-        <span class="placeholder-badge">Research Experience Placeholder</span>
+        <div class="card-meta">Research Assistant &bull; RUET URP Department</div>
+        <h3 class="card-title">Gendered Climate Vulnerability &amp; Disaster Risk Reduction</h3>
+        <p class="placeholder-text">Community-based disaster risk reduction frameworks and spatial data cleaning pipelines.</p>
       </div>
     </section>
 
     <!-- Academic Projects Section -->
     <section id="projects">
       <div class="section-header">
-        <span class="section-tag">Applied Work</span>
+        <span class="section-tag">Academic Work</span>
         <h2 class="section-title">Academic Projects</h2>
       </div>
       <div class="grid-2">
         <div class="card">
-          <div class="card-meta">Spatial Analysis</div>
-          <h3 class="card-heading">[Project 1 Title]</h3>
-          <p class="card-text">[Project scope, methodologies, spatial tools, and outcomes.]</p>
-          <span class="placeholder-badge">Project Placeholder</span>
+          <div class="card-meta">Remote Sensing &amp; GIS</div>
+          <h3 class="card-title">Air Quality Mapping in Dhaka Metropolitan Area</h3>
+          <p class="placeholder-text">Multidimensional assessment using advanced remote sensing and GIS techniques.</p>
         </div>
         <div class="card">
-          <div class="card-meta">Urban &amp; Regional Modeling</div>
-          <h3 class="card-heading">[Project 2 Title]</h3>
-          <p class="card-text">[Project scope, methodologies, spatial tools, and outcomes.]</p>
-          <span class="placeholder-badge">Project Placeholder</span>
+          <div class="card-meta">Spatial Analysis &amp; Modeling</div>
+          <h3 class="card-title">Context-Based Airport Influence Area Framework</h3>
+          <p class="placeholder-text">Land-use compatibility assessment modeling for Bangladesh airport influence zones.</p>
         </div>
       </div>
     </section>
@@ -642,31 +635,30 @@
         <h2 class="section-title">Professional Experience</h2>
       </div>
       <div class="card">
-        <div class="card-meta">Role &bull; Organization &bull; Timeline</div>
-        <h3 class="card-heading">[Professional Job Title]</h3>
-        <p class="card-text">[Site planning, zoning compliance, stakeholder consultation, and field implementations.]</p>
-        <span class="placeholder-badge">Professional Experience Placeholder</span>
+        <div class="card-meta">Urban Planner &bull; Sheltech Consultants Pvt. Ltd. (Mar 2024 – Present)</div>
+        <h3 class="card-title">Chakaria Shrimp Estate &amp; Lalmai Upazila Master Plans</h3>
+        <p class="placeholder-text">World Bank and LGED-supported regional planning, stakeholder workshops, and infrastructure design.</p>
       </div>
     </section>
 
     <!-- Skills Section -->
     <section id="skills">
       <div class="section-header">
-        <span class="section-tag">Expertise</span>
+        <span class="section-tag">Technical Competencies</span>
         <h2 class="section-title">Skills &amp; Certifications</h2>
       </div>
       <div class="grid-3">
         <div class="card">
-          <h3 class="card-heading" style="font-size: 1.1rem; color: var(--accent-cyan);">GIS &amp; Remote Sensing</h3>
-          <p class="card-text">[ArcGIS, QGIS, Google Earth Engine, Satellite Imagery Classification]</p>
+          <h3 class="card-title" style="font-size: 1.05rem; color: var(--primary);">GIS &amp; Remote Sensing</h3>
+          <p class="placeholder-text">ArcGIS, Google Earth Engine (GEE), QGIS, Satellite Image Processing</p>
         </div>
         <div class="card">
-          <h3 class="card-heading" style="font-size: 1.1rem; color: var(--accent-blue);">Machine Learning &amp; Data</h3>
-          <p class="card-text">[Python, R, Spatial Regression, Random Forest, Scikit-Learn]</p>
+          <h3 class="card-title" style="font-size: 1.05rem; color: var(--primary);">Programming &amp; Analytics</h3>
+          <p class="placeholder-text">Python (Scikit-Learn, Pandas, Colab), JavaScript (GEE), SPSS, Spatial Regression</p>
         </div>
         <div class="card">
-          <h3 class="card-heading" style="font-size: 1.1rem; color: var(--accent-teal);">Certifications</h3>
-          <p class="card-text">[Professional training courses, workshops, and certified programs]</p>
+          <h3 class="card-title" style="font-size: 1.05rem; color: var(--primary);">Planning &amp; Professional</h3>
+          <p class="placeholder-text">BIP Member (ID: 2702), Stakeholder Consultations, Master Planning, AutoCAD</p>
         </div>
       </div>
     </section>
@@ -674,68 +666,66 @@
     <!-- Gallery Section -->
     <section id="gallery">
       <div class="section-header">
-        <span class="section-tag">Visual Portfolio</span>
+        <span class="section-tag">Visuals</span>
         <h2 class="section-title">Gallery</h2>
       </div>
       <div class="gallery-grid">
-        <div class="gallery-card">
-          <svg width="32" height="32" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" style="margin-bottom:0.75rem;"><path stroke-linecap="round" stroke-linejoin="round" d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7"/></svg>
-          <span style="font-weight: 600; font-size: 0.95rem;">Spatial Map / Analysis</span>
-          <span style="font-size: 0.8rem; margin-top: 0.3rem;">Visual Placeholder</span>
-        </div>
-        <div class="gallery-card">
-          <svg width="32" height="32" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" style="margin-bottom:0.75rem;"><path stroke-linecap="round" stroke-linejoin="round" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"/></svg>
-          <span style="font-weight: 600; font-size: 0.95rem;">Model Simulation Output</span>
-          <span style="font-size: 0.8rem; margin-top: 0.3rem;">Visual Placeholder</span>
-        </div>
-        <div class="gallery-card">
-          <svg width="32" height="32" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" style="margin-bottom:0.75rem;"><path stroke-linecap="round" stroke-linejoin="round" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
-          <span style="font-weight: 600; font-size: 0.95rem;">Field Survey &amp; Site Layout</span>
-          <span style="font-size: 0.8rem; margin-top: 0.3rem;">Visual Placeholder</span>
-        </div>
-        <div class="gallery-card">
-          <svg width="32" height="32" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" style="margin-bottom:0.75rem;"><path stroke-linecap="round" stroke-linejoin="round" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/></svg>
-          <span style="font-weight: 600; font-size: 0.95rem;">Research Poster / Graphic</span>
-          <span style="font-size: 0.8rem; margin-top: 0.3rem;">Visual Placeholder</span>
-        </div>
+        <div class="gallery-card">[Spatial Analysis &amp; Hazard Map 1]</div>
+        <div class="gallery-card">[Model Output &amp; Simulation 2]</div>
+        <div class="gallery-card">[Master Plan &amp; Site Layout 3]</div>
+        <div class="gallery-card">[Fieldwork &amp; Community Workshop 4]</div>
       </div>
     </section>
 
     <!-- Contact Me Section -->
     <section id="contact">
       <div class="section-header">
-        <span class="section-tag">Connect</span>
-        <h2 class="section-title">Get In Touch</h2>
+        <span class="section-tag">Get In Touch</span>
+        <h2 class="section-title">Contact Me</h2>
       </div>
       <div class="grid-2">
         <div class="card">
-          <div class="contact-item">
+          <div class="contact-row">
             <div class="contact-icon">
               <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
             </div>
             <div>
-              <div style="font-size: 0.8rem; color: var(--text-dim);">Email Address</div>
-              <div style="font-weight: 600; color: #fff;">your-email@gmail.com</div>
+              <div class="contact-label">Email</div>
+              <div class="contact-value">
+                <a href="mailto:rahmansun.ruet.urp.bd@gmail.com">rahmansun.ruet.urp.bd@gmail.com</a>
+              </div>
             </div>
           </div>
 
-          <div class="contact-item">
+          <div class="contact-row">
+            <div class="contact-icon">
+              <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.46 10.9v8.37H9.2V10.9H6.46M7.83 6.45a1.65 1.65 0 0 0-1.66 1.66 1.66 1.66 0 0 0 1.66 1.65 1.65 1.65 0 0 0 1.65-1.65c0-.92-.74-1.66-1.65-1.66Z"/></svg>
+            </div>
+            <div>
+              <div class="contact-label">LinkedIn</div>
+              <div class="contact-value">
+                <a href="https://www.linkedin.com/in/md-saikur-rahman-sun/" target="_blank" rel="noopener noreferrer">md-saikur-rahman-sun</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="contact-row">
             <div class="contact-icon">
               <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
             </div>
             <div>
-              <div style="font-size: 0.8rem; color: var(--text-dim);">Location</div>
-              <div style="font-weight: 600; color: #fff;">Dhaka, Bangladesh</div>
+              <div class="contact-label">Address</div>
+              <div class="contact-value">168/2, ECB Chattar, Dhaka Cantonment, Dhaka - 1206, Bangladesh</div>
             </div>
           </div>
         </div>
 
         <div class="card" style="display: flex; flex-direction: column; justify-content: center;">
-          <h3 class="card-heading" style="font-size: 1.15rem;">Collaboration &amp; Opportunities</h3>
-          <p class="card-text" style="margin-bottom: 1.25rem;">
-            Open for academic research collaborations, urban planning consultations, and geospatial modeling inquiries.
+          <h3 class="card-title">Professional Opportunities</h3>
+          <p style="color: var(--text-muted); font-size: 0.95rem; margin-bottom: 1.5rem;">
+            Open for academic research collaborations, higher studies inquiries, and planning consultations.
           </p>
-          <a href="mailto:your-email@gmail.com" class="btn btn-primary" style="align-self: flex-start;">Send an Email</a>
+          <a href="mailto:rahmansun.ruet.urp.bd@gmail.com" class="btn btn-primary" style="align-self: flex-start;">Send Email</a>
         </div>
       </div>
     </section>
