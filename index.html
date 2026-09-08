@@ -1,61 +1,334 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Md. Saikur Rahman Sun | Portfolio</title>
-    <style>
-        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; line-height: 1.6; color: #333; max-width: 800px; margin: 0 auto; padding: 20px; }
-        h1, h2, h3 { color: #2c3e50; }
-        header { text-align: center; border-bottom: 2px solid #ecf0f1; padding-bottom: 20px; margin-bottom: 20px; }
-        .section { margin-bottom: 30px; }
-        .job-title { font-weight: bold; }
-        .date { color: #7f8c8d; font-size: 0.9em; }
-        ul { margin-top: 5px; }
-        a { color: #2980b9; text-decoration: none; }
-        a:hover { text-decoration: underline; }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Portfolio Frame</title>
+  <style>
+    /* CSS Variables & Global Reset */
+    :root {
+      --primary: #1e3a8a;
+      --primary-light: #3b82f6;
+      --text-main: #1f2937;
+      --text-muted: #4b5563;
+      --bg-body: #f9fafb;
+      --bg-card: #ffffff;
+      --border-color: #e5e7eb;
+      --max-width: 1100px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+      background-color: var(--bg-body);
+      color: var(--text-main);
+      line-height: 1.6;
+    }
+
+    a {
+      color: var(--primary-light);
+      text-decoration: none;
+    }
+
+    /* Navigation Bar */
+    header {
+      position: sticky;
+      top: 0;
+      background-color: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid var(--border-color);
+      z-index: 1000;
+    }
+
+    nav {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 1rem 1.5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .nav-brand {
+      font-weight: 700;
+      font-size: 1.15rem;
+      color: var(--primary);
+    }
+
+    .nav-links {
+      display: flex;
+      list-style: none;
+      gap: 1.25rem;
+      flex-wrap: wrap;
+    }
+
+    .nav-links a {
+      color: var(--text-muted);
+      font-size: 0.92rem;
+      font-weight: 500;
+      transition: color 0.2s ease;
+    }
+
+    .nav-links a:hover {
+      color: var(--primary);
+    }
+
+    /* Layout & Containers */
+    main {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 2rem 1.5rem 4rem;
+    }
+
+    section {
+      padding: 3.5rem 0;
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    section:last-of-type {
+      border-bottom: none;
+    }
+
+    .section-title {
+      font-size: 1.75rem;
+      font-weight: 700;
+      color: var(--primary);
+      margin-bottom: 1.5rem;
+      position: relative;
+    }
+
+    .section-title::after {
+      content: "";
+      display: block;
+      width: 40px;
+      height: 3px;
+      background-color: var(--primary-light);
+      margin-top: 0.35rem;
+      border-radius: 2px;
+    }
+
+    /* Card & Placeholder Elements */
+    .card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: 8px;
+      padding: 1.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.25rem;
+    }
+
+    .placeholder-text {
+      color: var(--text-muted);
+      font-style: italic;
+    }
+
+    /* Home Hero */
+    #home {
+      padding-top: 2rem;
+      padding-bottom: 4rem;
+    }
+
+    .hero-title {
+      font-size: 2.5rem;
+      font-weight: 800;
+      color: var(--primary);
+      margin-bottom: 0.5rem;
+    }
+
+    .hero-subtitle {
+      font-size: 1.25rem;
+      color: var(--text-muted);
+      margin-bottom: 1.5rem;
+    }
+
+    /* Gallery Grid */
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      gap: 1rem;
+    }
+
+    .gallery-item {
+      background: #e5e7eb;
+      aspect-ratio: 4 / 3;
+      border-radius: 6px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #6b7280;
+      font-size: 0.9rem;
+      border: 1px dashed #9ca3af;
+    }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      padding: 2rem 1.5rem;
+      border-top: 1px solid var(--border-color);
+      color: var(--text-muted);
+      font-size: 0.85rem;
+      background-color: #fff;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .nav-links {
+        gap: 0.75rem;
+      }
+      .hero-title {
+        font-size: 2rem;
+      }
+    }
+  </style>
 </head>
 <body>
-    <header>
-        <h1>Md. Saikur Rahman Sun</h1>
-        <p>Urban Planner, Researcher & Geospatial Data Scientist[cite: 1]</p>
-        <p><a href="mailto:your.email@example.com">Email</a> | <a href="https://linkedin.com/in/yourprofile">LinkedIn</a></p>
-    </header>
 
-    <div class="section">
-        <h2>About Me</h2>
-        <p>I am an Urban Planner specializing in climate-resilient planning, geospatial machine learning, and sustainable transportation[cite: 1]. I hold a Bachelor's from RUET and am currently advancing my expertise through a Master of Urban and Regional Planning at BUET[cite: 1].</p>
-    </div>
+  <!-- Navigation -->
+  <header>
+    <nav>
+      <a href="#home" class="nav-brand">[Your Name / Title]</a>
+      <ul class="nav-links">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#publications">Publications</a></li>
+        <li><a href="#research-experience">Research</a></li>
+        <li><a href="#academic-projects">Projects</a></li>
+        <li><a href="#professional-experience">Experience</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#gallery">Gallery</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
 
-    <div class="section">
-        <h2>Professional Experience</h2>
-        <p><span class="job-title">Urban Planner</span> | Sheltech Consultants Pvt. Ltd.[cite: 1]</p>
-        <p class="date">Mar 2024 – Present[cite: 1]</p>
-        <ul>
-            <li>Authored core components for the Chakaria Shrimp Estate Master Plan, including the 50-Year Strategic Plan[cite: 1].</li>
-            <li>Conducted transportation surveys and structured the traffic masterplan for Lalmai Upazila[cite: 1].</li>
-        </ul>
-        
-        <p><span class="job-title">Research Assistant</span> | Department of Urban & Regional Planning, RUET[cite: 1]</p>
-        <p class="date">Dec 2025 – Jun 2026[cite: 1]</p>
-        <ul>
-            <li>Built spatial data cleaning pipelines and led methodological execution for a community-based disaster risk reduction project[cite: 1].</li>
-        </ul>
-    </div>
+  <main>
+    <!-- Home Section -->
+    <section id="home">
+      <h1 class="hero-title">[Your Name]</h1>
+      <p class="hero-subtitle">[Your Profession / Field of Study / Title]</p>
+      <div class="card">
+        <p class="placeholder-text">[Brief welcome statement or summary statement goes here.]</p>
+      </div>
+    </section>
 
-    <div class="section">
-        <h2>Selected Publications</h2>
-        <ul>
-            <li><strong>Spatially Explicit Framework for Evaluating Biodiversity Risk...</strong> <em>Environmental Sciences Europe</em> (Q1 Journal)[cite: 1]. Applied CA-ANN models and FRAGSTATS to forecast 2050 land-use trajectories[cite: 1].</li>
-            <li><strong>Climate-Driven Shoreline Retreat and Accretion Hotspots...</strong> <em>Scientific Reports</em> (Q1 Journal, Under Review)[cite: 1]. Developed Random Forest and EvPR models to project 2050 shoreline shifts[cite: 1].</li>
-        </ul>
-    </div>
+    <!-- About Section -->
+    <section id="about">
+      <h2 class="section-title">About</h2>
+      <div class="card">
+        <p class="placeholder-text">[Add your background, education, academic interests, and biography here.]</p>
+      </div>
+    </section>
 
-    <div class="section">
-        <h2>Technical Skills</h2>
-        <p><strong>Software & Tools:</strong> ArcGIS, Google Earth Engine (GEE), SketchUp, Adobe Illustrator, SPSS[cite: 1]</p>
-        <p><strong>Programming:</strong> Python (Scikit-Learn, Pandas), JavaScript (Google Earth Engine API), Spatial Regression Modelling[cite: 1]</p>
-    </div>
+    <!-- Publications Section -->
+    <section id="publications">
+      <h2 class="section-title">Publications</h2>
+      <div class="card">
+        <h3>[Publication Title 1]</h3>
+        <p class="placeholder-text">[Authors, Journal/Conference, Year, DOI/Link]</p>
+      </div>
+      <div class="card">
+        <h3>[Publication Title 2]</h3>
+        <p class="placeholder-text">[Authors, Journal/Conference, Year, DOI/Link]</p>
+      </div>
+    </section>
+
+    <!-- Research Experience Section -->
+    <section id="research-experience">
+      <h2 class="section-title">Research Experience</h2>
+      <div class="card">
+        <h3>[Role / Research Position] — [Institution / Lab]</h3>
+        <p class="placeholder-text">[Dates / Duration]</p>
+        <p class="placeholder-text">[Summary of key research scope, methodology, tools, and outcomes.]</p>
+      </div>
+    </section>
+
+    <!-- Academic Projects Section -->
+    <section id="academic-projects">
+      <h2 class="section-title">Academic Projects</h2>
+      <div class="card-grid">
+        <div class="card">
+          <h3>[Project 1 Title]</h3>
+          <p class="placeholder-text">[Course / Program]</p>
+          <p class="placeholder-text">[Description, methods used, and deliverables.]</p>
+        </div>
+        <div class="card">
+          <h3>[Project 2 Title]</h3>
+          <p class="placeholder-text">[Course / Program]</p>
+          <p class="placeholder-text">[Description, methods used, and deliverables.]</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Professional Experience Section -->
+    <section id="professional-experience">
+      <h2 class="section-title">Professional Experience</h2>
+      <div class="card">
+        <h3>[Job Title] — [Organization / Company]</h3>
+        <p class="placeholder-text">[Location | Dates]</p>
+        <p class="placeholder-text">[Responsibilities, key tasks, and accomplishments.]</p>
+      </div>
+    </section>
+
+    <!-- Skills / Certifications Section -->
+    <section id="skills">
+      <h2 class="section-title">Skills &amp; Certifications</h2>
+      <div class="card-grid">
+        <div class="card">
+          <h3>Technical &amp; Software Skills</h3>
+          <p class="placeholder-text">[List relevant software, programming languages, analysis tools, etc.]</p>
+        </div>
+        <div class="card">
+          <h3>Certifications</h3>
+          <p class="placeholder-text">[Certification names, issuing bodies, and completion dates.]</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section id="gallery">
+      <h2 class="section-title">Gallery</h2>
+      <div class="gallery-grid">
+        <div class="gallery-item">[Image / Map / Figure 1]</div>
+        <div class="gallery-item">[Image / Map / Figure 2]</div>
+        <div class="gallery-item">[Image / Map / Figure 3]</div>
+        <div class="gallery-item">[Image / Map / Figure 4]</div>
+      </div>
+    </section>
+
+    <!-- Contact Me Section -->
+    <section id="contact">
+      <h2 class="section-title">Contact Me</h2>
+      <div class="card">
+        <p><strong>Email:</strong> <span class="placeholder-text">[your-email@domain.com]</span></p>
+        <p><strong>LinkedIn:</strong> <span class="placeholder-text">[Profile URL]</span></p>
+        <p><strong>GitHub / Scholar:</strong> <span class="placeholder-text">[Profile URLs]</span></p>
+        <p><strong>Location:</strong> <span class="placeholder-text">[City, Country]</span></p>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; <span id="year"></span> [Your Name]. All rights reserved.</p>
+  </footer>
+
+  <script>
+    // Automatically set the current year in the footer
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>
