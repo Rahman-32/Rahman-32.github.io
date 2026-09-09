@@ -962,70 +962,304 @@
       <!--                  ABOUT COMPONENT 2: PROFESSIONAL BACKGROUND                -->
       <!-- ========================================================================== -->
 
-      <div class="section-header" style="margin-top: 4rem;">
+
+      <div class="section-header" style="margin-top: 4.5rem;">
         <span class="section-tag">Career &amp; Practice</span>
         <h2 class="section-title">Professional Background</h2>
       </div>
 
-      <div class="experience-container">
-        <!-- Professional Roles at Sheltech -->
-        <div class="experience-card">
-          <div class="company-header">
-            <div class="company-icon">SC</div>
-            <div>
-              <h3 class="company-name">Sheltech Consultants (Pvt.) Limited</h3>
-              <p class="company-location">Dhaka, Bangladesh</p>
-            </div>
+      <div class="pro-showcase-wrapper">
+        <!-- 1. Panoramic Motion Banner for 3 Images -->
+        <div class="motion-banner-container">
+          <div class="motion-slides-track">
+            <img src="SCPL.jpg" class="motion-slide active" alt="Sheltech Master Planning" onerror="this.style.display='none';" />
+            <img src="SCPL1.jpg" class="motion-slide" alt="Technical Blueprint & Infrastructure" onerror="this.style.display='none';" />
+            <img src="SCPL2.jpg" class="motion-slide" alt="Geospatial Mapping & Spatial Analysis" onerror="this.style.display='none';" />
           </div>
 
-          <!-- Role 1: Urban Planner -->
-          <div class="role-item">
-            <div class="role-title">Urban Planner</div>
-            <span class="role-period">Jan 2026 &ndash; Present</span>
-            <p class="role-desc">
-              Leading regional spatial planning, master plan component formulation, and infrastructure connectivity design for donor-assisted and government urban development initiatives.
-            </p>
+          <!-- Glass Caption Bar on the Image -->
+          <div class="motion-glass-overlay">
+            <div class="motion-badge">&bull; Projects in Motion</div>
+            <div class="motion-caption-title" id="motionCaption">Regional Master Planning &amp; Design</div>
+            <div class="motion-caption-sub" id="motionSub">Sheltech Consultants (Pvt.) Limited</div>
           </div>
 
-          <!-- Role 2: Assistant Urban Planner -->
-          <div class="role-item">
-            <div class="role-title">Assistant Urban Planner</div>
-            <span class="role-period">March 2024 &ndash; December 2025</span>
-            <p class="role-desc">
-              Conducted site connectivity surveys, coordinated stakeholder workshops with local authorities and communities, and supported spatial GIS modeling for master plan execution.
-            </p>
+          <!-- Slide Dots -->
+          <div class="motion-dots">
+            <span class="motion-dot active" onclick="setMotionSlide(0)"></span>
+            <span class="motion-dot" onclick="setMotionSlide(1)"></span>
+            <span class="motion-dot" onclick="setMotionSlide(2)"></span>
           </div>
         </div>
 
-        <!-- Animated Motion Project Carousel -->
-        <div class="carousel-frame">
-          <div class="carousel-header">
-            <span class="carousel-title">Projects in Motion</span>
-            <span style="font-size: 0.78rem; font-weight: 600; color: var(--primary-accent);">Sheltech Practice</span>
-          </div>
-
-          <div class="carousel-view">
-            <img src="SCPL.jpg" class="carousel-slide active" alt="Sheltech Master Plan Project" onerror="this.style.display='none';" />
-            <img src="SCPL1.jpg" class="carousel-slide" alt="Technical Blueprint & Infrastructure Layout" onerror="this.style.display='none';" />
-            <img src="SCPL2.jpg" class="carousel-slide" alt="GIS & Satellite Spatial Modeling" onerror="this.style.display='none';" />
-
-            <!-- Dynamic Caption Overlay -->
-            <div class="carousel-caption-bar">
-              <div class="carousel-caption-title" id="carouselCaption">Regional Master Planning</div>
-              <div class="carousel-caption-sub" id="carouselSub">Sustainable urban design &amp; site planning</div>
+        <!-- 2. Clean Horizontal Experience Bar -->
+        <div class="experience-bar">
+          <div class="exp-bar-company">
+            <div class="company-brand-icon">SC</div>
+            <div>
+              <h3 class="exp-company-title">Sheltech Consultants (Pvt.) Limited</h3>
+              <p class="exp-company-sub">Dhaka, Bangladesh &bull; Urban &amp; Regional Planning Practice</p>
             </div>
           </div>
 
-          <!-- Dots Indicator -->
-          <div class="carousel-indicators">
-            <div class="indicator-dot active" onclick="jumpToSlide(0)"></div>
-            <div class="indicator-dot" onclick="jumpToSlide(1)"></div>
-            <div class="indicator-dot" onclick="jumpToSlide(2)"></div>
+          <!-- Roles Timeline Grid inside the Bar -->
+          <div class="exp-timeline-grid">
+            <!-- Role 1 -->
+            <div class="exp-role-card">
+              <div class="role-status-pill active-pill">Current Position</div>
+              <h4 class="exp-role-heading">Urban Planner</h4>
+              <div class="exp-role-dates">Jan 2026 &ndash; Present</div>
+              <p class="exp-role-summary">
+                Directing spatial master plan components, infrastructure connectivity strategies, and regional development frameworks for national and donor-assisted projects.
+              </p>
+            </div>
+
+            <!-- Role 2 -->
+            <div class="exp-role-card">
+              <div class="role-status-pill">Previous Milestone</div>
+              <h4 class="exp-role-heading">Assistant Urban Planner</h4>
+              <div class="exp-role-dates">March 2024 &ndash; December 2025</div>
+              <p class="exp-role-summary">
+                Spearheaded field surveys, conducted 40+ stakeholder and community consultations, and executed GIS spatial modeling for World Bank and LGED master plans.
+              </p>
+            </div>
+          </div>
+
+          <!-- Key Project Badges Strip -->
+          <div class="exp-projects-strip">
+            <span class="strip-label">Key Involvements:</span>
+            <span class="project-pill">Chakaria Shrimp Estate Master Plan (World Bank)</span>
+            <span class="project-pill">Lalmai Upazila Master Plan (LGED)</span>
+            <span class="project-pill">Regional Connectivity &amp; Socio-Economic Surveys</span>
           </div>
         </div>
       </div>
 
-    </section>
+
+/* ========================================================================== */
+    /*               PROFESSIONAL SHOWCASE & MOTION BANNER STYLES                 */
+    /* ========================================================================== */
+
+    .pro-showcase-wrapper {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      box-shadow: var(--shadow-md);
+    }
+
+    /* Cinematic Motion Banner */
+    .motion-banner-container {
+      position: relative;
+      width: 100%;
+      height: 380px;
+      background-color: #0f172a;
+      overflow: hidden;
+    }
+
+    .motion-slides-track {
+      width: 100%;
+      height: 100%;
+      position: relative;
+    }
+
+    .motion-slide {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: 0;
+      transform: scale(1.05);
+      transition: opacity 1.2s ease-in-out, transform 4s ease-out;
+    }
+
+    .motion-slide.active {
+      opacity: 1;
+      transform: scale(1);
+    }
+
+    .motion-glass-overlay {
+      position: absolute;
+      bottom: 1.5rem;
+      left: 1.5rem;
+      background: rgba(15, 23, 42, 0.75);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      border-radius: var(--radius-sm);
+      padding: 0.85rem 1.25rem;
+      color: #ffffff;
+      max-width: 460px;
+      z-index: 2;
+    }
+
+    .motion-badge {
+      font-size: 0.72rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--primary-accent);
+      margin-bottom: 0.2rem;
+    }
+
+    .motion-caption-title {
+      font-size: 1.05rem;
+      font-weight: 700;
+      line-height: 1.3;
+    }
+
+    .motion-caption-sub {
+      font-size: 0.82rem;
+      color: #cbd5e1;
+    }
+
+    .motion-dots {
+      position: absolute;
+      bottom: 1.5rem;
+      right: 1.5rem;
+      display: flex;
+      gap: 0.45rem;
+      z-index: 2;
+    }
+
+    .motion-dot {
+      width: 24px;
+      height: 5px;
+      background: rgba(255, 255, 255, 0.4);
+      border-radius: 3px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .motion-dot.active {
+      background: #ffffff;
+      width: 36px;
+    }
+
+    /* Experience Timeline Bar */
+    .experience-bar {
+      padding: 2rem;
+      background: #ffffff;
+      border-top: 1px solid var(--border-color);
+    }
+
+    .exp-bar-company {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      padding-bottom: 1.5rem;
+      border-bottom: 1px solid var(--border-color);
+      margin-bottom: 1.75rem;
+    }
+
+    .company-brand-icon {
+      width: 46px;
+      height: 46px;
+      background: var(--primary);
+      color: #ffffff;
+      border-radius: var(--radius-sm);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 800;
+      font-size: 1.15rem;
+    }
+
+    .exp-company-title {
+      font-size: 1.25rem;
+      font-weight: 800;
+      color: var(--text-dark);
+    }
+
+    .exp-company-sub {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+    }
+
+    .exp-timeline-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 1.75rem;
+      margin-bottom: 1.75rem;
+    }
+
+    .exp-role-card {
+      background: #f8fafc;
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-sm);
+      padding: 1.35rem;
+      position: relative;
+    }
+
+    .role-status-pill {
+      display: inline-block;
+      font-size: 0.72rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      padding: 0.2rem 0.6rem;
+      border-radius: 9999px;
+      background: #e2e8f0;
+      color: #475569;
+      margin-bottom: 0.6rem;
+    }
+
+    .role-status-pill.active-pill {
+      background: #eff6ff;
+      color: var(--primary-accent);
+      border: 1px solid #bfdbfe;
+    }
+
+    .exp-role-heading {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--text-dark);
+    }
+
+    .exp-role-dates {
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--primary-accent);
+      margin: 0.2rem 0 0.65rem;
+    }
+
+    .exp-role-summary {
+      font-size: 0.9rem;
+      color: var(--text-body);
+      line-height: 1.6;
+    }
+
+    .exp-projects-strip {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 0.6rem;
+      padding-top: 1.25rem;
+      border-top: 1px dashed var(--border-color);
+    }
+
+    .strip-label {
+      font-size: 0.82rem;
+      font-weight: 700;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .project-pill {
+      font-size: 0.82rem;
+      font-weight: 500;
+      background: #ffffff;
+      border: 1px solid var(--border-color);
+      padding: 0.25rem 0.7rem;
+      border-radius: 4px;
+      color: var(--text-body);
+    }
+
+
+
+      
 
 
 
