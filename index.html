@@ -439,6 +439,184 @@
       color: #065f46;
     }
 
+    /* Professional Experience & Motion Carousel Styling */
+    .experience-container {
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 2rem;
+      align-items: stretch;
+    }
+
+    .experience-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-md);
+      padding: 2rem;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .company-header {
+      display: flex;
+      align-items: center;
+      gap: 0.85rem;
+      margin-bottom: 1.6rem;
+      padding-bottom: 1.25rem;
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    .company-name {
+      font-size: 1.25rem;
+      font-weight: 800;
+      color: var(--text-dark);
+      line-height: 1.3;
+    }
+
+    .company-location {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+    }
+
+    .role-item {
+      position: relative;
+      padding-left: 1.6rem;
+      margin-bottom: 1.75rem;
+      border-left: 2px solid var(--primary-accent);
+    }
+
+    .role-item:last-child {
+      margin-bottom: 0;
+    }
+
+    .role-item::before {
+      content: "";
+      position: absolute;
+      left: -6px;
+      top: 5px;
+      width: 10px;
+      height: 10px;
+      background: var(--primary-accent);
+      border-radius: 50%;
+      border: 2px solid #fff;
+    }
+
+    .role-title {
+      font-size: 1.12rem;
+      font-weight: 700;
+      color: var(--text-dark);
+    }
+
+    .role-period {
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: var(--primary);
+      background: #eff6ff;
+      display: inline-block;
+      padding: 0.15rem 0.55rem;
+      border-radius: 4px;
+      margin: 0.25rem 0 0.5rem;
+      border: 1px solid #bfdbfe;
+    }
+
+    .role-desc {
+      font-size: 0.92rem;
+      color: var(--text-body);
+      line-height: 1.6;
+    }
+
+    /* Carousel Motion Frame */
+    .carousel-frame {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-md);
+      padding: 1.25rem;
+      box-shadow: var(--shadow-sm);
+      display: flex;
+      flex-direction: column;
+    }
+
+    .carousel-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 1rem;
+    }
+
+    .carousel-title {
+      font-size: 0.9rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--primary);
+    }
+
+    .carousel-view {
+      position: relative;
+      width: 100%;
+      height: 320px;
+      border-radius: var(--radius-sm);
+      overflow: hidden;
+      background-color: #0f172a;
+    }
+
+    .carousel-slide {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: 0;
+      transform: scale(1.04);
+      transition: opacity 1s ease-in-out, transform 1.2s ease-in-out;
+    }
+
+    .carousel-slide.active {
+      opacity: 1;
+      transform: scale(1);
+    }
+
+    .carousel-caption-bar {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: linear-gradient(to top, rgba(15, 23, 42, 0.88) 0%, rgba(15, 23, 42, 0.35) 70%, transparent 100%);
+      padding: 1.25rem 1rem 0.75rem;
+      color: #fff;
+    }
+
+    .carousel-caption-title {
+      font-size: 0.94rem;
+      font-weight: 700;
+      margin-bottom: 0.2rem;
+    }
+
+    .carousel-caption-sub {
+      font-size: 0.8rem;
+      color: #cbd5e1;
+    }
+
+    .carousel-indicators {
+      display: flex;
+      justify-content: center;
+      gap: 0.5rem;
+      margin-top: 1rem;
+    }
+
+    .indicator-dot {
+      width: 24px;
+      height: 4px;
+      background-color: #e2e8f0;
+      border-radius: 2px;
+      transition: all 0.3s ease;
+      cursor: pointer;
+    }
+
+    .indicator-dot.active {
+      background-color: var(--primary-accent);
+      width: 38px;
+    }
+
     /* General Cards & Grid System */
     .card {
       background: var(--bg-card);
@@ -555,9 +733,12 @@
       background-color: #ffffff;
     }
 
-    @media (max-width: 768px) {
+    @media (max-width: 860px) {
       .hero-name {
         font-size: 2.2rem;
+      }
+      .experience-container {
+        grid-template-columns: 1fr;
       }
       .hero-photo-container {
         margin: 0 auto;
@@ -637,6 +818,7 @@
 
           <!-- Action Buttons with Active CV Link -->
           <div class="hero-actions">
+            <!-- Active link to your Google Drive CV -->
             <a href="https://drive.google.com/file/d/1VGTp8qP04VXJ9eXsRFO97J1AEHhDf-pQ/view" target="_blank" class="btn btn-primary">
               <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
               <span>Download CV</span>
@@ -680,10 +862,12 @@
 
 
     <!-- ========================================================================== -->
-    <!--                   SECTION 2: ABOUT (ACADEMIC EDUCATION)                    -->
+    <!--                     SECTION 2: ABOUT ME (ALL COMPONENTS)                   -->
     <!-- ========================================================================== -->
 
     <section id="about">
+      
+      <!-- Component 1: Academic Background -->
       <div class="section-header">
         <span class="section-tag">Academic Background</span>
         <h2 class="section-title">Education</h2>
@@ -756,12 +940,12 @@
         </div>
 
       </div>
-    </section>
 
 
 
 
-    <!-- ========================================================================== -->
+
+      <!-- ========================================================================== -->
       <!--                  ABOUT COMPONENT 2: PROFESSIONAL BACKGROUND                -->
       <!-- ========================================================================== -->
 
@@ -835,6 +1019,8 @@
       </div>
 
     </section>
+
+
 
 
 
@@ -1033,7 +1219,45 @@
   </footer>
 
   <script>
+    // Set Current Year
     document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Carousel Motion Script
+    const captions = [
+      { title: "Regional Master Planning", sub: "Sustainable urban design & site planning" },
+      { title: "Technical Blueprint & Infrastructure Layout", sub: "Detailed engineering drawings & layout" },
+      { title: "Geospatial Boundary Delineation", sub: "Remote sensing & satellite spatial modeling" }
+    ];
+
+    let currentSlide = 0;
+    const slides = document.querySelectorAll('.carousel-slide');
+    const dots = document.querySelectorAll('.indicator-dot');
+    const capTitle = document.getElementById('carouselCaption');
+    const capSub = document.getElementById('carouselSub');
+
+    function showSlide(index) {
+      if (!slides.length) return;
+      slides.forEach(s => s.classList.remove('active'));
+      dots.forEach(d => d.classList.remove('active'));
+
+      currentSlide = (index + slides.length) % slides.length;
+      slides[currentSlide].classList.add('active');
+      if (dots[currentSlide]) dots[currentSlide].classList.add('active');
+
+      if (capTitle && captions[currentSlide]) {
+        capTitle.textContent = captions[currentSlide].title;
+        capSub.textContent = captions[currentSlide].sub;
+      }
+    }
+
+    function jumpToSlide(index) {
+      showSlide(index);
+    }
+
+    // Automatically transition slides every 3.5 seconds
+    setInterval(() => {
+      showSlide(currentSlide + 1);
+    }, 3500);
   </script>
 </body>
 </html>
