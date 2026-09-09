@@ -69,7 +69,7 @@
       color: var(--primary);
     }
 
-    /* Navigation Bar */
+    /* Top Sticky Navigation Bar */
     header {
       position: sticky;
       top: 0;
@@ -439,607 +439,7 @@
       color: #065f46;
     }
 
-    /* Professional Experience & Motion Carousel Styling */
-    .experience-container {
-      display: grid;
-      grid-template-columns: 1.15fr 0.85fr;
-      gap: 2rem;
-      align-items: stretch;
-    }
-
-    .experience-card {
-      background: var(--bg-card);
-      border: 1px solid var(--border-color);
-      border-radius: var(--radius-md);
-      padding: 2rem;
-      box-shadow: var(--shadow-sm);
-    }
-
-    .company-header {
-      display: flex;
-      align-items: center;
-      gap: 0.85rem;
-      margin-bottom: 1.6rem;
-      padding-bottom: 1.25rem;
-      border-bottom: 1px solid var(--border-color);
-    }
-
-    .company-icon {
-      width: 48px;
-      height: 48px;
-      background: var(--primary-light);
-      border-radius: var(--radius-sm);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: var(--primary);
-      font-weight: 800;
-      font-size: 1.15rem;
-      flex-shrink: 0;
-    }
-
-    .company-name {
-      font-size: 1.25rem;
-      font-weight: 800;
-      color: var(--text-dark);
-      line-height: 1.3;
-    }
-
-    .company-location {
-      font-size: 0.85rem;
-      color: var(--text-muted);
-    }
-
-    .role-item {
-      position: relative;
-      padding-left: 1.6rem;
-      margin-bottom: 1.75rem;
-      border-left: 2px solid var(--primary-accent);
-    }
-
-    .role-item:last-child {
-      margin-bottom: 0;
-    }
-
-    .role-item::before {
-      content: "";
-      position: absolute;
-      left: -6px;
-      top: 5px;
-      width: 10px;
-      height: 10px;
-      background: var(--primary-accent);
-      border-radius: 50%;
-      border: 2px solid #fff;
-    }
-
-    .role-title {
-      font-size: 1.12rem;
-      font-weight: 700;
-      color: var(--text-dark);
-    }
-
-    .role-period {
-      font-size: 0.82rem;
-      font-weight: 600;
-      color: var(--primary);
-      background: #eff6ff;
-      display: inline-block;
-      padding: 0.15rem 0.55rem;
-      border-radius: 4px;
-      margin: 0.25rem 0 0.5rem;
-      border: 1px solid #bfdbfe;
-    }
-
-    .role-desc {
-      font-size: 0.92rem;
-      color: var(--text-body);
-      line-height: 1.6;
-    }
-
-    /* Carousel Motion Frame */
-    .carousel-frame {
-      background: var(--bg-card);
-      border: 1px solid var(--border-color);
-      border-radius: var(--radius-md);
-      padding: 1.25rem;
-      box-shadow: var(--shadow-sm);
-      display: flex;
-      flex-direction: column;
-    }
-
-    .carousel-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 1rem;
-    }
-
-    .carousel-title {
-      font-size: 0.9rem;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
-      color: var(--primary);
-    }
-
-    .carousel-view {
-      position: relative;
-      width: 100%;
-      height: 320px;
-      border-radius: var(--radius-sm);
-      overflow: hidden;
-      background-color: #0f172a;
-    }
-
-    .carousel-slide {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      opacity: 0;
-      transform: scale(1.04);
-      transition: opacity 1s ease-in-out, transform 1.2s ease-in-out;
-    }
-
-    .carousel-slide.active {
-      opacity: 1;
-      transform: scale(1);
-    }
-
-    .carousel-caption-bar {
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      background: linear-gradient(to top, rgba(15, 23, 42, 0.88) 0%, rgba(15, 23, 42, 0.35) 70%, transparent 100%);
-      padding: 1.25rem 1rem 0.75rem;
-      color: #fff;
-    }
-
-    .carousel-caption-title {
-      font-size: 0.94rem;
-      font-weight: 700;
-      margin-bottom: 0.2rem;
-    }
-
-    .carousel-caption-sub {
-      font-size: 0.8rem;
-      color: #cbd5e1;
-    }
-
-    .carousel-indicators {
-      display: flex;
-      justify-content: center;
-      gap: 0.5rem;
-      margin-top: 1rem;
-    }
-
-    .indicator-dot {
-      width: 24px;
-      height: 4px;
-      background-color: #e2e8f0;
-      border-radius: 2px;
-      transition: all 0.3s ease;
-      cursor: pointer;
-    }
-
-    .indicator-dot.active {
-      background-color: var(--primary-accent);
-      width: 38px;
-    }
-
-    /* General Cards & Grid System */
-    .card {
-      background: var(--bg-card);
-      border: 1px solid var(--border-color);
-      border-radius: var(--radius-md);
-      padding: 1.6rem;
-      margin-bottom: 1.25rem;
-      box-shadow: var(--shadow-sm);
-      transition: border-color 0.2s ease, box-shadow 0.2s ease;
-    }
-
-    .card:hover {
-      border-color: var(--border-hover);
-      box-shadow: var(--shadow-md);
-    }
-
-    .grid-2 {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-      gap: 1.25rem;
-    }
-
-    .grid-3 {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 1.25rem;
-    }
-
-    .card-meta {
-      font-size: 0.82rem;
-      font-weight: 600;
-      color: var(--primary-accent);
-      margin-bottom: 0.35rem;
-    }
-
-    .card-title {
-      font-size: 1.18rem;
-      font-weight: 700;
-      margin-bottom: 0.5rem;
-    }
-
-    .placeholder-text {
-      color: var(--text-muted);
-      font-size: 0.94rem;
-    }
-
-    /* Gallery Grid */
-    .gallery-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
-      gap: 1.25rem;
-    }
-
-    .gallery-card {
-      background: var(--bg-card);
-      border: 1px dashed #cbd5e1;
-      border-radius: var(--radius-md);
-      aspect-ratio: 4 / 3;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      padding: 1rem;
-      color: var(--text-muted);
-      font-size: 0.88rem;
-    }
-
-    /* Contact Details */
-    .contact-row {
-      display: flex;
-      align-items: flex-start;
-      gap: 1rem;
-      margin-bottom: 1.25rem;
-    }
-
-    .contact-row:last-child {
-      margin-bottom: 0;
-    }
-
-    .contact-icon {
-      width: 40px;
-      height: 40px;
-      border-radius: var(--radius-sm);
-      background-color: var(--primary-light);
-      color: var(--primary);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-shrink: 0;
-    }
-
-    .contact-label {
-      font-size: 0.78rem;
-      font-weight: 600;
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
-      color: var(--text-muted);
-    }
-
-    .contact-value {
-      font-size: 0.95rem;
-      font-weight: 600;
-      color: var(--text-dark);
-    }
-
-    /* Footer */
-    footer {
-      text-align: center;
-      padding: 2.5rem 1.5rem;
-      border-top: 1px solid var(--border-color);
-      color: var(--text-muted);
-      font-size: 0.88rem;
-      background-color: #ffffff;
-    }
-
-    @media (max-width: 860px) {
-      .hero-name {
-        font-size: 2.2rem;
-      }
-      .experience-container {
-        grid-template-columns: 1fr;
-      }
-      .hero-photo-container {
-        margin: 0 auto;
-      }
-      .nav-links {
-        gap: 0.9rem;
-      }
-    }
-  </style>
-</head>
-<body>
-
-
-
-
-
-  <!-- ========================================================================== -->
-  <!--                            TOP NAVIGATION BAR                              -->
-  <!-- ========================================================================== -->
-
-  <header>
-    <nav>
-      <a href="#home" class="nav-brand">
-        Md. Saikur Rahman Sun
-      </a>
-      <ul class="nav-links">
-        <li><a href="#home">Home</a></li>
-        <li><a href="#about">About</a></li>
-        <li><a href="#publications">Publications</a></li>
-        <li><a href="#research">Research</a></li>
-        <li><a href="#projects">Projects</a></li>
-        <li><a href="#skills">Skills</a></li>
-        <li><a href="#gallery">Gallery</a></li>
-        <li><a href="#contact">Contact</a></li>
-      </ul>
-    </nav>
-  </header>
-
-
-
-
-
-  <main>
-
-    <!-- ========================================================================== -->
-    <!--                          SECTION 1: HOME (HERO)                            -->
-    <!-- ========================================================================== -->
-
-    <section id="home">
-      <div class="hero-grid">
-        <div class="hero-content">
-          <div class="role-badge">Urban &amp; Regional Planner &bull; Researcher</div>
-          
-          <h1 class="hero-name">Md. Saikur Rahman Sun</h1>
-          <h2 class="hero-subtitle">Urban &amp; Regional Planner &amp; Researcher</h2>
-
-          <p class="hero-desc">
-            Bridging urban planning practice with spatial data science, satellite remote sensing, and environmental hazard analytics. Experienced in preparing regional master plans, infrastructure design frameworks, and multi-stakeholder community consultations.
-          </p>
-
-          <!-- Clean Research Interests Box -->
-          <div class="research-interest-box">
-            <div class="research-interest-title">
-              <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"/></svg>
-              <span>Research Interests</span>
-            </div>
-            <div class="interest-tags">
-              <span class="interest-tag">Climate-Resilient Planning</span>
-              <span class="interest-tag">Environmental Hazards &amp; Ecosystems</span>
-              <span class="interest-tag">Geospatial Machine Learning</span>
-              <span class="interest-tag">Spatial Modelling</span>
-              <span class="interest-tag">Coastal Vulnerability</span>
-              <span class="interest-tag">Remote Sensing</span>
-              <span class="interest-tag">Sustainable Transportation Planning</span>
-            </div>
-          </div>
-
-          <!-- Action Buttons with Active CV Link -->
-          <div class="hero-actions">
-            <a href="https://drive.google.com/file/d/1VGTp8qP04VXJ9eXsRFO97J1AEHhDf-pQ/view" target="_blank" class="btn btn-primary">
-              <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
-              <span>Download CV</span>
-            </a>
-            <a href="#publications" class="btn btn-secondary">Publications</a>
-            <a href="#contact" class="btn btn-secondary">Contact Me</a>
-          </div>
-
-          <!-- Active Social & Profile Links -->
-          <div class="hero-socials">
-            <a href="https://www.linkedin.com/in/md-saikur-rahman-sun/" target="_blank" rel="noopener noreferrer" class="social-link">
-              <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.46 10.9v8.37H9.2V10.9H6.46M7.83 6.45a1.65 1.65 0 0 0-1.66 1.66 1.66 1.66 0 0 0 1.66 1.65 1.65 1.65 0 0 0 1.65-1.65c0-.92-.74-1.66-1.65-1.66Z"/></svg>
-              <span>LinkedIn</span>
-            </a>
-            <a href="mailto:rahmansun.ruet.urp.bd@gmail.com" class="social-link">
-              <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
-              <span>Gmail</span>
-            </a>
-            <a href="#contact" class="social-link">
-              <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
-              <span>Dhaka, Bangladesh</span>
-            </a>
-          </div>
-        </div>
-
-        <!-- Profile Photo Area -->
-        <div class="hero-photo-container">
-          <div class="photo-frame">
-            <img 
-              src="profile.jpg" 
-              alt="Md. Saikur Rahman Sun" 
-              onerror="this.onerror=null; this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'250\' height=\'250\' viewBox=\'0 0 250 250\'><rect fill=\'%23e2e8f0\' width=\'250\' height=\'250\'/><text fill=\'%2364748b\' font-family=\'sans-serif\' font-size=\'15\' font-weight=\'600\' x=\'50%25\' y=\'50%25\' text-anchor=\'middle\' dominant-baseline=\'middle\'>Photo Reserved</text></svg>';" 
-            />
-          </div>
-        </div>
-      </div>
-    </section>
-
-
-
-
-
-    <!-- ========================================================================== -->
-    <!--                     SECTION 2: ABOUT ME (ALL COMPONENTS)                   -->
-    <!-- ========================================================================== -->
-
-    <section id="about">
-      
-      <!-- Component 1: Academic Background -->
-      <div class="section-header">
-        <span class="section-tag">Academic Background</span>
-        <h2 class="section-title">Education</h2>
-      </div>
-
-      <!-- 3-Column Education Cards Grid -->
-      <div class="education-grid">
-        
-        <!-- 1. Undergraduate (RUET) -->
-        <div class="edu-card">
-          <div class="edu-img-wrapper">
-            <img src="RUET.jpg" alt="Rajshahi University of Engineering & Technology (RUET)" class="edu-img" onerror="this.style.display='none';" />
-          </div>
-          <div class="edu-body">
-            <div class="edu-year">2019 &ndash; 2024</div>
-            <h3 class="edu-degree">Bachelor of Urban &amp; Regional Planning (BURP)</h3>
-            <p class="edu-institution">Rajshahi University of Engineering and Technology (RUET)</p>
-            
-            <div class="edu-details">
-              <div class="edu-badge edu-badge-result">
-                <span>Result:</span> <strong>CGPA 3.56 / 4.00</strong>
-              </div>
-              <div class="edu-badge">
-                <span>Department:</span> Urban &amp; Regional Planning
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- 2. Higher Secondary (ACC) -->
-        <div class="edu-card">
-          <div class="edu-img-wrapper">
-            <img src="ACC.jpg" alt="Adamjee Cantonment College" class="edu-img" onerror="this.style.display='none';" />
-          </div>
-          <div class="edu-body">
-            <div class="edu-year">2016 &ndash; 2018</div>
-            <h3 class="edu-degree">Higher Secondary Certificate (HSC)</h3>
-            <p class="edu-institution">Adamjee Cantonment College</p>
-            
-            <div class="edu-details">
-              <div class="edu-badge edu-badge-result">
-                <span>Result:</span> <strong>GPA 5.00 / 5.00</strong>
-              </div>
-              <div class="edu-badge">
-                <span>Group:</span> Science
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- 3. Secondary (ACPS) -->
-        <div class="edu-card">
-          <div class="edu-img-wrapper">
-            <img src="ACPS.jpg" alt="Adamjee Cantonment Public School" class="edu-img" onerror="this.style.display='none';" />
-          </div>
-          <div class="edu-body">
-            <div class="edu-year">2014 &ndash; 2016</div>
-            <h3 class="edu-degree">Secondary School Certificate (SSC)</h3>
-            <p class="edu-institution">Adamjee Cantonment Public School</p>
-            
-            <div class="edu-details">
-              <div class="edu-badge edu-badge-result">
-                <span>Result:</span> <strong>GPA 5.00 / 5.00</strong>
-              </div>
-              <div class="edu-badge">
-                <span>Group:</span> Science
-              </div>
-            </div>
-          </div>
-        </div>
-
-      </div>
-
-
-
-
-
-      <!-- ========================================================================== -->
-      <!--                  ABOUT COMPONENT 2: PROFESSIONAL BACKGROUND                -->
-      <!-- ========================================================================== -->
-
-
-      <div class="section-header" style="margin-top: 4.5rem;">
-        <span class="section-tag">Career &amp; Practice</span>
-        <h2 class="section-title">Professional Background</h2>
-      </div>
-
-      <div class="pro-showcase-wrapper">
-        <!-- 1. Panoramic Motion Banner for 3 Images -->
-        <div class="motion-banner-container">
-          <div class="motion-slides-track">
-            <img src="SCPL.jpg" class="motion-slide active" alt="Sheltech Master Planning" onerror="this.style.display='none';" />
-            <img src="SCPL1.jpg" class="motion-slide" alt="Technical Blueprint & Infrastructure" onerror="this.style.display='none';" />
-            <img src="SCPL2.jpg" class="motion-slide" alt="Geospatial Mapping & Spatial Analysis" onerror="this.style.display='none';" />
-          </div>
-
-          <!-- Glass Caption Bar on the Image -->
-          <div class="motion-glass-overlay">
-            <div class="motion-badge">&bull; Projects in Motion</div>
-            <div class="motion-caption-title" id="motionCaption">Regional Master Planning &amp; Design</div>
-            <div class="motion-caption-sub" id="motionSub">Sheltech Consultants (Pvt.) Limited</div>
-          </div>
-
-          <!-- Slide Dots -->
-          <div class="motion-dots">
-            <span class="motion-dot active" onclick="setMotionSlide(0)"></span>
-            <span class="motion-dot" onclick="setMotionSlide(1)"></span>
-            <span class="motion-dot" onclick="setMotionSlide(2)"></span>
-          </div>
-        </div>
-
-        <!-- 2. Clean Horizontal Experience Bar -->
-        <div class="experience-bar">
-          <div class="exp-bar-company">
-            <div class="company-brand-icon">SC</div>
-            <div>
-              <h3 class="exp-company-title">Sheltech Consultants (Pvt.) Limited</h3>
-              <p class="exp-company-sub">Dhaka, Bangladesh &bull; Urban &amp; Regional Planning Practice</p>
-            </div>
-          </div>
-
-          <!-- Roles Timeline Grid inside the Bar -->
-          <div class="exp-timeline-grid">
-            <!-- Role 1 -->
-            <div class="exp-role-card">
-              <div class="role-status-pill active-pill">Current Position</div>
-              <h4 class="exp-role-heading">Urban Planner</h4>
-              <div class="exp-role-dates">Jan 2026 &ndash; Present</div>
-              <p class="exp-role-summary">
-                Directing spatial master plan components, infrastructure connectivity strategies, and regional development frameworks for national and donor-assisted projects.
-              </p>
-            </div>
-
-            <!-- Role 2 -->
-            <div class="exp-role-card">
-              <div class="role-status-pill">Previous Milestone</div>
-              <h4 class="exp-role-heading">Assistant Urban Planner</h4>
-              <div class="exp-role-dates">March 2024 &ndash; December 2025</div>
-              <p class="exp-role-summary">
-                Spearheaded field surveys, conducted 40+ stakeholder and community consultations, and executed GIS spatial modeling for World Bank and LGED master plans.
-              </p>
-            </div>
-          </div>
-
-          <!-- Key Project Badges Strip -->
-          <div class="exp-projects-strip">
-            <span class="strip-label">Key Involvements:</span>
-            <span class="project-pill">Chakaria Shrimp Estate Master Plan (World Bank)</span>
-            <span class="project-pill">Lalmai Upazila Master Plan (LGED)</span>
-            <span class="project-pill">Regional Connectivity &amp; Socio-Economic Surveys</span>
-          </div>
-        </div>
-      </div>
-
-
-/* ========================================================================== */
-    /*               PROFESSIONAL SHOWCASE & MOTION BANNER STYLES                 */
-    /* ========================================================================== */
-
+    /* Professional Showcase & Motion Banner Styles */
     .pro-showcase-wrapper {
       background: var(--bg-card);
       border: 1px solid var(--border-color);
@@ -1048,7 +448,6 @@
       box-shadow: var(--shadow-md);
     }
 
-    /* Cinematic Motion Banner */
     .motion-banner-container {
       position: relative;
       width: 100%;
@@ -1257,9 +656,410 @@
       color: var(--text-body);
     }
 
+    /* General Cards & Grid System */
+    .card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-md);
+      padding: 1.6rem;
+      margin-bottom: 1.25rem;
+      box-shadow: var(--shadow-sm);
+      transition: border-color 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .card:hover {
+      border-color: var(--border-hover);
+      box-shadow: var(--shadow-md);
+    }
+
+    .grid-2 {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 1.25rem;
+    }
+
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.25rem;
+    }
+
+    .card-meta {
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: var(--primary-accent);
+      margin-bottom: 0.35rem;
+    }
+
+    .card-title {
+      font-size: 1.18rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+    }
+
+    .placeholder-text {
+      color: var(--text-muted);
+      font-size: 0.94rem;
+    }
+
+    /* Gallery Grid */
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+      gap: 1.25rem;
+    }
+
+    .gallery-card {
+      background: var(--bg-card);
+      border: 1px dashed #cbd5e1;
+      border-radius: var(--radius-md);
+      aspect-ratio: 4 / 3;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 1rem;
+      color: var(--text-muted);
+      font-size: 0.88rem;
+    }
+
+    /* Contact Details */
+    .contact-row {
+      display: flex;
+      align-items: flex-start;
+      gap: 1rem;
+      margin-bottom: 1.25rem;
+    }
+
+    .contact-row:last-child {
+      margin-bottom: 0;
+    }
+
+    .contact-icon {
+      width: 40px;
+      height: 40px;
+      border-radius: var(--radius-sm);
+      background-color: var(--primary-light);
+      color: var(--primary);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .contact-label {
+      font-size: 0.78rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--text-muted);
+    }
+
+    .contact-value {
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: var(--text-dark);
+    }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      padding: 2.5rem 1.5rem;
+      border-top: 1px solid var(--border-color);
+      color: var(--text-muted);
+      font-size: 0.88rem;
+      background-color: #ffffff;
+    }
+
+    @media (max-width: 768px) {
+      .hero-name {
+        font-size: 2.2rem;
+      }
+      .hero-photo-container {
+        margin: 0 auto;
+      }
+      .nav-links {
+        gap: 0.9rem;
+      }
+      .motion-banner-container {
+        height: 260px;
+      }
+    }
+  </style>
+</head>
+<body>
 
 
+
+
+
+  <!-- ========================================================================== -->
+  <!--                            TOP NAVIGATION BAR                              -->
+  <!-- ========================================================================== -->
+
+  <header>
+    <nav>
+      <a href="#home" class="nav-brand">
+        Md. Saikur Rahman Sun
+      </a>
+      <ul class="nav-links">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#publications">Publications</a></li>
+        <li><a href="#research">Research</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#gallery">Gallery</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+
+
+
+
+  <main>
+
+    <!-- ========================================================================== -->
+    <!--                          SECTION 1: HOME (HERO)                            -->
+    <!-- ========================================================================== -->
+
+    <section id="home">
+      <div class="hero-grid">
+        <div class="hero-content">
+          <div class="role-badge">Urban &amp; Regional Planner &bull; Researcher</div>
+          
+          <h1 class="hero-name">Md. Saikur Rahman Sun</h1>
+          <h2 class="hero-subtitle">Urban &amp; Regional Planner &amp; Researcher</h2>
+
+          <p class="hero-desc">
+            Bridging urban planning practice with spatial data science, satellite remote sensing, and environmental hazard analytics. Experienced in preparing regional master plans, infrastructure design frameworks, and multi-stakeholder community consultations.
+          </p>
+
+          <!-- Clean Research Interests Box -->
+          <div class="research-interest-box">
+            <div class="research-interest-title">
+              <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"/></svg>
+              <span>Research Interests</span>
+            </div>
+            <div class="interest-tags">
+              <span class="interest-tag">Climate-Resilient Planning</span>
+              <span class="interest-tag">Environmental Hazards &amp; Ecosystems</span>
+              <span class="interest-tag">Geospatial Machine Learning</span>
+              <span class="interest-tag">Spatial Modelling</span>
+              <span class="interest-tag">Coastal Vulnerability</span>
+              <span class="interest-tag">Remote Sensing</span>
+              <span class="interest-tag">Sustainable Transportation Planning</span>
+            </div>
+          </div>
+
+          <!-- Action Buttons with Active CV Link -->
+          <div class="hero-actions">
+            <a href="https://drive.google.com/file/d/1VGTp8qP04VXJ9eXsRFO97J1AEHhDf-pQ/view" target="_blank" class="btn btn-primary">
+              <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
+              <span>Download CV</span>
+            </a>
+            <a href="#publications" class="btn btn-secondary">Publications</a>
+            <a href="#contact" class="btn btn-secondary">Contact Me</a>
+          </div>
+
+          <!-- Active Social & Profile Links -->
+          <div class="hero-socials">
+            <a href="https://www.linkedin.com/in/md-saikur-rahman-sun/" target="_blank" rel="noopener noreferrer" class="social-link">
+              <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.46 10.9v8.37H9.2V10.9H6.46M7.83 6.45a1.65 1.65 0 0 0-1.66 1.66 1.66 1.66 0 0 0 1.66 1.65 1.65 1.65 0 0 0 1.65-1.65c0-.92-.74-1.66-1.65-1.66Z"/></svg>
+              <span>LinkedIn</span>
+            </a>
+            <a href="mailto:rahmansun.ruet.urp.bd@gmail.com" class="social-link">
+              <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+              <span>Gmail</span>
+            </a>
+            <a href="#contact" class="social-link">
+              <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+              <span>Dhaka, Bangladesh</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- Profile Photo Area -->
+        <div class="hero-photo-container">
+          <div class="photo-frame">
+            <img 
+              src="profile.jpg" 
+              alt="Md. Saikur Rahman Sun" 
+              onerror="this.onerror=null; this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'250\' height=\'250\' viewBox=\'0 0 250 250\'><rect fill=\'%23e2e8f0\' width=\'250\' height=\'250\'/><text fill=\'%2364748b\' font-family=\'sans-serif\' font-size=\'15\' font-weight=\'600\' x=\'50%25\' y=\'50%25\' text-anchor=\'middle\' dominant-baseline=\'middle\'>Photo Reserved</text></svg>';" 
+            />
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+
+
+
+    <!-- ========================================================================== -->
+    <!--                     SECTION 2: ABOUT ME (ALL COMPONENTS)                   -->
+    <!-- ========================================================================== -->
+
+    <section id="about">
       
+      <!-- Component 1: Academic Background -->
+      <div class="section-header">
+        <span class="section-tag">Academic Background</span>
+        <h2 class="section-title">Education</h2>
+      </div>
+
+      <!-- 3-Column Education Cards Grid -->
+      <div class="education-grid">
+        
+        <!-- 1. Undergraduate (RUET) -->
+        <div class="edu-card">
+          <div class="edu-img-wrapper">
+            <img src="RUET.jpg" alt="Rajshahi University of Engineering & Technology (RUET)" class="edu-img" onerror="this.style.display='none';" />
+          </div>
+          <div class="edu-body">
+            <div class="edu-year">2019 &ndash; 2024</div>
+            <h3 class="edu-degree">Bachelor of Urban &amp; Regional Planning (BURP)</h3>
+            <p class="edu-institution">Rajshahi University of Engineering and Technology (RUET)</p>
+            
+            <div class="edu-details">
+              <div class="edu-badge edu-badge-result">
+                <span>Result:</span> <strong>CGPA 3.56 / 4.00</strong>
+              </div>
+              <div class="edu-badge">
+                <span>Department:</span> Urban &amp; Regional Planning
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 2. Higher Secondary (ACC) -->
+        <div class="edu-card">
+          <div class="edu-img-wrapper">
+            <img src="ACC.jpg" alt="Adamjee Cantonment College" class="edu-img" onerror="this.style.display='none';" />
+          </div>
+          <div class="edu-body">
+            <div class="edu-year">2016 &ndash; 2018</div>
+            <h3 class="edu-degree">Higher Secondary Certificate (HSC)</h3>
+            <p class="edu-institution">Adamjee Cantonment College</p>
+            
+            <div class="edu-details">
+              <div class="edu-badge edu-badge-result">
+                <span>Result:</span> <strong>GPA 5.00 / 5.00</strong>
+              </div>
+              <div class="edu-badge">
+                <span>Group:</span> Science
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 3. Secondary (ACPS) -->
+        <div class="edu-card">
+          <div class="edu-img-wrapper">
+            <img src="ACPS.jpg" alt="Adamjee Cantonment Public School" class="edu-img" onerror="this.style.display='none';" />
+          </div>
+          <div class="edu-body">
+            <div class="edu-year">2014 &ndash; 2016</div>
+            <h3 class="edu-degree">Secondary School Certificate (SSC)</h3>
+            <p class="edu-institution">Adamjee Cantonment Public School</p>
+            
+            <div class="edu-details">
+              <div class="edu-badge edu-badge-result">
+                <span>Result:</span> <strong>GPA 5.00 / 5.00</strong>
+              </div>
+              <div class="edu-badge">
+                <span>Group:</span> Science
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+
+
+
+
+      <!-- ========================================================================== -->
+      <!--                  ABOUT COMPONENT 2: PROFESSIONAL BACKGROUND                -->
+      <!-- ========================================================================== -->
+
+      <div class="section-header" style="margin-top: 4.5rem;">
+        <span class="section-tag">Career &amp; Practice</span>
+        <h2 class="section-title">Professional Background</h2>
+      </div>
+
+      <div class="pro-showcase-wrapper">
+        <!-- 1. Panoramic Motion Banner for 3 Images -->
+        <div class="motion-banner-container">
+          <div class="motion-slides-track">
+            <img src="SCPL.jpg" class="motion-slide active" alt="Sheltech Master Planning" onerror="this.style.display='none';" />
+            <img src="SCPL1.jpg" class="motion-slide" alt="Technical Blueprint & Infrastructure" onerror="this.style.display='none';" />
+            <img src="SCPL2.jpg" class="motion-slide" alt="Geospatial Mapping & Spatial Analysis" onerror="this.style.display='none';" />
+          </div>
+
+          <!-- Glass Caption Bar on the Image -->
+          <div class="motion-glass-overlay">
+            <div class="motion-badge">&bull; Projects in Motion</div>
+            <div class="motion-caption-title" id="motionCaption">Regional Master Planning &amp; Design</div>
+            <div class="motion-caption-sub" id="motionSub">Sheltech Consultants (Pvt.) Limited</div>
+          </div>
+
+          <!-- Slide Dots -->
+          <div class="motion-dots">
+            <span class="motion-dot active" onclick="setMotionSlide(0)"></span>
+            <span class="motion-dot" onclick="setMotionSlide(1)"></span>
+            <span class="motion-dot" onclick="setMotionSlide(2)"></span>
+          </div>
+        </div>
+
+        <!-- 2. Clean Horizontal Experience Bar -->
+        <div class="experience-bar">
+          <div class="exp-bar-company">
+            <div class="company-brand-icon">SC</div>
+            <div>
+              <h3 class="exp-company-title">Sheltech Consultants (Pvt.) Limited</h3>
+              <p class="exp-company-sub">Dhaka, Bangladesh &bull; Urban &amp; Regional Planning Practice</p>
+            </div>
+          </div>
+
+          <!-- Roles Timeline Grid inside the Bar -->
+          <div class="exp-timeline-grid">
+            <!-- Role 1 -->
+            <div class="exp-role-card">
+              <div class="role-status-pill active-pill">Current Position</div>
+              <h4 class="exp-role-heading">Urban Planner</h4>
+              <div class="exp-role-dates">Jan 2026 &ndash; Present</div>
+              <p class="exp-role-summary">
+                Directing spatial master plan components, infrastructure connectivity strategies, and regional development frameworks for national and donor-assisted projects.
+              </p>
+            </div>
+
+            <!-- Role 2 -->
+            <div class="exp-role-card">
+              <div class="role-status-pill">Previous Milestone</div>
+              <h4 class="exp-role-heading">Assistant Urban Planner</h4>
+              <div class="exp-role-dates">March 2024 &ndash; December 2025</div>
+              <p class="exp-role-summary">
+                Spearheaded field surveys, conducted 40+ stakeholder and community consultations, and executed GIS spatial modeling for World Bank and LGED master plans.
+              </p>
+            </div>
+          </div>
+
+          <!-- Key Project Badges Strip -->
+          <div class="exp-projects-strip">
+            <span class="strip-label">Key Involvements:</span>
+            <span class="project-pill">Chakaria Shrimp Estate Master Plan (World Bank)</span>
+            <span class="project-pill">Lalmai Upazila Master Plan (LGED)</span>
+            <span class="project-pill">Regional Connectivity &amp; Socio-Economic Surveys</span>
+          </div>
+        </div>
+      </div>
+
+    </section>
 
 
 
@@ -1414,7 +1214,7 @@
 
           <div class="contact-row">
             <div class="contact-icon">
-              <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.46 10.9v8.37H9.2V10.9H6.46M7.83 6.45a1.65 1.65 0 0 0-1.66 1.66 1.66 1.66 1.66 0 0 0 1.66 1.65 1.65 1.65 0 0 0 1.65-1.65c0-.92-.74-1.66-1.65-1.66Z"/></svg>
+              <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.46 10.9v8.37H9.2V10.9H6.46M7.83 6.45a1.65 1.65 0 0 0-1.66 1.66 1.66 1.66 0 0 0 1.66 1.65 1.65 1.65 0 0 0 1.65-1.65c0-.92-.74-1.66-1.65-1.66Z"/></svg>
             </div>
             <div>
               <div class="contact-label">LinkedIn</div>
@@ -1459,31 +1259,31 @@
     <p>&copy; <span id="year"></span> Md. Saikur Rahman Sun. All rights reserved.</p>
   </footer>
 
-  <!-- Script for Auto Year and Motion Carousel -->
   <script>
+    // 1. Automatically set the current year in the footer
     document.getElementById('year').textContent = new Date().getFullYear();
 
-    // Carousel Motion Script
+    // 2. Motion Banner Auto-cycling Script
     const captions = [
-      { title: "Regional Master Planning", sub: "Sustainable urban design & site planning" },
-      { title: "Technical Drafting & Engineering", sub: "Detailed infrastructure layouts & blueprints" },
-      { title: "Geospatial Boundary Delineation", sub: "Remote sensing & satellite spatial analysis" }
+      { title: "Regional Master Planning & Infrastructure", sub: "Sheltech Consultants (Pvt.) Limited" },
+      { title: "Technical Blueprint & Engineering Layout", sub: "Structural design & planning validation" },
+      { title: "Geospatial Boundary Delineation", sub: "Remote sensing & satellite spatial modeling" }
     ];
 
     let currentSlide = 0;
-    const slides = document.querySelectorAll('.carousel-slide');
-    const dots = document.querySelectorAll('.indicator-dot');
-    const capTitle = document.getElementById('carouselCaption');
-    const capSub = document.getElementById('carouselSub');
+    const slides = document.querySelectorAll('.motion-slide');
+    const dots = document.querySelectorAll('.motion-dot');
+    const capTitle = document.getElementById('motionCaption');
+    const capSub = document.getElementById('motionSub');
 
-    function showSlide(index) {
+    function showMotionSlide(index) {
       if (!slides.length) return;
       slides.forEach(s => s.classList.remove('active'));
       dots.forEach(d => d.classList.remove('active'));
 
       currentSlide = (index + slides.length) % slides.length;
       slides[currentSlide].classList.add('active');
-      dots[currentSlide].classList.add('active');
+      if (dots[currentSlide]) dots[currentSlide].classList.add('active');
 
       if (capTitle && captions[currentSlide]) {
         capTitle.textContent = captions[currentSlide].title;
@@ -1491,14 +1291,14 @@
       }
     }
 
-    function jumpToSlide(index) {
-      showSlide(index);
+    function setMotionSlide(index) {
+      showMotionSlide(index);
     }
 
-    // Auto-advance every 3.5 seconds
+    // Auto-advance photos every 3.8 seconds
     setInterval(() => {
-      showSlide(currentSlide + 1);
-    }, 3500);
+      showMotionSlide(currentSlide + 1);
+    }, 3800);
   </script>
 </body>
 </html>
