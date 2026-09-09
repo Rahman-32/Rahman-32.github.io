@@ -69,7 +69,7 @@
       color: var(--primary);
     }
 
-    /* Navigation Bar */
+    /* Top Sticky Navigation Bar */
     header {
       position: sticky;
       top: 0;
@@ -439,198 +439,6 @@
       color: #065f46;
     }
 
-    /* Professional Experience & Motion Carousel Styling */
-    .experience-container {
-      display: grid;
-      grid-template-columns: 1.15fr 0.85fr;
-      gap: 2rem;
-      align-items: stretch;
-    }
-
-    .experience-card {
-      background: var(--bg-card);
-      border: 1px solid var(--border-color);
-      border-radius: var(--radius-md);
-      padding: 2rem;
-      box-shadow: var(--shadow-sm);
-    }
-
-    .company-header {
-      display: flex;
-      align-items: center;
-      gap: 0.85rem;
-      margin-bottom: 1.6rem;
-      padding-bottom: 1.25rem;
-      border-bottom: 1px solid var(--border-color);
-    }
-
-    .company-icon {
-      width: 48px;
-      height: 48px;
-      background: var(--primary-light);
-      border-radius: var(--radius-sm);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: var(--primary);
-      font-weight: 800;
-      font-size: 1.15rem;
-      flex-shrink: 0;
-    }
-
-    .company-name {
-      font-size: 1.25rem;
-      font-weight: 800;
-      color: var(--text-dark);
-      line-height: 1.3;
-    }
-
-    .company-location {
-      font-size: 0.85rem;
-      color: var(--text-muted);
-    }
-
-    .role-item {
-      position: relative;
-      padding-left: 1.6rem;
-      margin-bottom: 1.75rem;
-      border-left: 2px solid var(--primary-accent);
-    }
-
-    .role-item:last-child {
-      margin-bottom: 0;
-    }
-
-    .role-item::before {
-      content: "";
-      position: absolute;
-      left: -6px;
-      top: 5px;
-      width: 10px;
-      height: 10px;
-      background: var(--primary-accent);
-      border-radius: 50%;
-      border: 2px solid #fff;
-    }
-
-    .role-title {
-      font-size: 1.12rem;
-      font-weight: 700;
-      color: var(--text-dark);
-    }
-
-    .role-period {
-      font-size: 0.82rem;
-      font-weight: 600;
-      color: var(--primary);
-      background: #eff6ff;
-      display: inline-block;
-      padding: 0.15rem 0.55rem;
-      border-radius: 4px;
-      margin: 0.25rem 0 0.5rem;
-      border: 1px solid #bfdbfe;
-    }
-
-    .role-desc {
-      font-size: 0.92rem;
-      color: var(--text-body);
-      line-height: 1.6;
-    }
-
-    /* Carousel Motion Frame */
-    .carousel-frame {
-      background: var(--bg-card);
-      border: 1px solid var(--border-color);
-      border-radius: var(--radius-md);
-      padding: 1.25rem;
-      box-shadow: var(--shadow-sm);
-      display: flex;
-      flex-direction: column;
-    }
-
-    .carousel-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 1rem;
-    }
-
-    .carousel-title {
-      font-size: 0.9rem;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
-      color: var(--primary);
-    }
-
-    .carousel-view {
-      position: relative;
-      width: 100%;
-      height: 320px;
-      border-radius: var(--radius-sm);
-      overflow: hidden;
-      background-color: #0f172a;
-    }
-
-    .carousel-slide {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      opacity: 0;
-      transform: scale(1.04);
-      transition: opacity 1s ease-in-out, transform 1.2s ease-in-out;
-    }
-
-    .carousel-slide.active {
-      opacity: 1;
-      transform: scale(1);
-    }
-
-    .carousel-caption-bar {
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      background: linear-gradient(to top, rgba(15, 23, 42, 0.88) 0%, rgba(15, 23, 42, 0.35) 70%, transparent 100%);
-      padding: 1.25rem 1rem 0.75rem;
-      color: #fff;
-    }
-
-    .carousel-caption-title {
-      font-size: 0.94rem;
-      font-weight: 700;
-      margin-bottom: 0.2rem;
-    }
-
-    .carousel-caption-sub {
-      font-size: 0.8rem;
-      color: #cbd5e1;
-    }
-
-    .carousel-indicators {
-      display: flex;
-      justify-content: center;
-      gap: 0.5rem;
-      margin-top: 1rem;
-    }
-
-    .indicator-dot {
-      width: 24px;
-      height: 4px;
-      background-color: #e2e8f0;
-      border-radius: 2px;
-      transition: all 0.3s ease;
-      cursor: pointer;
-    }
-
-    .indicator-dot.active {
-      background-color: var(--primary-accent);
-      width: 38px;
-    }
-
     /* General Cards & Grid System */
     .card {
       background: var(--bg-card);
@@ -747,12 +555,9 @@
       background-color: #ffffff;
     }
 
-    @media (max-width: 860px) {
+    @media (max-width: 768px) {
       .hero-name {
         font-size: 2.2rem;
-      }
-      .experience-container {
-        grid-template-columns: 1fr;
       }
       .hero-photo-container {
         margin: 0 auto;
@@ -875,12 +680,10 @@
 
 
     <!-- ========================================================================== -->
-    <!--                     SECTION 2: ABOUT ME (ALL COMPONENTS)                   -->
+    <!--                   SECTION 2: ABOUT (ACADEMIC EDUCATION)                    -->
     <!-- ========================================================================== -->
 
     <section id="about">
-      
-      <!-- Component 1: Academic Background -->
       <div class="section-header">
         <span class="section-tag">Academic Background</span>
         <h2 class="section-title">Education</h2>
@@ -953,12 +756,88 @@
         </div>
 
       </div>
+    </section>
 
 
 
 
+    <!-- ========================================================================== -->
+      <!--                  ABOUT COMPONENT 2: PROFESSIONAL BACKGROUND                -->
+      <!-- ========================================================================== -->
 
- 
+      <div class="section-header" style="margin-top: 4rem;">
+        <span class="section-tag">Career &amp; Practice</span>
+        <h2 class="section-title">Professional Background</h2>
+      </div>
+
+      <div class="experience-container">
+        <!-- Professional Roles at Sheltech -->
+        <div class="experience-card">
+          <div class="company-header">
+            <!-- Sheltech Logo (with built-in SCPL vector fallback) -->
+            <img 
+              src="SCPLLOGO.jpg" 
+              alt="Sheltech Consultants (Pvt.) Limited Logo" 
+              style="width: 52px; height: 52px; object-fit: contain; border-radius: 6px; border: 1px solid var(--border-color); flex-shrink: 0;"
+              onerror="this.onerror=null; this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'52\' height=\'52\' viewBox=\'0 0 100 100\'><rect width=\'100\' height=\'100\' fill=\'%23ffffff\' rx=\'8\'/><rect x=\'2\' y=\'2\' width=\'46\' height=\'46\' fill=\'%231b449c\' rx=\'2\'/><rect x=\'52\' y=\'2\' width=\'46\' height=\'46\' fill=\'%231b449c\' rx=\'2\'/><rect x=\'2\' y=\'52\' width=\'46\' height=\'46\' fill=\'%231b449c\' rx=\'2\'/><rect x=\'52\' y=\'52\' width=\'46\' height=\'46\' fill=\'%231b449c\' rx=\'2\'/><text x=\'25\' y=\'37\' font-family=\'sans-serif\' font-weight=\'800\' font-size=\'36\' fill=\'%23ffffff\' text-anchor=\'middle\'>S</text><text x=\'75\' y=\'37\' font-family=\'sans-serif\' font-weight=\'800\' font-size=\'36\' fill=\'%23ffffff\' text-anchor=\'middle\'>C</text><text x=\'25\' y=\'87\' font-family=\'sans-serif\' font-weight=\'800\' font-size=\'36\' fill=\'%23ffffff\' text-anchor=\'middle\'>P</text><text x=\'75\' y=\'87\' font-family=\'sans-serif\' font-weight=\'800\' font-size=\'36\' fill=\'%23ffffff\' text-anchor=\'middle\'>L</text></svg>';" 
+            />
+            <div>
+              <h3 class="company-name">Sheltech Consultants (Pvt.) Limited</h3>
+              <p class="company-location">Dhaka, Bangladesh</p>
+            </div>
+          </div>
+
+          <!-- Role 1: Urban Planner -->
+          <div class="role-item">
+            <div class="role-title">Urban Planner</div>
+            <span class="role-period">Jan 2026 &ndash; Present</span>
+            <p class="role-desc">
+              Leading regional spatial planning, master plan component formulation, and infrastructure connectivity design for donor-assisted and government urban development initiatives.
+            </p>
+          </div>
+
+          <!-- Role 2: Assistant Urban Planner -->
+          <div class="role-item">
+            <div class="role-title">Assistant Urban Planner</div>
+            <span class="role-period">March 2024 &ndash; December 2025</span>
+            <p class="role-desc">
+              Conducted site connectivity surveys, coordinated stakeholder workshops with local authorities and communities, and supported spatial GIS modeling for master plan execution.
+            </p>
+          </div>
+        </div>
+
+        <!-- Animated Motion Project Carousel -->
+        <div class="carousel-frame">
+          <div class="carousel-header">
+            <span class="carousel-title">Projects in Motion</span>
+            <span style="font-size: 0.78rem; font-weight: 600; color: var(--primary-accent);">Sheltech Practice</span>
+          </div>
+
+          <div class="carousel-view">
+            <img src="SCPL.jpg" class="carousel-slide active" alt="Sheltech Master Plan Project" onerror="this.style.display='none';" />
+            <img src="SCPL1.jpg" class="carousel-slide" alt="Technical Blueprint & Infrastructure Layout" onerror="this.style.display='none';" />
+            <img src="SCPL2.jpg" class="carousel-slide" alt="GIS & Satellite Spatial Modeling" onerror="this.style.display='none';" />
+
+            <!-- Dynamic Caption Overlay -->
+            <div class="carousel-caption-bar">
+              <div class="carousel-caption-title" id="carouselCaption">Regional Master Planning</div>
+              <div class="carousel-caption-sub" id="carouselSub">Sustainable urban design &amp; site planning</div>
+            </div>
+          </div>
+
+          <!-- Dots Indicator -->
+          <div class="carousel-indicators">
+            <div class="indicator-dot active" onclick="jumpToSlide(0)"></div>
+            <div class="indicator-dot" onclick="jumpToSlide(1)"></div>
+            <div class="indicator-dot" onclick="jumpToSlide(2)"></div>
+          </div>
+        </div>
+      </div>
+
+    </section>
+
+
+
     <!-- ========================================================================== -->
     <!--                         SECTION 3: PUBLICATIONS                            -->
     <!-- ========================================================================== -->
@@ -1108,7 +987,7 @@
 
           <div class="contact-row">
             <div class="contact-icon">
-              <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.46 10.9v8.37H9.2V10.9H6.46M7.83 6.45a1.65 1.65 0 0 0-1.66 1.66 1.66 1.66 1.66 0 0 0 1.66 1.65 1.65 1.65 0 0 0 1.65-1.65c0-.92-.74-1.66-1.65-1.66Z"/></svg>
+              <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.46 10.9v8.37H9.2V10.9H6.46M7.83 6.45a1.65 1.65 0 0 0-1.66 1.66 1.66 1.66 0 0 0 1.66 1.65 1.65 1.65 0 0 0 1.65-1.65c0-.92-.74-1.66-1.65-1.66Z"/></svg>
             </div>
             <div>
               <div class="contact-label">LinkedIn</div>
@@ -1153,46 +1032,8 @@
     <p>&copy; <span id="year"></span> Md. Saikur Rahman Sun. All rights reserved.</p>
   </footer>
 
-  <!-- Script for Auto Year and Motion Carousel -->
   <script>
     document.getElementById('year').textContent = new Date().getFullYear();
-
-    // Carousel Motion Script
-    const captions = [
-      { title: "Regional Master Planning", sub: "Sustainable urban design & site planning" },
-      { title: "Technical Drafting & Engineering", sub: "Detailed infrastructure layouts & blueprints" },
-      { title: "Geospatial Boundary Delineation", sub: "Remote sensing & satellite spatial analysis" }
-    ];
-
-    let currentSlide = 0;
-    const slides = document.querySelectorAll('.carousel-slide');
-    const dots = document.querySelectorAll('.indicator-dot');
-    const capTitle = document.getElementById('carouselCaption');
-    const capSub = document.getElementById('carouselSub');
-
-    function showSlide(index) {
-      if (!slides.length) return;
-      slides.forEach(s => s.classList.remove('active'));
-      dots.forEach(d => d.classList.remove('active'));
-
-      currentSlide = (index + slides.length) % slides.length;
-      slides[currentSlide].classList.add('active');
-      dots[currentSlide].classList.add('active');
-
-      if (capTitle && captions[currentSlide]) {
-        capTitle.textContent = captions[currentSlide].title;
-        capSub.textContent = captions[currentSlide].sub;
-      }
-    }
-
-    function jumpToSlide(index) {
-      showSlide(index);
-    }
-
-    // Auto-advance every 3.5 seconds
-    setInterval(() => {
-      showSlide(currentSlide + 1);
-    }, 3500);
   </script>
 </body>
 </html>
