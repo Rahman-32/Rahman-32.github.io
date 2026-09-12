@@ -944,16 +944,20 @@
 
     </section>
 
-    <!-- ========================================================================== -->
+
+<!-- ========================================================================== -->
     <!--     ADD YOUR FUTURE SECTIONS HERE (e.g., Publications, Projects, etc.)     -->
     <!-- ========================================================================== -->
 
-
-<!-- ========================================================================== -->
+    <!-- ========================================================================== -->
     <!--                     SECTION 3: SCHOLARLY PUBLICATIONS                      -->
     <!-- ========================================================================== -->
     <style>
       /* Scoped Styles for Publications Section */
+      #publications {
+        width: 100%;
+      }
+
       .pub-filter-bar {
         display: flex;
         flex-wrap: wrap;
@@ -1039,6 +1043,7 @@
         justify-content: center;
       }
 
+      .pub-thumb-frame img,
       .pub-thumb-frame svg {
         width: 100%;
         height: 100%;
@@ -1270,17 +1275,11 @@
         <!-- JOURNAL PAPER 1 -->
         <article class="pub-card" data-cat="journal" id="journal-paper-1">
           <div class="pub-thumb-frame">
-            <svg width="100%" height="100%" viewBox="0 0 280 200" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
-              <rect width="280" height="200" fill="#0f172a"/>
-              <circle cx="90" cy="80" r="45" fill="#1e3a8a" opacity="0.6"/>
-              <circle cx="160" cy="110" r="55" fill="#0284c7" opacity="0.4"/>
-              <circle cx="120" cy="140" r="40" fill="#10b981" opacity="0.3"/>
-              <path d="M40 160 Q120 70 240 130" stroke="#38bdf8" stroke-width="2.5" fill="none" stroke-dasharray="4,4"/>
-              <rect x="70" y="55" width="8" height="8" fill="#f59e0b" rx="2"/>
-              <rect x="150" y="95" width="8" height="8" fill="#f59e0b" rx="2"/>
-              <rect x="185" y="125" width="8" height="8" fill="#10b981" rx="2"/>
-              <text x="140" y="40" fill="#e2e8f0" font-family="sans-serif" font-size="11" font-weight="700" text-anchor="middle">CA-ANN &amp; InVEST MODEL</text>
-            </svg>
+            <img 
+              src="environmental-sciences-europe.jpg" 
+              alt="Environmental Sciences Europe Journal Cover" 
+              onerror="this.style.display='none';"
+            />
             <div class="pub-thumb-watermark">Habitat Fragmentation &bull; CA-ANN</div>
           </div>
           <div class="pub-content">
@@ -1531,9 +1530,9 @@
         });
       }
     </script>
-  
-  
-    </main>
+
+  </main>
+
   <!-- ========================================================================== -->
   <!--                               PAGE FOOTER & SCRIPTS                        -->
   <!-- ========================================================================== -->
@@ -1548,3 +1547,6 @@
   </script>
 </body>
 </html>
+
+
+
