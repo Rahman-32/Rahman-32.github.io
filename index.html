@@ -955,7 +955,303 @@
     <!--                     SECTION 3: SCHOLARLY PUBLICATIONS                      -->
     <!-- ========================================================================== -->
 
+    </section>
+
+    <!-- ========================================================================== -->
+    <!--                      SECTION 3: SCHOLARLY PUBLICATIONS                     -->
+    <!-- ========================================================================== -->
+
     <section id="publications">
+
+      <style>
+        /* Alignment & Container Constraint */
+        #publications {
+          max-width: var(--max-width, 1140px);
+          margin: 0 auto;
+          box-sizing: border-box;
+        }
+
+        /* Filter Bar */
+        .pub-filter-bar {
+          display: flex;
+          flex-wrap: wrap;
+          gap: 0.6rem;
+          margin-bottom: 2rem;
+        }
+
+        .pub-filter-btn {
+          display: inline-flex;
+          align-items: center;
+          gap: 0.5rem;
+          padding: 0.5rem 1.05rem;
+          background: var(--bg-card, #ffffff);
+          border: 1px solid var(--border-color, #e2e8f0);
+          border-radius: 9999px;
+          font-size: 0.85rem;
+          font-weight: 600;
+          color: var(--text-body, #334155);
+          cursor: pointer;
+          transition: all 0.2s ease;
+          font-family: inherit;
+        }
+
+        .pub-filter-btn:hover {
+          border-color: var(--primary-accent, #2563eb);
+          color: var(--primary, #1e3a8a);
+        }
+
+        .pub-filter-btn.active {
+          background: var(--primary, #1e3a8a);
+          border-color: var(--primary, #1e3a8a);
+          color: #ffffff;
+        }
+
+        .pub-count-pill {
+          font-size: 0.72rem;
+          font-weight: 700;
+          padding: 0.1rem 0.5rem;
+          border-radius: 9999px;
+          background: #f1f5f9;
+          color: var(--text-muted, #64748b);
+          transition: all 0.2s ease;
+        }
+
+        .pub-filter-btn.active .pub-count-pill {
+          background: rgba(255, 255, 255, 0.22);
+          color: #ffffff;
+        }
+
+        .pub-list {
+          display: flex;
+          flex-direction: column;
+          gap: 1.5rem;
+        }
+
+        /* Standard 2-Column Publication Card */
+        .pub-card {
+          background: var(--bg-card, #ffffff);
+          border: 1px solid var(--border-color, #e2e8f0);
+          border-radius: var(--radius-md, 10px);
+          overflow: hidden;
+          box-shadow: var(--shadow-sm, 0 1px 3px rgba(0, 0, 0, 0.05));
+          display: grid;
+          grid-template-columns: 280px 1fr;
+          align-items: stretch;
+          transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+        }
+
+        .pub-card:hover {
+          border-color: var(--border-hover, #cbd5e1);
+          box-shadow: var(--shadow-md, 0 4px 12px -2px rgba(0, 0, 0, 0.06));
+          transform: translateY(-2px);
+        }
+
+        /* Left Thumbnail / Abstract Container */
+        .pub-thumb-frame {
+          position: relative;
+          background-color: #0f172a;
+          overflow: hidden;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          min-height: 220px;
+        }
+
+        .pub-thumb-frame svg {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          display: block;
+        }
+
+        .pub-thumb-watermark {
+          position: absolute;
+          bottom: 0.65rem;
+          left: 0.65rem;
+          right: 0.65rem;
+          background: rgba(15, 23, 42, 0.85);
+          backdrop-filter: blur(6px);
+          -webkit-backdrop-filter: blur(6px);
+          border: 1px solid rgba(255, 255, 255, 0.12);
+          border-radius: 4px;
+          padding: 0.35rem 0.6rem;
+          font-size: 0.72rem;
+          font-weight: 600;
+          color: #e2e8f0;
+          text-align: center;
+          white-space: nowrap;
+          overflow: hidden;
+          text-overflow: ellipsis;
+        }
+
+        /* Right Content Container */
+        .pub-content {
+          padding: 1.6rem;
+          display: flex;
+          flex-direction: column;
+          flex-grow: 1;
+        }
+
+        /* Compact Card for Conference Proceedings */
+        .pub-card-compact {
+          background: var(--bg-card, #ffffff);
+          border: 1px solid var(--border-color, #e2e8f0);
+          border-radius: var(--radius-md, 10px);
+          padding: 1.5rem;
+          box-shadow: var(--shadow-sm, 0 1px 3px rgba(0, 0, 0, 0.05));
+          transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+        }
+
+        .pub-card-compact:hover {
+          border-color: var(--border-hover, #cbd5e1);
+          box-shadow: var(--shadow-md, 0 4px 12px -2px rgba(0, 0, 0, 0.06));
+          transform: translateY(-2px);
+        }
+
+        /* Badges */
+        .pub-badges-row {
+          display: flex;
+          flex-wrap: wrap;
+          gap: 0.45rem;
+          align-items: center;
+          margin-bottom: 0.75rem;
+        }
+
+        .pub-badge {
+          font-size: 0.74rem;
+          font-weight: 700;
+          padding: 0.22rem 0.6rem;
+          border-radius: 9999px;
+          letter-spacing: 0.02em;
+        }
+
+        .badge-published {
+          background: #ecfdf5;
+          color: #065f46;
+          border: 1px solid #a7f3d0;
+        }
+
+        .badge-review {
+          background: #fffbeb;
+          color: #b45309;
+          border: 1px solid #fde68a;
+        }
+
+        .badge-prep {
+          background: #f1f5f9;
+          color: #475569;
+          border: 1px solid #e2e8f0;
+        }
+
+        .badge-author {
+          background: var(--primary-light, #eff6ff);
+          color: var(--primary, #1e3a8a);
+          border: 1px solid #bfdbfe;
+        }
+
+        .badge-inpress {
+          background: #faf5ff;
+          color: #6b21a8;
+          border: 1px solid #e9d5ff;
+        }
+
+        /* Typography */
+        .pub-title {
+          font-size: 1.15rem;
+          font-weight: 700;
+          color: var(--text-dark, #0f172a);
+          line-height: 1.38;
+          margin-bottom: 0.35rem;
+        }
+
+        .pub-venue {
+          font-size: 0.9rem;
+          font-weight: 600;
+          color: var(--primary-accent, #2563eb);
+          margin-bottom: 0.35rem;
+        }
+
+        .pub-authors {
+          font-size: 0.84rem;
+          color: var(--text-muted, #64748b);
+          margin-bottom: 1rem;
+          line-height: 1.5;
+        }
+
+        /* Summary Box */
+        .pub-summary-box {
+          background: #f8fafc;
+          border-left: 3px solid var(--primary-accent, #2563eb);
+          border-radius: 4px;
+          padding: 0.85rem 1rem;
+          margin-bottom: 1.25rem;
+          display: flex;
+          flex-direction: column;
+          gap: 0.45rem;
+        }
+
+        .pub-summary-item {
+          font-size: 0.87rem;
+          color: var(--text-body, #334155);
+          line-height: 1.55;
+        }
+
+        /* Buttons */
+        .pub-actions {
+          display: flex;
+          flex-wrap: wrap;
+          gap: 0.65rem;
+          align-items: center;
+          margin-top: auto;
+        }
+
+        .pub-btn {
+          display: inline-flex;
+          align-items: center;
+          gap: 0.4rem;
+          padding: 0.45rem 0.95rem;
+          font-size: 0.84rem;
+          font-weight: 600;
+          border-radius: var(--radius-sm, 6px);
+          cursor: pointer;
+          transition: all 0.2s ease;
+          text-decoration: none;
+        }
+
+        .pub-btn-primary {
+          background-color: var(--primary, #1e3a8a);
+          color: #ffffff;
+          border: 1px solid var(--primary, #1e3a8a);
+        }
+
+        .pub-btn-primary:hover {
+          background-color: #172554;
+          color: #ffffff;
+          transform: translateY(-1px);
+        }
+
+        .pub-btn-outline {
+          background-color: #ffffff;
+          color: var(--text-dark, #0f172a);
+          border: 1px solid var(--border-color, #e2e8f0);
+        }
+
+        .pub-btn-outline:hover {
+          border-color: var(--primary-accent, #2563eb);
+          color: var(--primary-accent, #2563eb);
+          transform: translateY(-1px);
+        }
+
+        @media (max-width: 860px) {
+          .pub-card {
+            grid-template-columns: 1fr;
+          }
+          .pub-thumb-frame {
+            min-height: 190px;
+          }
+        }
+      </style>
+
       <div class="section-header">
         <span class="section-tag">Scholarship &amp; Scientific Impact</span>
         <h2 class="section-title">Publications</h2>
@@ -984,15 +1280,9 @@
       <!-- Publications Feed -->
       <div class="pub-list">
 
-
-        <!-- ====================================================================== -->
-        <!-- >>> [START] JOURNAL PAPER 1 (Published • Q1 Journal • 2nd Author)      -->
-        <!-- Title: Spatially Explicit Framework for Evaluating Biodiversity Risk   -->
-        <!-- Journal: Environmental Sciences Europe (Springer Nature)               -->
-        <!-- ====================================================================== -->
+        <!-- Journal Paper 1 -->
         <article class="pub-card" data-cat="journal" id="journal-paper-1">
           <div class="pub-thumb-frame">
-            <!-- Graphical Abstract Vector/Thumbnail -->
             <svg width="100%" height="100%" viewBox="0 0 280 200" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
               <rect width="280" height="200" fill="#0f172a"/>
               <circle cx="90" cy="80" r="45" fill="#1e3a8a" opacity="0.6"/>
@@ -1016,13 +1306,11 @@
             <div class="pub-venue">Environmental Sciences Europe (Springer Nature)</div>
             <div class="pub-authors">Co-Authors &bull; <strong>Md. Saikur Rahman Sun</strong> &bull; et al.</div>
 
-            <!-- Structured Research Insights -->
             <div class="pub-summary-box">
               <div class="pub-summary-item"><strong>Methodology:</strong> Modeled 2050 land-use trajectories using Cellular Automata-Artificial Neural Networks (CA-ANN) and quantified spatial fragmentation indices using FRAGSTATS with ANOVA/Tukey HSD verification.</div>
               <div class="pub-summary-item"><strong>Key Impact:</strong> Deployed InVEST Habitat Quality integration, forecasting 170.77 km² of forest degradation threatening critical habitat for 51.69% of regional mammalian species.</div>
             </div>
 
-            <!-- Action Buttons -->
             <div class="pub-actions">
               <a href="#" target="_blank" rel="noopener noreferrer" class="pub-btn pub-btn-primary">
                 <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
@@ -1035,14 +1323,8 @@
             </div>
           </div>
         </article>
-        <!-- <<< [END] JOURNAL PAPER 1 ============================================ -->
 
-
-        <!-- ====================================================================== -->
-        <!-- >>> [START] JOURNAL PAPER 2 (Under Review • Q1 Journal • 2nd Author)    -->
-        <!-- Title: Climate-Driven Shoreline Retreat and Accretion Hotspots          -->
-        <!-- Journal: Scientific Reports (Nature Portfolio)                         -->
-        <!-- ====================================================================== -->
+        <!-- Journal Paper 2 -->
         <article class="pub-card" data-cat="journal" id="journal-paper-2">
           <div class="pub-thumb-frame">
             <svg width="100%" height="100%" viewBox="0 0 280 200" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
@@ -1081,14 +1363,8 @@
             </div>
           </div>
         </article>
-        <!-- <<< [END] JOURNAL PAPER 2 ============================================ -->
 
-
-        <!-- ====================================================================== -->
-        <!-- >>> [START] JOURNAL PAPER 3 (In Preparation • 1st Author • Target Q1)   -->
-        <!-- Title: ML-Driven Multifactor Water Quality Indexing for Aquaculture     -->
-        <!-- Target: Environmental Modelling & Software / Applied Geography         -->
-        <!-- ====================================================================== -->
+        <!-- Journal Paper 3 -->
         <article class="pub-card" data-cat="journal" id="journal-paper-3">
           <div class="pub-thumb-frame">
             <svg width="100%" height="100%" viewBox="0 0 280 200" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
@@ -1124,14 +1400,8 @@
             </div>
           </div>
         </article>
-        <!-- <<< [END] JOURNAL PAPER 3 ============================================ -->
 
-
-        <!-- ====================================================================== -->
-        <!-- >>> [START] BOOK CHAPTER 1 (Accepted / In Press • 1st Author • Scopus) -->
-        <!-- Title: Cyclone-Induced Canopy Loss & Regeneration in Sundarbans        -->
-        <!-- Book: Mangrove Ecosystems • Springer Nature                            -->
-        <!-- ====================================================================== -->
+        <!-- Book Chapter 1 -->
         <article class="pub-card" data-cat="chapter" id="book-chapter-1">
           <div class="pub-thumb-frame">
             <svg width="100%" height="100%" viewBox="0 0 280 200" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
@@ -1171,14 +1441,8 @@
             </div>
           </div>
         </article>
-        <!-- <<< [END] BOOK CHAPTER 1 ============================================ -->
 
-
-        <!-- ====================================================================== -->
-        <!-- >>> [START] BOOK CHAPTER 2 (Published • 3rd Author • Scopus)            -->
-        <!-- Title: Shoreline Dynamics & Coastal Vulnerability Assessment            -->
-        <!-- Book: Geospatial Application of Coastal Hazards • Springer Nature       -->
-        <!-- ====================================================================== -->
+        <!-- Book Chapter 2 -->
         <article class="pub-card" data-cat="chapter" id="book-chapter-2">
           <div class="pub-thumb-frame">
             <svg width="100%" height="100%" viewBox="0 0 280 200" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
@@ -1213,14 +1477,8 @@
             </div>
           </div>
         </article>
-        <!-- <<< [END] BOOK CHAPTER 2 ============================================ -->
 
-
-        <!-- ====================================================================== -->
-        <!-- >>> [START] CONFERENCE PAPER 1 (IEEE ICCIT 2025 • Stochastic Frontier)  -->
-        <!-- Title: Estimating Mobility & Maximum Operating Speed on Highways        -->
-        <!-- Proceedings: IEEE ICCIT • DOI: 10.1109/ICCIT68739.2025.11490528         -->
-        <!-- ====================================================================== -->
+        <!-- Conference Paper 1 -->
         <article class="pub-card-compact" data-cat="conference" id="conference-paper-1">
           <div class="pub-badges-row">
             <span class="pub-badge badge-published">IEEE Conference Proceeding</span>
@@ -1239,14 +1497,8 @@
             </a>
           </div>
         </article>
-        <!-- <<< [END] CONFERENCE PAPER 1 ========================================= -->
 
-
-        <!-- ====================================================================== -->
-        <!-- >>> [START] CONFERENCE PAPER 2 (ICPACE 2023 • RUET • River Course Shift)-->
-        <!-- Title: Assessment of Landform Change & Economic Transition              -->
-        <!-- Proceedings: ICPACE RUET • PRA & Remote Sensing Analysis               -->
-        <!-- ====================================================================== -->
+        <!-- Conference Paper 2 -->
         <article class="pub-card-compact" data-cat="conference" id="conference-paper-2">
           <div class="pub-badges-row">
             <span class="pub-badge badge-published">International Conference Paper</span>
@@ -1258,14 +1510,8 @@
             Combined remote sensing geomorphological tracking with Participatory Rural Appraisal (PRA) to model rural livelihood transitions following Padma river channel shifts.
           </p>
         </article>
-        <!-- <<< [END] CONFERENCE PAPER 2 ========================================= -->
 
-
-        <!-- ====================================================================== -->
-        <!-- >>> [START] CONFERENCE PAPER 3 (ICACE 2020 • CUET • Healthcare GPS)    -->
-        <!-- Title: Using Real-Time GPS Tracking Traffic System for Healthcare       -->
-        <!-- Proceedings: 5th ICACE CUET • Intelligent Transportation               -->
-        <!-- ====================================================================== -->
+        <!-- Conference Paper 3 -->
         <article class="pub-card-compact" data-cat="conference" id="conference-paper-3">
           <div class="pub-badges-row">
             <span class="pub-badge badge-published">International Conference Paper</span>
@@ -1277,10 +1523,30 @@
             Analyzed intelligent traffic management routing algorithms to expedite emergency healthcare transport during peak urban road network congestion.
           </p>
         </article>
-        <!-- <<< [END] CONFERENCE PAPER 3 ========================================= -->
 
       </div>
+
+      <script>
+        function filterPubs(category, btn) {
+          const buttons = document.querySelectorAll('.pub-filter-btn');
+          buttons.forEach(b => b.classList.remove('active'));
+          btn.classList.add('active');
+
+          const items = document.querySelectorAll('.pub-list article');
+          items.forEach(item => {
+            const itemCat = item.getAttribute('data-cat');
+            if (category === 'all' || itemCat === category) {
+              item.style.display = '';
+            } else {
+              item.style.display = 'none';
+            }
+          });
+        }
+      </script>
+
     </section>
+
+  </main>
 
 
 
