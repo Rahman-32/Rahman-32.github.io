@@ -1999,443 +1999,9 @@
     <!--                     SECTION 3: SCHOLARLY PUBLICATIONS                      -->
     <!-- ========================================================================== -->
 
-    <style>
-      /* Scoped Publications Styles */
-      .pub-filter-bar {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 0.6rem;
-        margin-bottom: 2.2rem;
-        align-items: center;
-      }
-
-      .pub-filter-btn {
-        padding: 0.5rem 1.15rem;
-        font-size: 0.85rem;
-        font-weight: 600;
-        border-radius: 9999px;
-        border: 1px solid var(--border-color);
-        background: #ffffff;
-        color: var(--text-muted);
-        cursor: pointer;
-        transition: all 0.2s ease;
-        display: inline-flex;
-        align-items: center;
-        gap: 0.4rem;
-      }
-
-      .pub-filter-btn:hover {
-        border-color: var(--primary-accent);
-        color: var(--primary);
-      }
-
-      .pub-filter-btn.active {
-        background: var(--primary);
-        color: #ffffff;
-        border-color: var(--primary);
-        box-shadow: 0 2px 8px rgba(30, 58, 138, 0.2);
-      }
-
-      .pub-count-pill {
-        font-size: 0.72rem;
-        padding: 0.1rem 0.45rem;
-        border-radius: 9999px;
-        background: rgba(0, 0, 0, 0.08);
-      }
-
-      .pub-filter-btn.active .pub-count-pill {
-        background: rgba(255, 255, 255, 0.25);
-        color: #ffffff;
-      }
-
-      .pub-list {
-        display: flex;
-        flex-direction: column;
-        gap: 1.75rem;
-      }
-
-      .pub-card {
-        background: var(--bg-card);
-        border: 1px solid var(--border-color);
-        border-radius: 12px;
-        overflow: hidden;
-        box-shadow: var(--shadow-sm);
-        transition: all 0.25s ease;
-        display: grid;
-        grid-template-columns: 280px 1fr;
-      }
-
-      .pub-card:hover {
-        border-color: var(--border-hover);
-        transform: translateY(-2px);
-        box-shadow: var(--shadow-md);
-      }
-
-      .pub-thumb-frame {
-        background: #0f172a;
-        position: relative;
-        overflow: hidden;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        min-height: 220px;
-        border-right: 1px solid var(--border-color);
-      }
-
-      .pub-thumb-img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        opacity: 0.92;
-        transition: transform 0.3s ease;
-      }
-
-      .pub-card:hover .pub-thumb-img {
-        transform: scale(1.03);
-      }
-
-      .pub-thumb-watermark {
-        position: absolute;
-        bottom: 0.6rem;
-        left: 0.75rem;
-        right: 0.75rem;
-        background: rgba(15, 23, 42, 0.85);
-        backdrop-filter: blur(4px);
-        color: #94a3b8;
-        font-size: 0.72rem;
-        font-weight: 600;
-        padding: 0.25rem 0.55rem;
-        border-radius: 4px;
-        border: 1px solid rgba(255, 255, 255, 0.1);
-        text-align: center;
-      }
-
-      .pub-content {
-        padding: 1.75rem;
-        display: flex;
-        flex-direction: column;
-      }
-
-      .pub-badges-row {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 0.5rem;
-        margin-bottom: 0.75rem;
-        align-items: center;
-      }
-
-      .pub-badge {
-        font-size: 0.74rem;
-        font-weight: 700;
-        text-transform: uppercase;
-        letter-spacing: 0.04em;
-        padding: 0.2rem 0.6rem;
-        border-radius: 4px;
-        display: inline-flex;
-        align-items: center;
-        gap: 0.3rem;
-      }
-
-      .badge-published {
-        background: #ecfdf5;
-        color: #065f46;
-        border: 1px solid #a7f3d0;
-      }
-
-      .badge-review {
-        background: #fffbeb;
-        color: #92400e;
-        border: 1px solid #fde68a;
-      }
-
-      .badge-prep {
-        background: #f8fafc;
-        color: #475569;
-        border: 1px solid #e2e8f0;
-      }
-
-      .badge-inpress {
-        background: #eff6ff;
-        color: #1e40af;
-        border: 1px solid #bfdbfe;
-      }
-
-      .badge-author {
-        background: #f1f5f9;
-        color: #334155;
-        border: 1px solid #cbd5e1;
-      }
-
-      .pub-title {
-        font-size: 1.22rem;
-        font-weight: 700;
-        color: var(--text-dark);
-        line-height: 1.4;
-        margin-bottom: 0.45rem;
-      }
-
-      .pub-venue {
-        font-size: 0.9rem;
-        color: var(--primary-accent);
-        font-weight: 600;
-        margin-bottom: 0.4rem;
-      }
-
-      .pub-authors {
-        font-size: 0.85rem;
-        color: var(--text-muted);
-        margin-bottom: 1.1rem;
-      }
-
-      .pub-authors strong {
-        color: var(--text-dark);
-        text-decoration: underline;
-        text-decoration-color: var(--primary-accent);
-        text-underline-offset: 3px;
-      }
-
-      .pub-summary-box {
-        background: #f8fafc;
-        border-radius: 8px;
-        padding: 0.9rem 1.1rem;
-        border: 1px solid #f1f5f9;
-        margin-bottom: 1.25rem;
-        font-size: 0.86rem;
-        color: var(--text-body);
-        line-height: 1.6;
-        display: flex;
-        flex-direction: column;
-        gap: 0.45rem;
-      }
-
-      .pub-summary-item {
-        position: relative;
-        padding-left: 1rem;
-      }
-
-      .pub-summary-item::before {
-        content: "•";
-        position: absolute;
-        left: 0;
-        color: var(--primary-accent);
-        font-weight: bold;
-      }
-
-      .pub-summary-item strong {
-        color: var(--text-dark);
-      }
-
-      .pub-actions {
-        margin-top: auto;
-        display: flex;
-        flex-wrap: wrap;
-        gap: 0.75rem;
-        align-items: center;
-      }
-
-      .pub-btn {
-        display: inline-flex;
-        align-items: center;
-        gap: 0.4rem;
-        padding: 0.45rem 0.95rem;
-        font-size: 0.82rem;
-        font-weight: 600;
-        border-radius: var(--radius-sm);
-        transition: all 0.2s ease;
-      }
-
-      .pub-btn-primary {
-        background: var(--primary);
-        color: #ffffff;
-        border: 1px solid var(--primary);
-      }
-
-      .pub-btn-primary:hover {
-        background: #172554;
-        color: #ffffff;
-      }
-
-      .pub-btn-outline {
-        background: #ffffff;
-        color: var(--text-dark);
-        border: 1px solid var(--border-color);
-      }
-
-      .pub-btn-outline:hover {
-        border-color: var(--primary-accent);
-        color: var(--primary-accent);
-      }
-
-      .pub-card-compact {
-        background: var(--bg-card);
-        border: 1px solid var(--border-color);
-        border-left: 4px solid var(--primary-accent);
-        border-radius: var(--radius-md);
-        padding: 1.4rem 1.6rem;
-        transition: all 0.2s ease;
-      }
-
-      .pub-card-compact:hover {
-        border-color: var(--border-hover);
-        box-shadow: var(--shadow-sm);
-        transform: translateY(-2px);
-      }
-
-      /* Specific Motion Carousel & Insights Styles for Journal 1 */
-      .j1-carousel-view {
-        position: relative;
-        width: 100%;
-        height: 100%;
-        min-height: 280px;
-        background-color: #0b1329;
-        overflow: hidden;
-      }
-
-      .j1-slide-img {
-        position: absolute;
-        inset: 0;
-        width: 100%;
-        height: 100%;
-        object-fit: contain;
-        background-color: #0b1329;
-        opacity: 0;
-        transform: scale(1.02);
-        transition: opacity 0.8s ease-in-out, transform 1.2s ease-in-out;
-      }
-
-      .j1-slide-img.active {
-        opacity: 1;
-        transform: scale(1);
-      }
-
-      .j1-caption-pill {
-        position: absolute;
-        bottom: 0.65rem;
-        left: 0.65rem;
-        right: 0.65rem;
-        background: rgba(15, 23, 42, 0.88);
-        backdrop-filter: blur(8px);
-        -webkit-backdrop-filter: blur(8px);
-        border: 1px solid rgba(255, 255, 255, 0.15);
-        border-radius: 6px;
-        padding: 0.4rem 0.65rem;
-        color: #ffffff;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        z-index: 5;
-      }
-
-      .j1-caption-text {
-        font-size: 0.73rem;
-        font-weight: 600;
-        color: #e2e8f0;
-        white-space: nowrap;
-        overflow: hidden;
-        text-overflow: ellipsis;
-        max-width: 170px;
-      }
-
-      .j1-dots {
-        display: flex;
-        gap: 0.3rem;
-        align-items: center;
-      }
-
-      .j1-dot {
-        width: 14px;
-        height: 4px;
-        background: rgba(255, 255, 255, 0.35);
-        border-radius: 2px;
-        cursor: pointer;
-        transition: all 0.3s ease;
-      }
-
-      .j1-dot.active {
-        background: #38bdf8;
-        width: 22px;
-      }
-
-      .badge-author-highlight {
-        background: #eff6ff;
-        color: #1e3a8a;
-        border: 1px solid #bfdbfe;
-        display: inline-flex;
-        align-items: center;
-        gap: 0.35rem;
-      }
-
-      .badge-author-highlight .main-rank {
-        font-weight: 800;
-        font-size: 0.76rem;
-        color: #1d4ed8;
-      }
-
-      .badge-author-highlight .equal-contrib {
-        font-size: 0.66rem;
-        font-weight: 500;
-        color: #64748b;
-        text-transform: none;
-        letter-spacing: normal;
-      }
-
-      .j1-insights-panel {
-        max-height: 0;
-        overflow: hidden;
-        transition: max-height 0.45s ease-in-out, opacity 0.35s ease, margin 0.35s ease;
-        opacity: 0;
-        margin-top: 0;
-        background: #f8fafc;
-        border-radius: 8px;
-        border: 1px solid transparent;
-      }
-
-      .j1-insights-panel.open {
-        max-height: 520px;
-        opacity: 1;
-        margin-top: 1.25rem;
-        border-color: #e2e8f0;
-        padding: 1.2rem;
-        box-shadow: inset 0 2px 4px rgba(0,0,0,0.02);
-      }
-
-      .insight-section {
-        margin-bottom: 0.9rem;
-      }
-
-      .insight-section:last-child {
-        margin-bottom: 0;
-      }
-
-      .insight-label {
-        font-size: 0.78rem;
-        font-weight: 700;
-        text-transform: uppercase;
-        letter-spacing: 0.05em;
-        color: var(--primary);
-        margin-bottom: 0.25rem;
-        display: flex;
-        align-items: center;
-        gap: 0.4rem;
-      }
-
-      .insight-body {
-        font-size: 0.88rem;
-        color: #334155;
-        line-height: 1.6;
-      }
-
-      @media (max-width: 880px) {
-        .pub-card {
-          grid-template-columns: 1fr;
-        }
-        .pub-thumb-frame {
-          min-height: 180px;
-          border-right: none;
-          border-bottom: 1px solid var(--border-color);
-        }
-      }
-    </style>
+<!-- ========================================================================== -->
+    <!--                     SECTION 3: SCHOLARLY PUBLICATIONS                      -->
+    <!-- ========================================================================== -->
 
     <section id="publications">
       <div class="section-header">
@@ -2466,102 +2032,62 @@
       <!-- Publications Feed -->
       <div class="pub-list">
 
+
         <!-- ====================================================================== -->
-        <!-- >>> ITEM 1: JOURNAL PAPER 1 (Published • Q1 Journal • 2nd Author)      -->
+        <!-- >>> [START] JOURNAL PAPER 1 (Published • Q1 Journal • 2nd Author)      -->
         <!-- Title: Spatially Explicit Framework for Evaluating Biodiversity Risk   -->
         <!-- Journal: Environmental Sciences Europe (Springer Nature)               -->
-        <!-- DOI: https://doi.org/10.1186/s12302-026-01490-w                        -->
         <!-- ====================================================================== -->
         <article class="pub-card" data-cat="journal" id="journal-paper-1">
-          <div class="pub-thumb-frame" style="padding: 0; background: #0b1329;">
-            <div class="j1-carousel-view">
-              <img src="10-226x300.jpg" class="j1-slide-img active" alt="Journal Cover - Environmental Sciences Europe" onerror="this.style.display='none';" />
-              <img src="Studyareaj1.jpg" class="j1-slide-img" alt="Study Area Profile - South-Eastern Bangladesh" onerror="this.style.display='none';" />
-              <img src="LULCchangeJ1.jpg" class="j1-slide-img" alt="LULC Scenarios 2000-2050 (CA-ANN)" onerror="this.style.display='none';" />
-              <img src="SuitabilityJ1.jpg" class="j1-slide-img" alt="InVEST Habitat Quality Assessment" onerror="this.style.display='none';" />
-
-              <div class="j1-caption-pill">
-                <span class="j1-caption-text" id="j1SlideCaption">Journal Cover (SpringerOpen)</span>
-                <div class="j1-dots">
-                  <span class="j1-dot active" onclick="jumpJ1Slide(0)"></span>
-                  <span class="j1-dot" onclick="jumpJ1Slide(1)"></span>
-                  <span class="j1-dot" onclick="jumpJ1Slide(2)"></span>
-                  <span class="j1-dot" onclick="jumpJ1Slide(3)"></span>
-                </div>
-              </div>
-            </div>
+          <div class="pub-thumb-frame">
+            <!-- Graphical Abstract Vector/Thumbnail -->
+            <svg width="100%" height="100%" viewBox="0 0 280 200" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+              <rect width="280" height="200" fill="#0f172a"/>
+              <circle cx="90" cy="80" r="45" fill="#1e3a8a" opacity="0.6"/>
+              <circle cx="160" cy="110" r="55" fill="#0284c7" opacity="0.4"/>
+              <circle cx="120" cy="140" r="40" fill="#10b981" opacity="0.3"/>
+              <path d="M40 160 Q120 70 240 130" stroke="#38bdf8" stroke-width="2.5" fill="none" stroke-dasharray="4,4"/>
+              <rect x="70" y="55" width="8" height="8" fill="#f59e0b" rx="2"/>
+              <rect x="150" y="95" width="8" height="8" fill="#f59e0b" rx="2"/>
+              <rect x="185" y="125" width="8" height="8" fill="#10b981" rx="2"/>
+              <text x="140" y="40" fill="#e2e8f0" font-family="sans-serif" font-size="11" font-weight="700" text-anchor="middle">CA-ANN &amp; InVEST MODEL</text>
+            </svg>
+            <div class="pub-thumb-watermark">Habitat Fragmentation &bull; CA-ANN</div>
           </div>
-
           <div class="pub-content">
             <div class="pub-badges-row">
               <span class="pub-badge badge-published">Published &bull; Q1 Journal</span>
-              <span class="pub-badge badge-author-highlight">
-                <span class="main-rank">2nd Author</span>
-                <span class="equal-contrib">&bull; Equal Contribution</span>
-              </span>
+              <span class="pub-badge badge-author">2nd Author</span>
               <span class="pub-badge badge-inpress">SpringerOpen</span>
             </div>
-
             <h3 class="pub-title">Spatially Explicit Framework for Evaluating Biodiversity Risk Using Land Use Prediction, Landscape Fragmentation, and Habitat Quality Models</h3>
             <div class="pub-venue">Environmental Sciences Europe (Springer Nature)</div>
-            <div class="pub-authors">Co-Authors &bull; <strong>Md. Saikur Rahman Sun*</strong> &bull; et al. <span style="font-size: 0.8rem; color: #64748b;">(*Equal contribution)</span></div>
+            <div class="pub-authors">Co-Authors &bull; <strong>Md. Saikur Rahman Sun</strong> &bull; et al.</div>
 
+            <!-- Structured Research Insights -->
             <div class="pub-summary-box">
-              <div class="pub-summary-item"><strong>Core Pipeline:</strong> Integrated multi-temporal Landsat imagery (2000&ndash;2020) and MOLUSCE-based Cellular Automata to project 2050 LULC trajectories in Southeastern Bangladesh.</div>
-              <div class="pub-summary-item"><strong>Ecological Metric:</strong> Coupled FRAGSTATS structural fragmentation with InVEST habitat quality modeling, linking projected 170.77 km² forest loss to mammal and amphibian vulnerability.</div>
+              <div class="pub-summary-item"><strong>Methodology:</strong> Modeled 2050 land-use trajectories using Cellular Automata-Artificial Neural Networks (CA-ANN) and quantified spatial fragmentation indices using FRAGSTATS with ANOVA/Tukey HSD verification.</div>
+              <div class="pub-summary-item"><strong>Key Impact:</strong> Deployed InVEST Habitat Quality integration, forecasting 170.77 km² of forest degradation threatening critical habitat for 51.69% of regional mammalian species.</div>
             </div>
 
+            <!-- Action Buttons -->
             <div class="pub-actions">
-              <a href="https://doi.org/10.1186/s12302-026-01490-w" target="_blank" rel="noopener noreferrer" class="pub-btn pub-btn-primary">
+              <a href="#" target="_blank" rel="noopener noreferrer" class="pub-btn pub-btn-primary">
                 <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
                 <span>Published Article</span>
               </a>
-
-              <button type="button" class="pub-btn pub-btn-outline" onclick="toggleJ1Insights()" id="j1InsightsBtn" style="cursor: pointer;">
-                <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" id="j1BtnIcon"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
-                <span id="j1BtnText">Get More Insights</span>
-              </button>
+              <a href="https://drive.google.com/file/d/1VGTp8qP04VXJ9eXsRFO97J1AEHhDf-pQ/view" target="_blank" class="pub-btn pub-btn-outline">
+                <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
+                <span>Pre-print / PDF</span>
+              </a>
             </div>
-
-            <!-- Expandable Insights Drawer -->
-            <div class="j1-insights-panel" id="j1InsightsPanel">
-              <div class="insight-section">
-                <div class="insight-label">
-                  <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"/></svg>
-                  <span>Problem Statement</span>
-                </div>
-                <div class="insight-body">
-                  Land-use and land-cover (LULC) transformations, particularly the rapid conversion of forests to agricultural and urban spaces, are major drivers of biodiversity loss in the Indo-Burma hotspot. However, comprehensive spatial assessments linking future landscape changes to specific ecological impacts remain critically limited in South Asia.
-                </div>
-              </div>
-
-              <div class="insight-section">
-                <div class="insight-label">
-                  <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"/></svg>
-                  <span>Methodology</span>
-                </div>
-                <div class="insight-body">
-                  Developed a multi-method framework integrating multi-temporal Landsat imagery (2000&ndash;2020) and MOLUSCE-based Cellular Automata to project 2050 land-use scenarios. Quantified landscape fragmentation using FRAGSTATS and modeled habitat vulnerability using InVEST combined with species-richness data.
-                </div>
-              </div>
-
-              <div class="insight-section">
-                <div class="insight-label">
-                  <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
-                  <span>Key Impact</span>
-                </div>
-                <div class="insight-body">
-                  Projected a 170.77 km² decrease in regional forest cover by 2050 and identified significant structural grassland fragmentation. Demonstrated that even minor forest losses carry disproportionate risks, as these intact areas support 51.69% of local mammalian species and 27.32% of amphibians, providing a data-driven basis for prioritizing targeted forest-corridor restoration.
-                </div>
-              </div>
-            </div>
-
           </div>
         </article>
-        <!-- <<< END: JOURNAL PAPER 1 ============================================= -->
+        <!-- <<< [END] JOURNAL PAPER 1 ============================================ -->
+
 
         <!-- ====================================================================== -->
-        <!-- >>> ITEM 2: JOURNAL PAPER 2 (Under Review • Q1 Journal • 2nd Author)    -->
+        <!-- >>> [START] JOURNAL PAPER 2 (Under Review • Q1 Journal • 2nd Author)    -->
         <!-- Title: Climate-Driven Shoreline Retreat and Accretion Hotspots          -->
         <!-- Journal: Scientific Reports (Nature Portfolio)                         -->
         <!-- ====================================================================== -->
@@ -2603,10 +2129,11 @@
             </div>
           </div>
         </article>
-        <!-- <<< END: JOURNAL PAPER 2 ============================================= -->
+        <!-- <<< [END] JOURNAL PAPER 2 ============================================ -->
+
 
         <!-- ====================================================================== -->
-        <!-- >>> ITEM 3: JOURNAL PAPER 3 (In Preparation • 1st Author • Target Q1)   -->
+        <!-- >>> [START] JOURNAL PAPER 3 (In Preparation • 1st Author • Target Q1)   -->
         <!-- Title: ML-Driven Multifactor Water Quality Indexing for Aquaculture     -->
         <!-- Target: Environmental Modelling & Software / Applied Geography         -->
         <!-- ====================================================================== -->
@@ -2645,10 +2172,11 @@
             </div>
           </div>
         </article>
-        <!-- <<< END: JOURNAL PAPER 3 ============================================= -->
+        <!-- <<< [END] JOURNAL PAPER 3 ============================================ -->
+
 
         <!-- ====================================================================== -->
-        <!-- >>> ITEM 4: BOOK CHAPTER 1 (Accepted / In Press • 1st Author • Scopus) -->
+        <!-- >>> [START] BOOK CHAPTER 1 (Accepted / In Press • 1st Author • Scopus) -->
         <!-- Title: Cyclone-Induced Canopy Loss & Regeneration in Sundarbans        -->
         <!-- Book: Mangrove Ecosystems • Springer Nature                            -->
         <!-- ====================================================================== -->
@@ -2675,39 +2203,137 @@
             <div class="pub-authors"><strong>Md. Saikur Rahman Sun</strong> (1st Author) &bull; et al.</div>
 
             <div class="pub-summary-box">
-              <
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
+              <div class="pub-summary-item"><strong>Analytical Workflow:</strong> Processed multi-decadal cloud-free Landsat time-series in Google Earth Engine (GEE), applying Kruskal-Wallis, Dunn's post-hoc comparisons, and Cohen's d effect size tests.</div>
+              <div class="pub-summary-item"><strong>Key Conclusion:</strong> Established Enhanced Vegetation Index (EVI) as the most sensitive metric, demonstrating a resilient 12-month post-cyclone canopy recovery trajectory.</div>
+            </div>
+
+            <div class="pub-actions">
+              <a href="#" target="_blank" rel="noopener noreferrer" class="pub-btn pub-btn-primary">
+                <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/></svg>
+                <span>Springer Volume Details</span>
+              </a>
+              <a href="https://drive.google.com/file/d/1VGTp8qP04VXJ9eXsRFO97J1AEHhDf-pQ/view" target="_blank" class="pub-btn pub-btn-outline">
+                <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
+                <span>Pre-print PDF</span>
+              </a>
+            </div>
+          </div>
+        </article>
+        <!-- <<< [END] BOOK CHAPTER 1 ============================================ -->
+
+
+        <!-- ====================================================================== -->
+        <!-- >>> [START] BOOK CHAPTER 2 (Published • 3rd Author • Scopus)            -->
+        <!-- Title: Shoreline Dynamics & Coastal Vulnerability Assessment            -->
+        <!-- Book: Geospatial Application of Coastal Hazards • Springer Nature       -->
+        <!-- ====================================================================== -->
+        <article class="pub-card" data-cat="chapter" id="book-chapter-2">
+          <div class="pub-thumb-frame">
+            <svg width="100%" height="100%" viewBox="0 0 280 200" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+              <rect width="280" height="200" fill="#1e293b"/>
+              <path d="M30 140 C100 80, 180 160, 250 110" stroke="#38bdf8" stroke-width="3" fill="none"/>
+              <rect x="40" y="40" width="80" height="24" rx="4" fill="#0369a1" opacity="0.8"/>
+              <text x="80" y="56" fill="#ffffff" font-family="sans-serif" font-size="9" font-weight="700" text-anchor="middle">19 DISTRICTS</text>
+              <text x="140" y="180" fill="#94a3b8" font-family="sans-serif" font-size="10" font-weight="600" text-anchor="middle">InVEST COASTAL EXPOSURE</text>
+            </svg>
+            <div class="pub-thumb-watermark">InVEST Vulnerability Modeling</div>
+          </div>
+          <div class="pub-content">
+            <div class="pub-badges-row">
+              <span class="pub-badge badge-published">Published Chapter</span>
+              <span class="pub-badge badge-author">3rd Author</span>
+              <span class="pub-badge badge-inpress">Springer Nature &bull; Scopus</span>
+            </div>
+            <h3 class="pub-title">Shoreline Dynamics and Coastal Vulnerability Assessment in Bangladesh: An Integrated Approach Using Remote Sensing and the InVEST Model</h3>
+            <div class="pub-venue">Book: Geospatial Application of Coastal Hazards &bull; Springer Nature</div>
+            <div class="pub-authors">Co-Authors &bull; <strong>Md. Saikur Rahman Sun</strong> &bull; et al.</div>
+
+            <div class="pub-summary-box">
+              <div class="pub-summary-item"><strong>Scope:</strong> Evaluated 2015&ndash;2025 shoreline accretion/erosion patterns and integrated coastal exposure across 19 coastal districts using Landsat-8 and the InVEST Coastal Vulnerability model.</div>
+              <div class="pub-summary-item"><strong>Key Finding:</strong> Quantified erosion rates reaching 82.9 m/year along exposed estuaries, validating the protective buffering capacity of natural coastal mangrove belts.</div>
+            </div>
+
+            <div class="pub-actions">
+              <a href="#" target="_blank" rel="noopener noreferrer" class="pub-btn pub-btn-primary">
+                <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+                <span>Chapter Link (Springer)</span>
+              </a>
+            </div>
+          </div>
+        </article>
+        <!-- <<< [END] BOOK CHAPTER 2 ============================================ -->
+
+
+        <!-- ====================================================================== -->
+        <!-- >>> [START] CONFERENCE PAPER 1 (IEEE ICCIT 2025 • Stochastic Frontier)  -->
+        <!-- Title: Estimating Mobility & Maximum Operating Speed on Highways        -->
+        <!-- Proceedings: IEEE ICCIT • DOI: 10.1109/ICCIT68739.2025.11490528         -->
+        <!-- ====================================================================== -->
+        <article class="pub-card-compact" data-cat="conference" id="conference-paper-1">
+          <div class="pub-badges-row">
+            <span class="pub-badge badge-published">IEEE Conference Proceeding</span>
+            <span class="pub-badge badge-author">ICCIT 2025</span>
+            <span class="pub-badge badge-inpress">DOI: 10.1109/ICCIT68739.2025.11490528</span>
+          </div>
+          <h3 class="pub-title" style="font-size: 1.1rem;">Estimating Mobility and Maximum Operating Speed on Highways in Dhaka City Using Stochastic Frontier Model</h3>
+          <div class="pub-venue">Proceedings of the 28th International Conference on Computer and Information Technology (ICCIT) &bull; IEEE</div>
+          <p class="placeholder-text" style="margin: 0.5rem 0 1rem;">
+            Formulated econometric stochastic frontier models to empirically benchmark operational capacity and speed differentials on primary urban corridors in Dhaka.
+          </p>
+          <div class="pub-actions">
+            <a href="https://doi.org/10.1109/ICCIT68739.2025.11490528" target="_blank" rel="noopener noreferrer" class="pub-btn pub-btn-primary">
+              <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+              <span>IEEE Xplore Entry</span>
+            </a>
+          </div>
+        </article>
+        <!-- <<< [END] CONFERENCE PAPER 1 ========================================= -->
+
+
+        <!-- ====================================================================== -->
+        <!-- >>> [START] CONFERENCE PAPER 2 (ICPACE 2023 • RUET • River Course Shift)-->
+        <!-- Title: Assessment of Landform Change & Economic Transition              -->
+        <!-- Proceedings: ICPACE RUET • PRA & Remote Sensing Analysis               -->
+        <!-- ====================================================================== -->
+        <article class="pub-card-compact" data-cat="conference" id="conference-paper-2">
+          <div class="pub-badges-row">
+            <span class="pub-badge badge-published">International Conference Paper</span>
+            <span class="pub-badge badge-author">ICPACE 2023 &bull; RUET</span>
+          </div>
+          <h3 class="pub-title" style="font-size: 1.1rem;">Assessment of the Landform Change and Economic Transition Under the Impacts of River Course Alteration in Rural Areas Rajshahi: A PRA Framework-Based Analysis</h3>
+          <div class="pub-venue">International Conference on Planning, Architecture and Civil Engineering &bull; RUET</div>
+          <p class="placeholder-text" style="margin: 0.5rem 0 1rem;">
+            Combined remote sensing geomorphological tracking with Participatory Rural Appraisal (PRA) to model rural livelihood transitions following Padma river channel shifts.
+          </p>
+        </article>
+        <!-- <<< [END] CONFERENCE PAPER 2 ========================================= -->
+
+
+        <!-- ====================================================================== -->
+        <!-- >>> [START] CONFERENCE PAPER 3 (ICACE 2020 • CUET • Healthcare GPS)    -->
+        <!-- Title: Using Real-Time GPS Tracking Traffic System for Healthcare       -->
+        <!-- Proceedings: 5th ICACE CUET • Intelligent Transportation               -->
+        <!-- ====================================================================== -->
+        <article class="pub-card-compact" data-cat="conference" id="conference-paper-3">
+          <div class="pub-badges-row">
+            <span class="pub-badge badge-published">International Conference Paper</span>
+            <span class="pub-badge badge-author">ICACE 2020 &bull; CUET</span>
+          </div>
+          <h3 class="pub-title" style="font-size: 1.1rem;">Using Real-Time GPS Tracking Traffic System for Healthcare Vehicles</h3>
+          <div class="pub-venue">5th International Conference on Advances in Civil Engineering &bull; CUET</div>
+          <p class="placeholder-text" style="margin: 0.5rem 0 0.5rem;">
+            Analyzed intelligent traffic management routing algorithms to expedite emergency healthcare transport during peak urban road network congestion.
+          </p>
+        </article>
+        <!-- <<< [END] CONFERENCE PAPER 3 ========================================= -->
+
+      </div>
+    </section>
+
+
+
+
+    
   
   
   
