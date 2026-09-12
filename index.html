@@ -1187,6 +1187,8 @@
         border-radius: var(--radius-sm);
         transition: all 0.2s ease;
         text-decoration: none;
+        cursor: pointer;
+        font-family: inherit;
       }
 
       .pub-btn-primary {
@@ -1231,6 +1233,96 @@
         font-size: 0.88rem;
         color: var(--text-body);
         line-height: 1.6;
+      }
+
+      /* Insights Modal Dialog */
+      dialog.pub-dialog {
+        border: none;
+        border-radius: var(--radius-md);
+        box-shadow: 0 25px 50px -12px rgba(15, 23, 42, 0.25);
+        max-width: 640px;
+        width: calc(100% - 2rem);
+        margin: auto;
+        overflow: hidden;
+        background: transparent;
+      }
+
+      dialog.pub-dialog::backdrop {
+        background: rgba(15, 23, 42, 0.65);
+        backdrop-filter: blur(4px);
+      }
+
+      .pub-dialog-content {
+        background: var(--bg-card);
+        border: 1px solid var(--border-color);
+        border-radius: var(--radius-md);
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+      }
+
+      .pub-dialog-header {
+        padding: 1.25rem 1.5rem;
+        border-bottom: 1px solid var(--border-color);
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        gap: 1rem;
+      }
+
+      .pub-dialog-title {
+        font-size: 1.1rem;
+        font-weight: 700;
+        color: var(--text-dark);
+        line-height: 1.35;
+        margin-top: 0.35rem;
+      }
+
+      .pub-dialog-venue {
+        font-size: 0.85rem;
+        color: var(--primary-accent);
+        font-weight: 600;
+        margin-top: 0.2rem;
+      }
+
+      .pub-dialog-close {
+        background: transparent;
+        border: none;
+        font-size: 1.6rem;
+        line-height: 1;
+        color: var(--text-muted);
+        cursor: pointer;
+        padding: 0.2rem 0.4rem;
+        border-radius: 4px;
+        transition: all 0.2s ease;
+      }
+
+      .pub-dialog-close:hover {
+        color: var(--text-dark);
+        background: #f1f5f9;
+      }
+
+      .pub-dialog-body {
+        padding: 1.5rem;
+        max-height: 60vh;
+        overflow-y: auto;
+        line-height: 1.6;
+      }
+
+      .dialog-placeholder-box {
+        background: var(--bg-main);
+        border: 1px dashed var(--border-color);
+        border-radius: var(--radius-sm);
+        padding: 1.25rem;
+      }
+
+      .pub-dialog-footer {
+        padding: 1rem 1.5rem;
+        border-top: 1px solid var(--border-color);
+        display: flex;
+        justify-content: flex-end;
+        gap: 0.75rem;
+        background: #f8fafc;
       }
 
       @media (max-width: 768px) {
@@ -1278,9 +1370,10 @@
             <img 
               src="environmental-sciences-europe.jpg" 
               alt="Environmental Sciences Europe Journal Cover" 
+              style="width: 100%; height: 100%; object-fit: cover; display: block;"
               onerror="this.style.display='none';"
             />
-            <div class="pub-thumb-watermark">Habitat Fragmentation &bull; CA-ANN</div>
+            <div class="pub-thumb-watermark">Environmental Sciences Europe &bull; Springer</div>
           </div>
           <div class="pub-content">
             <div class="pub-badges-row">
@@ -1292,20 +1385,22 @@
             <div class="pub-venue">Environmental Sciences Europe (Springer Nature)</div>
             <div class="pub-authors">Co-Authors &bull; <strong>Md. Saikur Rahman Sun</strong> &bull; et al.</div>
 
+            <!-- Structured Research Insights -->
             <div class="pub-summary-box">
               <div class="pub-summary-item"><strong>Methodology:</strong> Modeled 2050 land-use trajectories using Cellular Automata-Artificial Neural Networks (CA-ANN) and quantified spatial fragmentation indices using FRAGSTATS with ANOVA/Tukey HSD verification.</div>
               <div class="pub-summary-item"><strong>Key Impact:</strong> Deployed InVEST Habitat Quality integration, forecasting 170.77 km² of forest degradation threatening critical habitat for 51.69% of regional mammalian species.</div>
             </div>
 
+            <!-- Action Buttons -->
             <div class="pub-actions">
-              <a href="#" target="_blank" rel="noopener noreferrer" class="pub-btn pub-btn-primary">
+              <a href="https://link.springer.com/article/10.1186/s12302-026-01490-w" target="_blank" rel="noopener noreferrer" class="pub-btn pub-btn-primary">
                 <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
                 <span>Published Article</span>
               </a>
-              <a href="https://drive.google.com/file/d/1VGTp8qP04VXJ9eXsRFO97J1AEHhDf-pQ/view" target="_blank" class="pub-btn pub-btn-outline">
-                <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
-                <span>Pre-print / PDF</span>
-              </a>
+              <button type="button" class="pub-btn pub-btn-outline" onclick="openInsightsModal('journal-1-modal')">
+                <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                <span>More Insights</span>
+              </button>
             </div>
           </div>
         </article>
@@ -1513,6 +1608,34 @@
       </div>
     </section>
 
+    <!-- Dialog / Modal for Journal 1 Insights -->
+    <dialog id="journal-1-modal" class="pub-dialog">
+      <div class="pub-dialog-content">
+        <div class="pub-dialog-header">
+          <div>
+            <span class="pub-badge badge-published">Extended Insights</span>
+            <h4 class="pub-dialog-title">Spatially Explicit Framework for Evaluating Biodiversity Risk</h4>
+            <p class="pub-dialog-venue">Environmental Sciences Europe (Springer Nature)</p>
+          </div>
+          <button type="button" class="pub-dialog-close" onclick="closeInsightsModal('journal-1-modal')" aria-label="Close dialog">&times;</button>
+        </div>
+        <div class="pub-dialog-body" id="journal-1-insights-body">
+          <div class="dialog-placeholder-box">
+            <p><strong>Additional Insights &amp; Findings</strong></p>
+            <p style="color: var(--text-muted); font-size: 0.88rem; margin-top: 0.5rem;">
+              [Content placeholder: Detailed methodological workflows, extended figures, or summary notes will be displayed here.]
+            </p>
+          </div>
+        </div>
+        <div class="pub-dialog-footer">
+          <a href="https://link.springer.com/article/10.1186/s12302-026-01490-w" target="_blank" rel="noopener noreferrer" class="pub-btn pub-btn-primary">
+            <span>Read on Springer</span>
+          </a>
+          <button type="button" class="pub-btn pub-btn-outline" onclick="closeInsightsModal('journal-1-modal')">Close</button>
+        </div>
+      </div>
+    </dialog>
+
     <script>
       // Interactive filter for publication categories
       function filterPubs(cat, btn) {
@@ -1529,10 +1652,25 @@
           }
         });
       }
+
+      // Modal open/close handlers
+      function openInsightsModal(modalId) {
+        const modal = document.getElementById(modalId);
+        if (modal) modal.showModal();
+      }
+
+      function closeInsightsModal(modalId) {
+        const modal = document.getElementById(modalId);
+        if (modal) modal.close();
+      }
+
+      // Close modal when clicking the backdrop
+      document.getElementById('journal-1-modal')?.addEventListener('click', (e) => {
+        if (e.target === e.currentTarget) e.currentTarget.close();
+      });
     </script>
 
   </main>
-
   <!-- ========================================================================== -->
   <!--                               PAGE FOOTER & SCRIPTS                        -->
   <!-- ========================================================================== -->
