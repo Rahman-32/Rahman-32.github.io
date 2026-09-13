@@ -1496,15 +1496,12 @@
         <!-- JOURNAL PAPER 3 -->
         <article class="pub-card" data-cat="journal" id="journal-paper-3">
           <div class="pub-thumb-frame">
-            <svg width="100%" height="100%" viewBox="0 0 280 200" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
-              <rect width="280" height="200" fill="#064e3b"/>
-              <rect x="25" y="30" width="230" height="140" rx="8" fill="#047857" opacity="0.5"/>
-              <circle cx="70" cy="80" r="16" fill="#6ee7b7" opacity="0.7"/>
-              <circle cx="140" cy="110" r="22" fill="#34d399" opacity="0.6"/>
-              <circle cx="210" cy="75" r="18" fill="#a7f3d0" opacity="0.8"/>
-              <text x="140" y="160" fill="#ecfdf5" font-family="sans-serif" font-size="10" font-weight="700" text-anchor="middle">100 IN-SITU SURVEY POINTS &bull; AHP</text>
-            </svg>
-            <div class="pub-thumb-watermark">Multifactor Water Quality ML</div>
+            <img 
+              src="J3.jpg" 
+              alt="In-situ Water Quality Sampling Fieldwork" 
+              style="width: 100%; height: 100%; object-fit: cover; object-position: center; display: block;"
+            />
+            <div class="pub-thumb-watermark">100 In-Situ Stations &bull; Khulna</div>
           </div>
           <div class="pub-content">
             <div class="pub-badges-row">
@@ -1522,13 +1519,62 @@
             </div>
 
             <div class="pub-actions">
-              <span class="pub-btn pub-btn-outline" style="cursor: default; background: #f8fafc;">
-                <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"/></svg>
-                <span>Manuscript Drafting Finalized</span>
-              </span>
+              <a href="https://drive.google.com/file/d/12lBem6AziNelRSVn6igpvc0vmK_8pz1b/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="pub-btn pub-btn-primary">
+                <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
+                <span>Conceptual Abstract</span>
+              </a>
+              <button type="button" class="pub-btn pub-btn-outline" onclick="openJournal3Modal()">
+                <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                <span>More Insights</span>
+              </button>
             </div>
           </div>
         </article>
+
+        <!-- Dialog / Modal for Journal 3 Insights -->
+        <dialog id="journal-3-modal" class="pub-dialog" onclick="if(event.target===this) this.close();">
+          <div class="pub-dialog-content">
+            <div class="pub-dialog-header">
+              <div>
+                <span class="pub-badge badge-prep">In Preparation &bull; Extended Insights</span>
+                <h4 class="pub-dialog-title">Machine Learning-Driven Multifactor Water Quality Indexing for Aquaculture</h4>
+                <p class="pub-dialog-venue">Targeting Environmental Modelling &amp; Software / Applied Geography</p>
+              </div>
+              <button type="button" class="pub-dialog-close" onclick="closeJournal3Modal()" aria-label="Close dialog">&times;</button>
+            </div>
+            <div class="pub-dialog-body" id="journal-3-insights-body">
+              <div class="dialog-placeholder-box">
+                <p><strong>Additional Insights &amp; Findings</strong></p>
+                <p style="color: var(--text-muted); font-size: 0.88rem; margin-top: 0.5rem;">
+                  [Content placeholder: 100 in-situ sampling point data, physicochemical gradients (TDS, EC, pH, SG, DO, Salinity, NO2, NO3), machine learning spatial interpolation, and AHP suitability rankings will be displayed here.]
+                </p>
+              </div>
+            </div>
+            <div class="pub-dialog-footer">
+              <a href="https://drive.google.com/file/d/12lBem6AziNelRSVn6igpvc0vmK_8pz1b/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="pub-btn pub-btn-primary">
+                <span>Conceptual Abstract</span>
+              </a>
+              <button type="button" class="pub-btn pub-btn-outline" onclick="closeJournal3Modal()">Close</button>
+            </div>
+          </div>
+        </dialog>
+
+        <script>
+          function openJournal3Modal() {
+            const modal = document.getElementById('journal-3-modal');
+            if (modal) modal.showModal();
+          }
+
+          function closeJournal3Modal() {
+            const modal = document.getElementById('journal-3-modal');
+            if (modal) modal.close();
+          }
+        </script>
+
+
+
+
+        
 
         <!-- BOOK CHAPTER 1 -->
         <article class="pub-card" data-cat="chapter" id="book-chapter-1">
