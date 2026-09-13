@@ -1368,12 +1368,25 @@
         
        <!-- JOURNAL PAPER 1 -->
      <!-- JOURNAL PAPER 1 -->
+       <!-- JOURNAL PAPER 1 -->
         <article class="pub-card" data-cat="journal" id="journal-paper-1">
           <div class="pub-thumb-frame">
             <img 
-              src="Gemini Generated_Image_y8h70qy8h70qy8h7.jpg" 
+              src="Gemini_Generated_Image_y8h70qy8h70qy8h7.jpg" 
               alt="Environmental Sciences Europe Journal Cover" 
               style="width: 100%; height: 100%; object-fit: cover; display: block;"
+              onerror="
+                if (!this.dataset.attempt) {
+                  this.dataset.attempt = 1;
+                  this.src = 'Gemini%20Generated_Image_y8h70qy8h70qy8h7.jpg';
+                } else if (this.dataset.attempt == 1) {
+                  this.dataset.attempt = 2;
+                  this.src = 'Gemini_Generated_Image_y8h70qy8h70qy8h7.jpeg';
+                } else if (this.dataset.attempt == 2) {
+                  this.dataset.attempt = 3;
+                  this.src = 'Gemini%20Generated_Image_y8h70qy8h70qy8h7.jpeg';
+                }
+              "
             />
             <div class="pub-thumb-watermark">Environmental Sciences Europe &bull; Springer</div>
           </div>
