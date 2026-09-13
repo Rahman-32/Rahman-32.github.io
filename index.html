@@ -1494,12 +1494,28 @@
 
         
         <!-- JOURNAL PAPER 3 -->
+       <!-- JOURNAL PAPER 3 -->
         <article class="pub-card" data-cat="journal" id="journal-paper-3">
           <div class="pub-thumb-frame">
             <img 
               src="J3.jpg" 
               alt="In-situ Water Quality Sampling Fieldwork" 
               style="width: 100%; height: 100%; object-fit: cover; object-position: center; display: block;"
+              onerror="
+                if (!this.dataset.attempt) {
+                  this.dataset.attempt = 1;
+                  this.src = 'j3.jpg';
+                } else if (this.dataset.attempt == 1) {
+                  this.dataset.attempt = 2;
+                  this.src = 'J3.jpeg';
+                } else if (this.dataset.attempt == 2) {
+                  this.dataset.attempt = 3;
+                  this.src = 'j3.png';
+                } else {
+                  this.onerror = null;
+                  this.src = 'data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 280 320\'><rect width=\'280\' height=\'320\' fill=\'%23064e3b\'/><path d=\'M0 120 Q70 80 140 110 T280 90 L280 320 L0 320 Z\' fill=\'%23047857\' opacity=\'0.7\'/><path d=\'M0 160 Q70 140 140 170 T280 150 L280 320 L0 320 Z\' fill=\'%23065f46\'/><circle cx=\'70\' cy=\'90\' r=\'18\' fill=\'%2334d399\' opacity=\'0.8\'/><circle cx=\'140\' cy=\'130\' r=\'24\' fill=\'%236ee7b7\' opacity=\'0.6\'/><circle cx=\'210\' cy=\'85\' r=\'16\' fill=\'%23a7f3d0\' opacity=\'0.8\'/><text x=\'140\' y=\'50\' fill=\'%23ecfdf5\' font-family=\'sans-serif\' font-size=\'13\' font-weight=\'800\' text-anchor=\'middle\'>FIELDWORK SAMPLING</text><text x=\'140\' y=\'230\' fill=\'%23a7f3d0\' font-family=\'sans-serif\' font-size=\'11\' font-weight=\'700\' text-anchor=\'middle\'>100 In-Situ Stations</text><text x=\'140\' y=\'255\' fill=\'%23d1fae5\' font-family=\'sans-serif\' font-size=\'10\' text-anchor=\'middle\'>Physicochemical ML Interpolation</text></svg>';
+                }
+              "
             />
             <div class="pub-thumb-watermark">100 In-Situ Stations &bull; Khulna</div>
           </div>
@@ -1546,7 +1562,7 @@
               <div class="dialog-placeholder-box">
                 <p><strong>Additional Insights &amp; Findings</strong></p>
                 <p style="color: var(--text-muted); font-size: 0.88rem; margin-top: 0.5rem;">
-                  [Content placeholder: 100 in-situ sampling point data, physicochemical gradients (TDS, EC, pH, SG, DO, Salinity, NO2, NO3), machine learning spatial interpolation, and AHP suitability rankings will be displayed here.]
+                  [Content placeholder: 100 in-situ sampling point protocols, physicochemical gradients (TDS, EC, pH, SG, DO, Salinity, NO2, NO3), machine learning spatial interpolation, and AHP suitability rankings will be displayed here.]
                 </p>
               </div>
             </div>
