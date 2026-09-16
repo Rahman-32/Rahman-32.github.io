@@ -1819,136 +1819,178 @@
       /* Scoped Styles for Research & Projects Sections */
       #research, #projects {
         width: 100%;
+        /* FIXED: Added max-width, auto margins for centering, and side padding to prevent edge-to-edge stretching */
+        max-width: 1100px; 
+        margin: 3rem auto; 
+        padding: 0 1.5rem;
+        box-sizing: border-box;
+      }
+
+      /* Enhanced Section Header */
+      .section-header {
+        text-align: left;
+        margin-bottom: 2rem;
+      }
+      .section-tag {
+        font-size: 0.85rem;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        color: #2563eb;
+        font-weight: 700;
+        display: block;
+        margin-bottom: 0.5rem;
+      }
+      .section-title {
+        font-size: 2rem;
+        font-weight: 800;
+        color: #1e293b;
+        margin: 0;
       }
 
       /* 1. Research Assistant Card: Matches Professional Background Split Layout */
       .research-ra-card {
         background: #ffffff;
-        border: 1px solid var(--border-color);
-        border-radius: 14px;
+        border: 1px solid #e2e8f0;
+        border-radius: 16px;
         overflow: hidden;
-        box-shadow: 0 4px 20px -4px rgba(15, 23, 42, 0.06);
+        box-shadow: 0 10px 25px -5px rgba(15, 23, 42, 0.05);
         display: grid;
         grid-template-columns: 1.15fr 0.85fr;
         gap: 0;
         align-items: stretch;
         margin-top: 1.5rem;
-        transition: border-color 0.3s ease, box-shadow 0.3s ease;
+        transition: all 0.3s ease;
       }
 
       .research-ra-card:hover {
-        border-color: var(--border-hover);
-        box-shadow: 0 10px 30px -6px rgba(15, 23, 42, 0.1);
+        border-color: #cbd5e1;
+        box-shadow: 0 20px 40px -10px rgba(15, 23, 42, 0.1);
+        transform: translateY(-2px);
       }
 
       .research-ra-info {
-        padding: 2.5rem 2.2rem;
+        padding: 3rem 2.5rem;
         display: flex;
         flex-direction: column;
         justify-content: center;
       }
 
+      .company-badge-row {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        margin-bottom: 1.5rem;
+      }
+
+      .company-logo-frame {
+        flex-shrink: 0;
+        width: 48px;
+        height: 48px;
+        border-radius: 12px;
+      }
+
+      .company-title-wrap h3 {
+        font-size: 1.25rem;
+        font-weight: 700;
+        color: #0f172a;
+        margin: 0 0 0.25rem 0;
+      }
+
+      .company-title-wrap p {
+        font-size: 0.9rem;
+        color: #64748b;
+        margin: 0;
+        font-weight: 500;
+      }
+
+      .minimal-timeline {
+        margin-bottom: 1.5rem;
+        padding-bottom: 1.5rem;
+        border-bottom: 1px solid #f1f5f9;
+      }
+
+      .node-role {
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+        font-weight: 600;
+        font-size: 1.05rem;
+        color: #334155;
+        margin-bottom: 0.4rem;
+      }
+
+      .node-tag {
+        background: #eff6ff;
+        color: #2563eb;
+        padding: 0.2rem 0.6rem;
+        border-radius: 20px;
+        font-size: 0.75rem;
+        font-weight: 700;
+      }
+
+      .node-dates {
+        font-size: 0.85rem;
+        color: #94a3b8;
+        font-weight: 500;
+      }
+
+      .pro-brief {
+        font-size: 0.95rem;
+        color: #475569;
+        line-height: 1.6;
+        margin: 0;
+      }
+
       .research-ra-details {
-        padding: 2.2rem;
+        padding: 3rem 2.5rem;
         background: #f8fafc;
-        border-left: 1px solid var(--border-color);
+        border-left: 1px solid #e2e8f0;
         display: flex;
         flex-direction: column;
         justify-content: center;
-        gap: 0.85rem;
+        gap: 1rem;
       }
 
       .research-detail-item {
         background: #ffffff;
-        border: 1px solid var(--border-color);
-        border-radius: var(--radius-sm);
-        padding: 0.85rem 1.05rem;
+        border: 1px solid #e2e8f0;
+        border-radius: 10px;
+        padding: 1.15rem;
         display: flex;
         align-items: flex-start;
-        gap: 0.75rem;
+        gap: 1rem;
+        transition: border-color 0.2s ease;
+      }
+
+      .research-detail-item:hover {
+        border-color: #cbd5e1;
       }
 
       .research-detail-icon {
         flex-shrink: 0;
-        width: 20px;
-        height: 20px;
+        width: 24px;
+        height: 24px;
         border-radius: 50%;
-        background: var(--primary-light);
-        color: var(--primary-accent);
+        background: #dbeafe;
+        color: #2563eb;
         display: flex;
         align-items: center;
         justify-content: center;
-        font-size: 0.75rem;
-        font-weight: 700;
-        margin-top: 0.15rem;
+        font-size: 0.85rem;
+        font-weight: 800;
+        margin-top: 0.1rem;
       }
 
       .research-detail-text {
-        font-size: 0.86rem;
-        color: var(--text-body);
+        font-size: 0.9rem;
+        color: #475569;
         line-height: 1.5;
       }
 
       .research-detail-text strong {
-        color: var(--text-dark);
-      }
-
-      /* 2. University Lab Projects: Matches Education 3-Column Grid */
-      .projects-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-        gap: 1.5rem;
-        align-items: stretch;
-      }
-
-      .project-card {
-        background: var(--bg-card);
-        border: 1px solid var(--border-color);
-        border-radius: var(--radius-md);
-        box-shadow: var(--shadow-sm);
-        padding: 1.5rem 1.6rem;
-        display: flex;
-        flex-direction: column;
-        height: 100%;
-        transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
-      }
-
-      .project-card:hover {
-        transform: translateY(-2px);
-        box-shadow: var(--shadow-md);
-        border-color: var(--border-hover);
-      }
-
-      .project-card-title {
-        font-size: 1.12rem;
-        font-weight: 700;
-        color: var(--text-dark);
-        line-height: 1.35;
-        margin-bottom: 0.35rem;
-      }
-
-      .project-card-meta {
-        font-size: 0.86rem;
-        font-weight: 600;
-        color: var(--primary-accent);
-        margin-bottom: 0.85rem;
-      }
-
-      .project-card-desc {
-        font-size: 0.88rem;
-        color: var(--text-body);
-        line-height: 1.6;
-        margin-bottom: 1.25rem;
-        flex-grow: 1;
-      }
-
-      .project-tags-row {
-        margin-top: auto;
-        display: flex;
-        flex-wrap: wrap;
-        gap: 0.45rem;
-        padding-top: 0.85rem;
-        border-top: 1px dashed var(--border-color);
+        color: #0f172a;
+        display: block;
+        margin-bottom: 0.2rem;
       }
 
       @media (max-width: 860px) {
@@ -1957,14 +1999,11 @@
         }
         .research-ra-details {
           border-left: none;
-          border-top: 1px solid var(--border-color);
-          padding: 1.5rem;
+          border-top: 1px solid #e2e8f0;
+          padding: 2rem 1.5rem;
         }
         .research-ra-info {
-          padding: 1.75rem 1.5rem;
-        }
-        .projects-grid {
-          grid-template-columns: 1fr;
+          padding: 2rem 1.5rem;
         }
       }
     </style>
@@ -2005,30 +2044,39 @@
 
         <!-- Right: Responsibilities & Deliverables -->
         <div class="research-ra-details">
+          
           <div class="research-detail-item">
             <div class="research-detail-icon">&#10003;</div>
             <div class="research-detail-text">
-              <strong>Framework &amp; Grants:</strong> Facilitated research grant coordination and co-formulated the core socio-ecological vulnerability framework.
+              <strong>Mixed-Methods Field Leadership</strong>
+              Coordinated a research framework in Koyra Upazila, leading structured surveys for 200 households and facilitating Participatory Rural Appraisal (PRA) sessions.
             </div>
           </div>
+          
           <div class="research-detail-item">
             <div class="research-detail-icon">&#10003;</div>
             <div class="research-detail-text">
-              <strong>Survey Leadership:</strong> Led survey instrument design, participatory community fieldwork logistics, and enumerator team coordination.
+              <strong>Spatial Data & Mapping</strong>
+              Digitized participatory field maps and developed spatial data pipelines using ArcGIS 10.8 to visualize high-risk coastal zones and exposure patterns.
             </div>
           </div>
+          
           <div class="research-detail-item">
             <div class="research-detail-icon">&#10003;</div>
             <div class="research-detail-text">
-              <strong>Spatial Data Pipelines:</strong> Built automated data cleaning routines and structured geodatabases for econometric modeling.
+              <strong>Qualitative Risk Assessment</strong>
+              Conducted Focus Group Discussions (FGDs) and Key Informant Interviews (KIIs) to identify root causes of socio-economic inequality and mobility constraints.
             </div>
           </div>
+          
           <div class="research-detail-item">
             <div class="research-detail-icon">&#10003;</div>
             <div class="research-detail-text">
-              <strong>Manuscript Preparation:</strong> Structured quantitative datasets and drafted manuscript sections for peer-reviewed indexed journals.
+              <strong>Manuscript & Policy Outcomes</strong>
+              Structured quantitative and qualitative datasets to evaluate vulnerabilities, drafting manuscripts to support gender-responsive disaster governance policies.
             </div>
           </div>
+
         </div>
       </div>
     </section>
