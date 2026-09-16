@@ -1816,10 +1816,9 @@
     <!-- ========================================================================== -->
 
     <style>
-      /* Scoped Styles for Research & Projects Sections */
-      #research, #projects {
+      /* Scoped Styles for Research Section */
+      #research {
         width: 100%;
-        /* FIXED: Added max-width, auto margins for centering, and side padding to prevent edge-to-edge stretching */
         max-width: 1100px; 
         margin: 3rem auto; 
         padding: 0 1.5rem;
@@ -1847,17 +1846,15 @@
         margin: 0;
       }
 
-      /* 1. Research Assistant Card: Matches Professional Background Split Layout */
+      /* 1. Main Card Container */
       .research-ra-card {
         background: #ffffff;
         border: 1px solid #e2e8f0;
         border-radius: 16px;
         overflow: hidden;
         box-shadow: 0 10px 25px -5px rgba(15, 23, 42, 0.05);
-        display: grid;
-        grid-template-columns: 1.15fr 0.85fr;
-        gap: 0;
-        align-items: stretch;
+        display: flex;
+        flex-direction: column;
         margin-top: 1.5rem;
         transition: all 0.3s ease;
       }
@@ -1866,6 +1863,13 @@
         border-color: #cbd5e1;
         box-shadow: 0 20px 40px -10px rgba(15, 23, 42, 0.1);
         transform: translateY(-2px);
+      }
+
+      /* 2. Top Section: 2-Column Split */
+      .research-card-top {
+        display: grid;
+        grid-template-columns: 1.15fr 0.85fr;
+        align-items: stretch;
       }
 
       .research-ra-info {
@@ -1993,8 +1997,61 @@
         margin-bottom: 0.2rem;
       }
 
+      /* 3. Bottom Section: Fieldwork Image Gallery */
+      .research-card-gallery {
+        padding: 2rem 2.5rem;
+        border-top: 1px solid #e2e8f0;
+        background: #ffffff;
+      }
+
+      .gallery-header {
+        font-size: 1rem;
+        font-weight: 700;
+        color: #0f172a;
+        margin-bottom: 1.25rem;
+      }
+
+      .gallery-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+        gap: 1.25rem;
+      }
+
+      .gallery-image-wrapper {
+        border-radius: 12px;
+        overflow: hidden;
+        aspect-ratio: 4 / 3; /* Keeps images beautifully proportioned */
+        background: #f1f5f9;
+        border: 2px dashed #cbd5e1;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+      }
+
+      /* Styles for when you add the actual <img> tag */
+      .gallery-image-wrapper img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.3s ease;
+      }
+
+      .gallery-image-wrapper:hover img {
+        transform: scale(1.05);
+      }
+
+      .placeholder-text {
+        color: #64748b;
+        font-size: 0.85rem;
+        font-weight: 600;
+        text-align: center;
+        padding: 1rem;
+      }
+
+      /* Responsive Adjustments */
       @media (max-width: 860px) {
-        .research-ra-card {
+        .research-card-top {
           grid-template-columns: 1fr;
         }
         .research-ra-details {
@@ -2003,6 +2060,9 @@
           padding: 2rem 1.5rem;
         }
         .research-ra-info {
+          padding: 2rem 1.5rem;
+        }
+        .research-card-gallery {
           padding: 2rem 1.5rem;
         }
       }
@@ -2015,71 +2075,100 @@
       </div>
 
       <div class="research-ra-card">
-        <!-- Left: Organization, Timeline & Focus -->
-        <div class="research-ra-info">
-          <div class="company-badge-row">
-            <div class="company-logo-frame" style="display: flex; align-items: center; justify-content: center; background: #eff6ff;">
-              <svg width="26" height="26" fill="none" stroke="#2563eb" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"/></svg>
-            </div>
-            <div class="company-title-wrap">
-              <h3>Department of Urban &amp; Regional Planning</h3>
-              <p>RUET &bull; Funded Academic Research</p>
-            </div>
-          </div>
-
-          <div class="minimal-timeline">
-            <div class="timeline-node">
-              <div class="node-role">
-                <span>Research Assistant</span>
-                <span class="node-tag">Grant Appointee</span>
+        
+        <!-- Top Half: Details (Split Layout) -->
+        <div class="research-card-top">
+          <!-- Left: Organization, Timeline & Focus -->
+          <div class="research-ra-info">
+            <div class="company-badge-row">
+              <div class="company-logo-frame" style="display: flex; align-items: center; justify-content: center; background: #eff6ff;">
+                <svg width="26" height="26" fill="none" stroke="#2563eb" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"/></svg>
               </div>
-              <div class="node-dates">December 2025 &ndash; June 2026</div>
+              <div class="company-title-wrap">
+                <h3>Department of Urban &amp; Regional Planning</h3>
+                <p>RUET &bull; Funded Academic Research</p>
+              </div>
             </div>
+
+            <div class="minimal-timeline">
+              <div class="timeline-node">
+                <div class="node-role">
+                  <span>Research Assistant</span>
+                  <span class="node-tag">Grant Appointee</span>
+                </div>
+                <div class="node-dates">December 2025 &ndash; June 2026</div>
+              </div>
+            </div>
+
+            <p class="pro-brief">
+              <strong>Grant Project:</strong> Assessing Gendered Climate Vulnerability and Women's Empowerment Through Community-Based Disaster Risk Reduction in the Southern Coastal Region of Bangladesh.
+            </p>
           </div>
 
-          <p class="pro-brief">
-            <strong>Grant Project:</strong> Assessing Gendered Climate Vulnerability and Women's Empowerment Through Community-Based Disaster Risk Reduction in the Southern Coastal Region of Bangladesh.
-          </p>
+          <!-- Right: Responsibilities & Deliverables -->
+          <div class="research-ra-details">
+            <div class="research-detail-item">
+              <div class="research-detail-icon">&#10003;</div>
+              <div class="research-detail-text">
+                <strong>Mixed-Methods Field Leadership</strong>
+                Coordinated a research framework in Koyra Upazila, leading structured surveys for 200 households and facilitating Participatory Rural Appraisal (PRA) sessions.
+              </div>
+            </div>
+            <div class="research-detail-item">
+              <div class="research-detail-icon">&#10003;</div>
+              <div class="research-detail-text">
+                <strong>Spatial Data & Mapping</strong>
+                Digitized participatory field maps and developed spatial data pipelines using ArcGIS 10.8 to visualize high-risk coastal zones and exposure patterns.
+              </div>
+            </div>
+            <div class="research-detail-item">
+              <div class="research-detail-icon">&#10003;</div>
+              <div class="research-detail-text">
+                <strong>Qualitative Risk Assessment</strong>
+                Conducted Focus Group Discussions (FGDs) and Key Informant Interviews (KIIs) to identify root causes of socio-economic inequality and mobility constraints.
+              </div>
+            </div>
+            <div class="research-detail-item">
+              <div class="research-detail-icon">&#10003;</div>
+              <div class="research-detail-text">
+                <strong>Manuscript & Policy Outcomes</strong>
+                Structured quantitative and qualitative datasets to evaluate vulnerabilities, drafting manuscripts to support gender-responsive disaster governance policies.
+              </div>
+            </div>
+          </div>
         </div>
 
-        <!-- Right: Responsibilities & Deliverables -->
-        <div class="research-ra-details">
-          
-          <div class="research-detail-item">
-            <div class="research-detail-icon">&#10003;</div>
-            <div class="research-detail-text">
-              <strong>Mixed-Methods Field Leadership</strong>
-              Coordinated a research framework in Koyra Upazila, leading structured surveys for 200 households and facilitating Participatory Rural Appraisal (PRA) sessions.
+        <!-- Bottom Half: Image Gallery -->
+        <div class="research-card-gallery">
+          <div class="gallery-header">Fieldwork &amp; Site Analysis</div>
+          <div class="gallery-grid">
+            
+            <!-- Image 1 -->
+            <div class="gallery-image-wrapper">
+              <!-- Replace the span below with your actual image tag like this: -->
+              <!-- <img src="images/survey-1.jpg" alt="Household Survey in Koyra Upazila"> -->
+              <span class="placeholder-text">📷<br>Household Survey Image</span>
             </div>
-          </div>
-          
-          <div class="research-detail-item">
-            <div class="research-detail-icon">&#10003;</div>
-            <div class="research-detail-text">
-              <strong>Spatial Data & Mapping</strong>
-              Digitized participatory field maps and developed spatial data pipelines using ArcGIS 10.8 to visualize high-risk coastal zones and exposure patterns.
-            </div>
-          </div>
-          
-          <div class="research-detail-item">
-            <div class="research-detail-icon">&#10003;</div>
-            <div class="research-detail-text">
-              <strong>Qualitative Risk Assessment</strong>
-              Conducted Focus Group Discussions (FGDs) and Key Informant Interviews (KIIs) to identify root causes of socio-economic inequality and mobility constraints.
-            </div>
-          </div>
-          
-          <div class="research-detail-item">
-            <div class="research-detail-icon">&#10003;</div>
-            <div class="research-detail-text">
-              <strong>Manuscript & Policy Outcomes</strong>
-              Structured quantitative and qualitative datasets to evaluate vulnerabilities, drafting manuscripts to support gender-responsive disaster governance policies.
-            </div>
-          </div>
 
+            <!-- Image 2 -->
+            <div class="gallery-image-wrapper">
+              <!-- <img src="images/pra-session.jpg" alt="Participatory Rural Appraisal Session"> -->
+              <span class="placeholder-text">📷<br>PRA / FGD Session Image</span>
+            </div>
+
+            <!-- Image 3 -->
+            <div class="gallery-image-wrapper">
+              <!-- <img src="images/site-mapping.jpg" alt="Site Analysis Mapping"> -->
+              <span class="placeholder-text">📷<br>Site Analysis / Mapping Image</span>
+            </div>
+
+          </div>
         </div>
+
       </div>
     </section>
+
+  
 
     <!-- ========================================================================== -->
     <!--                          SECTION 5: PROJECTS                               -->
